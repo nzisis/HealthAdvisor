@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.example.vromia.healthadvisor.Data.Database;
 import com.example.vromia.healthadvisor.R;
 
 
@@ -14,6 +15,10 @@ public class HomeActivity extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+        Database mydb=new Database(this);
+        mydb.showTuples();
+        mydb.close();
+
     }
 
 
