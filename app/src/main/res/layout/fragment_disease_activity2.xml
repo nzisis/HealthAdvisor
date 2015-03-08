@@ -1,0 +1,160 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="5dp">
+
+        <!--<TextView android:id="@+id/section_label" android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:text="section"/>-->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="5dp"
+            android:weightSum="3">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_weight="2"
+                android:src="@drawable/source" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="fill_parent"
+                android:text="Main Source"
+                android:textColor="#ff7f00"
+                android:textSize="30sp"
+                android:gravity="center"
+                android:layout_weight="1" />
+
+        </LinearLayout>
+
+        <RadioGroup
+            android:id="@+id/radioGroupSource"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp">
+
+            <RadioButton
+                android:id="@+id/rbSource1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="#007fff"
+                android:textSize="20sp"
+                android:text="Source 1" />
+
+            <RadioButton
+                android:id="@+id/rbSource2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="#007fff"
+                android:textSize="20sp"
+                android:text="Source 2" />
+
+        </RadioGroup>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="5dp"
+            android:weightSum="3">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_weight="2"
+                android:src="@drawable/effect" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="fill_parent"
+                android:text="Effects"
+                android:textColor="#ff7f00"
+                android:textSize="30sp"
+                android:gravity="center"
+                android:layout_weight="1" />
+
+        </LinearLayout>
+
+        <RadioGroup
+            android:id="@+id/radioGroupEffects"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp">
+
+            <RadioButton
+                android:id="@+id/rbEffects1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="#007fff"
+                android:textSize="20sp"
+                android:text="Effect 1" />
+
+            <RadioButton
+                android:id="@+id/rbEffects2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="#007fff"
+                android:textSize="20sp"
+                android:text="Effect 2" />
+
+        </RadioGroup>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="5dp"
+            android:weightSum="3">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_weight="2"
+                android:src="@drawable/caution" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="fill_parent"
+                android:text="Side Effects"
+                android:textColor="#ff7f00"
+                android:textSize="30sp"
+                android:gravity="center"
+                android:layout_weight="1" />
+
+        </LinearLayout>
+
+        <RadioGroup
+            android:id="@+id/radioGroupSideEffects"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp">
+
+            <RadioButton
+                android:id="@+id/rbSideEffects1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="#007fff"
+                android:textSize="20sp"
+                android:text="Side Effect 1" />
+
+            <RadioButton
+                android:id="@+id/rbSideEffects2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="#007fff"
+                android:textSize="20sp"
+                android:text="Side Effect 2" />
+
+        </RadioGroup>
+
+    </LinearLayout>
+</ScrollView>
