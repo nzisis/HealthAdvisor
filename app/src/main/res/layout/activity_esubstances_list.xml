@@ -19,6 +19,7 @@
             android:id="@+id/et_esubstances"
             android:layout_weight="1.7"
             android:inputType="text"
+            android:hint="@string/search_hint"
             />
 
         <ImageButton

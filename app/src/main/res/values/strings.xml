@@ -12,6 +12,7 @@
     <string name="tilte_esubstances_list_row">tilte_esubstances_list_row</string>
     <string name="title_activity_esubstance">ESubstanceActivity</string>
     <string name="title_activity_disease_activity2">DiseaseActivity2</string>
+    <string name="search_hint">Search here</string>
 
 
     <string name="title_section1">Section 1</string>
