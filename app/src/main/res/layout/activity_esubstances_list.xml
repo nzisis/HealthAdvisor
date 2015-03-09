@@ -3,36 +3,34 @@
     android:layout_height="match_parent"
     tools:context="com.example.vromia.healthadvisor.Activities.ESubstancesListActivity">
 
-    <LinearLayout
-        android:id="@+id/edit_text_linear"
+    <RelativeLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:weightSum="2"
-        android:layout_marginTop="10dp"
-        android:padding="10dp"
+        android:id="@+id/edit_text_linear"
         >
 
+
         <EditText
-            android:layout_width="0dp"
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:id="@+id/et_esubstances"
-            android:layout_weight="1.7"
+            android:layout_centerVertical="true"
             android:inputType="text"
-            android:hint="@string/search_hint"
+            android:hint="Search here"
             />
 
         <ImageButton
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:id="@+id/ib_esubstances"
-            android:src="@drawable/caution"
-            android:layout_weight="0.3"
+            android:src="@android:drawable/ic_menu_search"
+            android:padding="10dp"
+            android:layout_alignTop="@id/et_esubstances"
+            android:layout_alignBottom="@id/et_esubstances"
+            android:layout_alignRight="@id/et_esubstances"
             />
 
-
-        </LinearLayout>
-
+    </RelativeLayout>
 
 
     <ListView
