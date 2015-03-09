@@ -9,6 +9,7 @@
     <string name="title_activity_disease">DiseaseActivity</string>
     <string name="title_activity_settings">SettingsActivity</string>
     <string name="title_activity_esubstances_list">ESubstancesListActivity</string>
+    <string name="tilte_esubstances_list_row">tilte_esubstances_list_row</string>
     <string name="title_activity_esubstance">ESubstanceActivity</string>
     <string name="title_activity_disease_activity2">DiseaseActivity2</string>
 
