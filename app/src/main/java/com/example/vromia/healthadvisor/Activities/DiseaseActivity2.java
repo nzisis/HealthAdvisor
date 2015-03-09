@@ -42,7 +42,7 @@ public class DiseaseActivity2 extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_disease_activity2);
 
-//        getSupportActionBar().setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
+        getSupportActionBar().setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
 
 
         // Create the adapter that will return a fragment for each of the three
@@ -53,7 +53,7 @@ public class DiseaseActivity2 extends ActionBarActivity {
         mViewPager = (ViewPager) findViewById(R.id.pager);
         mViewPager.setAdapter(mSectionsPagerAdapter);
 
-        /*mViewPager.setOnPageChangeListener(
+        mViewPager.setOnPageChangeListener(
                 new ViewPager.SimpleOnPageChangeListener() {
                     @Override
                     public void onPageSelected(int position) {
@@ -85,7 +85,7 @@ public class DiseaseActivity2 extends ActionBarActivity {
                     getSupportActionBar().newTab()
                             .setText("Tab " + (i + 1))
                             .setTabListener(tabListener));
-        }*/
+        }
 
     }
 
