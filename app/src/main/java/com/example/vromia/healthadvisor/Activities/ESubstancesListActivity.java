@@ -4,15 +4,20 @@ import android.content.Context;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.CursorAdapter;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.vromia.healthadvisor.Data.Database;
 import com.example.vromia.healthadvisor.R;
@@ -20,9 +25,12 @@ import com.example.vromia.healthadvisor.R;
 
 public class ESubstancesListActivity extends ActionBarActivity {
 
-    ListView listview;
-    CustomCursorAdapter adapter;
-    Cursor cursor;
+    private ListView listview;
+    private CustomCursorAdapter adapter;
+    private Cursor cursor;
+    private Database database;
+
+    private EditText etSearch;
 
 
     @Override
@@ -30,8 +38,37 @@ public class ESubstancesListActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_esubstances_list);
 
+        database = new Database(ESubstancesListActivity.this);
+
+
+        etSearch = (EditText) findViewById(R.id.et_esubstances);
+        etSearch.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                if(!s.toString().equals("")){
+                    cursor = database.getAllEsubstancesDependOnNumber(s.toString());
+                }else{
+                    cursor = database.getAllESubstances();
+                }
+                adapter.changeCursor(cursor);
+                adapter.notifyDataSetChanged();
+                Toast.makeText(ESubstancesListActivity.this , s.toString() , Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
+
         listview = (ListView) findViewById(R.id.lv_esubstances_list);
-        cursor = new Database(ESubstancesListActivity.this).getAllESubstances();
+        cursor = database.getAllESubstances();
+        startManagingCursor(cursor);
         adapter = new CustomCursorAdapter(ESubstancesListActivity.this, cursor);
 
         listview.setAdapter(adapter);
@@ -107,7 +144,7 @@ public class ESubstancesListActivity extends ActionBarActivity {
         public void bindView(View view, Context context, Cursor cursor) {
             Holder holder = (Holder) view.getTag();
 
-            //set text and image view from cursorif(cursor.getString(5).equals("0")){
+            //set text and image view from cursor
 
             if (cursor.getString(5).equals("0")) {
                 // good drawable

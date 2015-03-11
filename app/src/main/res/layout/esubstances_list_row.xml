@@ -7,28 +7,39 @@
     android:layout_marginTop="10dp"
     android:padding="10dp">
 
+
     <ImageView
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:id="@+id/iv_esubstances"
         android:layout_weight="0.3"
         android:src="@drawable/caution" />
 
-    <TextView
-        android:id="@+id/tv_esubstance_name"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:textSize="24sp"
-        android:layout_weight="1.7"
-        android:text="E 100" />
-
-    <TextView
+    <LinearLayout
         android:layout_width="0dp"
         android:layout_height="match_parent"
-        android:text="@string/tilte_esubstances_list_row"
-        android:id="@+id/tv_esubstance_desc"
-        android:textStyle="italic"
-        android:textSize="20sp"
-        android:layout_weight="1.7" />
+        android:layout_weight="1.7"
+        android:orientation="vertical"
+        android:padding="5dp">
+        <TextView
+            android:id="@+id/tv_esubstance_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="24sp"
+            android:text="E 100" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="@string/tilte_esubstances_list_row"
+            android:id="@+id/tv_esubstance_desc"
+            android:textStyle="italic"
+            android:textSize="20sp"
+            android:paddingLeft="10dp"/>
+
+        </LinearLayout>
+
+
+
 
 </LinearLayout>

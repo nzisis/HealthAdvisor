@@ -9,13 +9,7 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".Activities.HomeActivity"
-            android:label="@string/app_name">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+            android:label="@string/app_name"></activity>
         <activity
             android:name=".Activities.SearchMenuActivity"
             android:label="@string/title_activity_search_menu"></activity>
@@ -33,7 +27,14 @@
             android:label="@string/title_activity_settings"></activity>
         <activity
             android:name=".Activities.ESubstancesListActivity"
-            android:label="@string/title_activity_esubstances_list"></activity>
+            android:label="@string/title_activity_esubstances_list">
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".Activities.ESubstanceActivity"
             android:label="@string/title_activity_esubstance"></activity>

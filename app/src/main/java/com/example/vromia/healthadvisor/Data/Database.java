@@ -94,9 +94,9 @@ public class Database extends SQLiteOpenHelper {
        return getReadableDatabase().rawQuery("SELECT * "+ " FROM "+ "esubstances",null);
     }
 
-    public Cursor getAllEsubstancesDependOnNumber(int number){
+    public Cursor getAllEsubstancesDependOnNumber(String number){
 
-        return getReadableDatabase().rawQuery("SELECT * " + " FROM "+ "esubstances "+" WHERE name LIKE 'E"+number+"%'",null);
+        return getReadableDatabase().rawQuery("SELECT * " + " FROM "+ "esubstances "+" WHERE name LIKE 'E" + number + "%'",null);
 
 
     }

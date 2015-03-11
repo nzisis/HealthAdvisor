@@ -15,7 +15,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/et_esubstances"
             android:layout_centerVertical="true"
-            android:inputType="text"
+            android:inputType="number"
             android:hint="Search here"
             />
 
