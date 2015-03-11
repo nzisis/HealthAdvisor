@@ -28,7 +28,6 @@
         <activity
             android:name=".Activities.ESubstancesListActivity"
             android:label="@string/title_activity_esubstances_list">
-
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -37,7 +36,8 @@
         </activity>
         <activity
             android:name=".Activities.ESubstanceActivity"
-            android:label="@string/title_activity_esubstance"></activity>
+            android:label="@string/title_activity_esubstance">
+        </activity>
         <activity
             android:name=".Activities.DiseaseActivity2"
             android:label="@string/title_activity_disease_activity2"></activity>

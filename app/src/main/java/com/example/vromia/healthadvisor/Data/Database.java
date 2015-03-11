@@ -130,9 +130,6 @@ public class Database extends SQLiteOpenHelper {
                 item.addCategory(cat);
             }
 
-
-
-
         }
 
         return item;
