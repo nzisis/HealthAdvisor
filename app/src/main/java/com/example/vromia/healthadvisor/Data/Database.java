@@ -10,6 +10,7 @@ import android.util.Log;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.ArrayList;
 
 /**
  * Created by Vromia on 28/2/2015.
@@ -101,6 +102,41 @@ public class Database extends SQLiteOpenHelper {
 
     }
 
+    public ESubstanceItem getESubstanceItemById(int id){
+
+        Cursor c=getReadableDatabase().rawQuery("SELECT * FROM esubstances WHERE _id = "+id,null);
+        ESubstanceItem item=null;
+
+        if(c!=null){
+            c.moveToFirst();
+
+            String name=c.getString(1);
+            String compound=c.getString(2);
+            String attributes=c.getString(3);
+            String sideEffects=c.getString(4);
+            String categories=c.getString(5);
+
+            item=new ESubstanceItem(name,compound,attributes);
+            item.setId(Integer.parseInt(c.getString(0)));
+
+            String sideEffectsElements[]=sideEffects.split("-");
+            for(int i=0; i<sideEffectsElements.length; i++){
+                item.addSideEffect(sideEffectsElements[i]);
+            }
+
+            String categoriesElements[]=categories.split("-");
+            for(int i=0; i<categoriesElements.length; i++){
+                 int cat=Integer.parseInt(categoriesElements[i]);
+                item.addCategory(cat);
+            }
+
+
+
+
+        }
+
+        return item;
+    }
 
 
 }

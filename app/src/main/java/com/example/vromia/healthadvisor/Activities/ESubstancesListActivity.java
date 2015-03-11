@@ -1,6 +1,7 @@
 package com.example.vromia.healthadvisor.Activities;
 
 import android.content.Context;
+import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
@@ -72,6 +73,19 @@ public class ESubstancesListActivity extends ActionBarActivity {
         adapter = new CustomCursorAdapter(ESubstancesListActivity.this, cursor);
 
         listview.setAdapter(adapter);
+        listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+                cursor.moveToPosition(position);
+                stopManagingCursor(cursor);
+                int idOfEsubstance=Integer.parseInt(cursor.getString(0));
+                Intent i=new Intent(ESubstancesListActivity.this,ESubstanceActivity.class);
+                i.putExtra("id",idOfEsubstance);
+                startActivity(i);
+
+            }
+        });
 
     }
 
