@@ -44,7 +44,7 @@
         android:layout_below="@id/llesubstance"
         android:layout_marginTop="10dp"
         android:text="Tartazinh"
-        android:textColor="$000"
+        android:textColor="#000"
         android:textSize="28sp"
         android:textStyle="bold"
         />

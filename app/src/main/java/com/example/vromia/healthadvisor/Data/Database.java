@@ -90,4 +90,17 @@ public class Database extends SQLiteOpenHelper {
    }
 
 
+    public Cursor getAllESubstances(){
+       return getReadableDatabase().rawQuery("SELECT * "+ " FROM "+ "esubstances",null);
+    }
+
+    public Cursor getAllEsubstancesDependOnNumber(int number){
+
+        return getReadableDatabase().rawQuery("SELECT * " + " FROM "+ "esubstances "+" WHERE name LIKE 'E"+number+"%'",null);
+
+
+    }
+
+
+
 }
