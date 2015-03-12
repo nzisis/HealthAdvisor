@@ -32,8 +32,8 @@ public class HomeActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
-        Bitmap homeIcon = BitmapFactory.decodeResource(this.getResources(), R.drawable.caution);
-        Bitmap userIcon = BitmapFactory.decodeResource(this.getResources(), R.drawable.effect);
+        Bitmap homeIcon = BitmapFactory.decodeResource(this.getResources(), R.mipmap.ic_avoid);
+        Bitmap userIcon = BitmapFactory.decodeResource(this.getResources(), R.mipmap.ic_safe);
 
 
         gridArray.add(new Item(homeIcon,"Menu item 1" ));

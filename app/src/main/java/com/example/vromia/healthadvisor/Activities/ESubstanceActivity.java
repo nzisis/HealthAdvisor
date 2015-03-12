@@ -148,38 +148,31 @@ public class ESubstanceActivity extends ActionBarActivity {
 
         // references to our images
         private Integer[] mThumbIds = {
-                R.drawable.ic_danger,
-                R.drawable.ic_test,
-                R.drawable.ic_allergy,
-                R.drawable.ic_genetic,
-                R.drawable.ic_radio_active,
-                R.drawable.ic_danger,
-                R.drawable.ic_test,
-                R.drawable.ic_allergy,
-                R.drawable.ic_genetic,
-                R.drawable.ic_radio_active
-
+                R.mipmap.ic_safe,
+                R.mipmap.ic_genetic,
+                R.mipmap.ic_danger,
+                R.mipmap.ic_bio_hazzard,
+                R.mipmap.ic_avoid,
+                R.mipmap.ic_animal,
+                R.mipmap.ic_suspicious,
+                R.mipmap.ic_radio,
         };
+        // set by sql category
         private Integer[] mThumbIdsActive = {
-                R.drawable.ic_bio_hazzard ,
-                R.drawable.ic_bio_hazzard ,
-                R.drawable.ic_bio_hazzard ,
-                R.drawable.ic_bio_hazzard ,
-                R.drawable.ic_bio_hazzard ,
-                R.drawable.ic_bio_hazzard ,
-                R.drawable.ic_bio_hazzard ,
-                R.drawable.ic_bio_hazzard ,
-                R.drawable.ic_bio_hazzard ,
-                R.drawable.ic_bio_hazzard ,
-
+                R.mipmap.ic_safe_active,
+                R.mipmap.ic_genetic_active,
+                R.mipmap.ic_danger_active,
+                R.mipmap.ic_bio_hazzard_active,
+                R.mipmap.ic_avoid_active,
+                R.mipmap.ic_animal_active,
+                R.mipmap.ic_suspicious_active,
+                R.mipmap.ic_radio_active,
         };
 
 
         public void updateIcons(ArrayList<Integer> intArray) {
             for (int i : intArray) {
-                if (i != 0) {
-                    mThumbIds[i - 1] = mThumbIdsActive[i - 1];
-                }
+                 mThumbIds[i] = mThumbIdsActive[i];
             }
         }
 
