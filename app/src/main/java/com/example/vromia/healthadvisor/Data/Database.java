@@ -92,7 +92,7 @@ public class Database extends SQLiteOpenHelper {
 
 
     public Cursor getAllESubstances(){
-       return getReadableDatabase().rawQuery("SELECT * "+ " FROM "+ "esubstances",null);
+        return getReadableDatabase().rawQuery("SELECT * "+ " FROM "+ "esubstances",null);
     }
 
     public Cursor getAllEsubstancesDependOnNumber(String number){
@@ -126,13 +126,22 @@ public class Database extends SQLiteOpenHelper {
 
             String categoriesElements[]=categories.split("-");
             for(int i=0; i<categoriesElements.length; i++){
-                 int cat=Integer.parseInt(categoriesElements[i]);
+                int cat=Integer.parseInt(categoriesElements[i]);
                 item.addCategory(cat);
             }
 
         }
 
         return item;
+    }
+
+
+    public Cursor getAllDiseases(){
+        return getReadableDatabase().rawQuery("SELECT DISTINCT name FROM diseases",null);
+    }
+
+    public Cursor getAllDiseasesDependOnName(String name){
+        return getReadableDatabase().rawQuery("SELECT * " + " FROM "+ "diseases "+" WHERE name LIKE '%" + name + "%'",null);
     }
 
 
