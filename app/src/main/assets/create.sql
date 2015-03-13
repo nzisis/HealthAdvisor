@@ -20,10 +20,10 @@
 
 
 
-   INSERT INTO diseases (name,substance,source,effect,side_effect) VALUES ("cold","vitamin C","cole,citrus","protect from infections","none","0-2-4");
-   INSERT INTO diseases (name,substance,source,effect,side_effect) VALUES ("cold","Echinachea","plant-herb","alithies","not for children under the age of 4","0-2-4");
-   INSERT INTO diseases (name,substance,source,effect,side_effect) VALUES ("elafria kapsimata","prwteines tupou alvouminwn","aspradi augvn","einai proteines megalis viologikis a3ias-kati allo","none","1-3");
-   INSERT INTO diseases (name,substance,source,effect,side_effect) VALUES ("ponodontos","mh steroeidh antiflegmonodi","farmakeutika skeusmata","analgitiki kai antipiretiki drash","kardiaka episodia","3");
+   INSERT INTO diseases (name,substance,source,effect,side_effect,category) VALUES ("cold","vitamin C","cole,citrus","protect from infections","none","0-2-4");
+   INSERT INTO diseases (name,substance,source,effect,side_effect,category) VALUES ("cold","Echinachea","plant-herb","alithies","not for children under the age of 4","0-2-4");
+   INSERT INTO diseases (name,substance,source,effect,side_effect,category) VALUES ("elafria kapsimata","prwteines tupou alvouminwn","aspradi augvn","einai proteines megalis viologikis a3ias-kati allo","none","1-3");
+   INSERT INTO diseases (name,substance,source,effect,side_effect,category) VALUES ("ponodontos","mh steroeidh antiflegmonodi","farmakeutika skeusmata","analgitiki kai antipiretiki drash","kardiaka episodia","3");
 
 
 

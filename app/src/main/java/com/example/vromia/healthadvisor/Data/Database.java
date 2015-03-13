@@ -137,7 +137,7 @@ public class Database extends SQLiteOpenHelper {
 
 
     public Cursor getAllDiseases(){
-        return getReadableDatabase().rawQuery("SELECT DISTINCT name FROM diseases",null);
+        return getReadableDatabase().rawQuery("SELECT * FROM diseases GROUP BY name",null);
     }
 
     public Cursor getAllDiseasesDependOnName(String name){

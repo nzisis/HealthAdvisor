@@ -1,15 +1,17 @@
 package com.example.vromia.healthadvisor.Activities;
 
 import android.content.Context;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.text.Html;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.BaseAdapter;
-import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -18,7 +20,10 @@ import android.widget.Toast;
 import com.example.vromia.healthadvisor.Data.Database;
 import com.example.vromia.healthadvisor.Data.ESubstanceItem;
 import com.example.vromia.healthadvisor.R;
+import com.example.vromia.healthadvisor.Utils.CustomPopUp;
 import com.example.vromia.healthadvisor.Utils.ScrollableGridView;
+
+import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 
@@ -31,7 +36,7 @@ public class ESubstanceActivity extends ActionBarActivity {
     ESubstanceItem item;
 
     TextView tvName, tvState, tvCompound, tvAttribute;
-    LinearLayout llsubstance , llSideEffects;
+    LinearLayout llsubstance, llSideEffects;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,12 +56,12 @@ public class ESubstanceActivity extends ActionBarActivity {
     private void setUI() {
 
         tvName.setText(item.getName());
-        if(item.getCategories().contains(0)){
+        if (item.getCategories().contains(0)) {
             tvState.setText("Safe");
             tvState.setTextColor(getResources().getColor(R.color.green));
             llsubstance.setBackgroundColor(getResources().getColor(R.color.green));
 
-        }else{
+        } else {
             tvState.setText("Dangerous");
             tvState.setTextColor(getResources().getColor(R.color.red));
             llsubstance.setBackgroundColor(getResources().getColor(R.color.red));
@@ -64,10 +69,10 @@ public class ESubstanceActivity extends ActionBarActivity {
         tvCompound.setText(item.getCompound());
         tvAttribute.setText(item.getAttributes());
 
-        for(String s : item.getSideEffects()){
+        for (String s : item.getSideEffects()) {
             TextView tvSideEffect = new TextView(this);
 
-            Log.i("nikos" , item.getSideEffects().size() + "");
+            Log.i("nikos", item.getSideEffects().size() + "");
 
             String htmlS = "&#8226; " + s;
 
@@ -105,7 +110,24 @@ public class ESubstanceActivity extends ActionBarActivity {
     private void initListeners() {
         gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             public void onItemClick(AdapterView<?> parent, View v, int position, long id) {
-                Toast.makeText(ESubstanceActivity.this, "" + position, Toast.LENGTH_SHORT).show();
+                //Toast.makeText(ESubstanceActivity.this, "" + position, Toast.LENGTH_SHORT).show();
+                // create window
+                CustomPopUp pop = new CustomPopUp(ESubstanceActivity.this, 400);//specify the window width explicitly
+                // set content view
+                TextView tv = new TextView(ESubstanceActivity.this);
+                tv.setText(item.getSideEffects().get(1));
+                tv.setPadding(20,20,20,20);
+                tv.setTextColor(Color.WHITE);
+                pop.setBackgroundDrawable(new ColorDrawable(0xb3111213));
+                pop.setContentView(tv);
+                // set pointer image
+                pop.setPointerImageRes(R.mipmap.ic_popup_pointer);
+                // show popup window point to the anchor view
+                pop.showAsPointer(v);
+                // there are three kinds of built-in align mode are supported:DEFAULT, CENTER_FIX, AUTO_OFFSET
+                pop.setAlignMode(CustomPopUp.AlignMode.AUTO_OFFSET);
+
+                pop.setMarginScreen(50);
             }
         });
 
@@ -172,7 +194,7 @@ public class ESubstanceActivity extends ActionBarActivity {
 
         public void updateIcons(ArrayList<Integer> intArray) {
             for (int i : intArray) {
-                 mThumbIds[i] = mThumbIdsActive[i];
+                mThumbIds[i] = mThumbIdsActive[i];
             }
         }
 
