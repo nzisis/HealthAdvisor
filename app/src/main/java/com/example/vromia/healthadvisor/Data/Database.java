@@ -145,4 +145,55 @@ public class Database extends SQLiteOpenHelper {
     }
 
 
+    public ArrayList<DiseaseItem> getDiseaseBasedOnName(String name){
+
+        Cursor c=getReadableDatabase().rawQuery("SELECT * FROM diseases WHERE name = '"+name+"'",null);
+        ArrayList<DiseaseItem> diseaseItems=new ArrayList<>();
+
+        if(c!=null){
+
+          for(c.moveToFirst(); !c.isAfterLast(); c.moveToNext()){
+
+              String nameOfDisease=c.getString(1);
+              String substance=c.getString(2);
+              String sources=c.getString(3);
+              String effects=c.getString(4);
+              String side_effects=c.getString(5);
+              String categories=c.getString(6);
+
+              DiseaseItem item=new DiseaseItem(nameOfDisease,substance);
+              item.setId(Integer.parseInt(c.getString(0)));
+
+              String sourcesElements[]=sources.split("-");
+              for(int i=0; i<sourcesElements.length; i++){
+                  item.addSource(sourcesElements[i]);
+              }
+
+              String effectsElements[]=effects.split("-");
+              for(int i=0; i<effectsElements.length; i++){
+                  item.addEffect(effectsElements[i]);
+              }
+
+              String side_effectsElements[]=side_effects.split("-");
+              for(int i=0; i<side_effectsElements.length; i++){
+                  item.addSideEffect(side_effectsElements[i]);
+              }
+
+              String categoriesElements[]=categories.split("-");
+              for(int i=0; i<categoriesElements.length; i++){
+                  item.addCategory(Integer.parseInt(categoriesElements[i]));
+              }
+              
+              diseaseItems.add(item);
+
+
+
+          }
+
+        }
+
+        return diseaseItems;
+    }
+
+
 }

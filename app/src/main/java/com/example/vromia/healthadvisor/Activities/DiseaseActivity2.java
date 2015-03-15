@@ -1,5 +1,6 @@
 package com.example.vromia.healthadvisor.Activities;
 
+import java.util.ArrayList;
 import java.util.Locale;
 
 import android.support.v7.app.ActionBarActivity;
@@ -16,8 +17,12 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 
+import com.example.vromia.healthadvisor.Data.Database;
+import com.example.vromia.healthadvisor.Data.DiseaseItem;
 import com.example.vromia.healthadvisor.R;
 
 public class DiseaseActivity2 extends ActionBarActivity {
@@ -30,27 +35,37 @@ public class DiseaseActivity2 extends ActionBarActivity {
      * may be best to switch to a
      * {@link android.support.v4.app.FragmentStatePagerAdapter}.
      */
-    SectionsPagerAdapter mSectionsPagerAdapter;
+   private SectionsPagerAdapter mSectionsPagerAdapter;
 
     /**
      * The {@link ViewPager} that will host the section contents.
      */
-    ViewPager mViewPager;
+    private ViewPager mViewPager;
+    private TextView tvDiseaseName;
+
+    private ArrayList<DiseaseItem> diseaseItems;
+    private Database db;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_disease_activity2);
+        String name = (String) getIntent().getExtras().get("name");
+
+        db=new Database(DiseaseActivity2.this);
+        diseaseItems=db.getDiseaseBasedOnName(name);
+
+
+        initUI();
 
         getSupportActionBar().setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
 
 
         // Create the adapter that will return a fragment for each of the three
         // primary sections of the activity.
-        mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
+        mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager(),diseaseItems);
 
         // Set up the ViewPager with the sections adapter.
-        mViewPager = (ViewPager) findViewById(R.id.pager);
         mViewPager.setAdapter(mSectionsPagerAdapter);
 
         mViewPager.setOnPageChangeListener(
@@ -80,12 +95,22 @@ public class DiseaseActivity2 extends ActionBarActivity {
         };
 
         // Add 3 tabs, specifying the tab's text and TabListener
-        for (int i = 0; i < 3; i++) {
+        for (int i = 0; i < diseaseItems.size(); i++) {
             getSupportActionBar().addTab(
                     getSupportActionBar().newTab()
-                            .setText("Tab " + (i + 1))
+                            .setText(diseaseItems.get(i).getSubstance())
                             .setTabListener(tabListener));
         }
+
+    }
+
+
+    private void initUI(){
+
+        tvDiseaseName=(TextView) findViewById(R.id.tvDiseaseName);
+        mViewPager = (ViewPager) findViewById(R.id.pager);
+
+        tvDiseaseName.setText(diseaseItems.get(0).getName());
 
     }
 
@@ -119,21 +144,41 @@ public class DiseaseActivity2 extends ActionBarActivity {
      */
     public class SectionsPagerAdapter extends FragmentPagerAdapter {
 
-        public SectionsPagerAdapter(FragmentManager fm) {
+
+        private int uniqueIDs[];
+        private int numberOfUniqueIDs;
+
+        public SectionsPagerAdapter(FragmentManager fm,ArrayList<DiseaseItem> diseaseItems) {
             super(fm);
+
+            numberOfUniqueIDs=diseaseItems.size();
+            uniqueIDs=new int[numberOfUniqueIDs];
+            for(int i=0; i<numberOfUniqueIDs; i++){
+                uniqueIDs[i]=diseaseItems.get(i).getId();
+            }
         }
 
         @Override
         public Fragment getItem(int position) {
             // getItem is called to instantiate the fragment for the given page.
             // Return a PlaceholderFragment (defined as a static inner class below).
-            return PlaceholderFragment.newInstance(position + 1);
+            //return PlaceholderFragment.newInstance(position + 1);
+
+            if(position<numberOfUniqueIDs){
+                PlaceholderFragment fragment=new PlaceholderFragment(diseaseItems);
+                fragment.setID(uniqueIDs[position]);
+                return fragment;
+
+            }
+
+            return null;
+
         }
 
         @Override
         public int getCount() {
             // Show 3 total pages.
-            return 3;
+            return numberOfUniqueIDs;
         }
 
         @Override
@@ -165,6 +210,15 @@ public class DiseaseActivity2 extends ActionBarActivity {
          * Returns a new instance of this fragment for the given section
          * number.
          */
+
+        private int id;
+        private ArrayList<DiseaseItem> items;
+
+        public PlaceholderFragment(ArrayList<DiseaseItem> diseaseItems){
+          items=diseaseItems;
+        }
+
+
         public static PlaceholderFragment newInstance(int sectionNumber) {
             PlaceholderFragment fragment = new PlaceholderFragment();
             Bundle args = new Bundle();
@@ -180,7 +234,47 @@ public class DiseaseActivity2 extends ActionBarActivity {
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                                  Bundle savedInstanceState) {
             View rootView = inflater.inflate(R.layout.fragment_disease_activity2, container, false);
+
+            RadioGroup source=(RadioGroup)rootView.findViewById(R.id.radioGroupSource);
+            RadioGroup effects=(RadioGroup)rootView.findViewById(R.id.radioGroupEffects);
+            RadioGroup side_effects=(RadioGroup)rootView.findViewById(R.id.radioGroupSideEffects);
+
+            DiseaseItem diseaseItem=null;
+            for(int i=0; i<items.size(); i++){
+                if(items.get(i).getId()==id){
+                    diseaseItem=items.get(i);
+                }
+            }
+
+            for(int i=0; i<diseaseItem.getSources().size(); i++){
+                RadioButton rb=new RadioButton(rootView.getContext());
+                rb.setText(diseaseItem.getSources().get(i));
+                source.addView(rb);
+            }
+
+
+
+            for(int i=0; i<diseaseItem.getEffects().size(); i++){
+                RadioButton rb=new RadioButton(rootView.getContext());
+                rb.setText(diseaseItem.getEffects().get(i));
+                effects.addView(rb);
+            }
+
+
+            for(int i=0; i<diseaseItem.getSide_effects().size(); i++){
+
+                RadioButton rb=new RadioButton(rootView.getContext());
+                rb.setText(diseaseItem.getSide_effects().get(i));
+                side_effects.addView(rb);
+            }
+
+
+
             return rootView;
+        }
+
+        public void setID(int uniqueID) {
+        this.id=uniqueID;
         }
     }
 

@@ -42,21 +42,6 @@
             android:layout_height="wrap_content"
             android:padding="10dp">
 
-            <RadioButton
-                android:id="@+id/rbSource1"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textColor="#007fff"
-                android:textSize="20sp"
-                android:text="Source 1" />
-
-            <RadioButton
-                android:id="@+id/rbSource2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textColor="#007fff"
-                android:textSize="20sp"
-                android:text="Source 2" />
 
         </RadioGroup>
 
@@ -90,21 +75,7 @@
             android:layout_height="wrap_content"
             android:padding="10dp">
 
-            <RadioButton
-                android:id="@+id/rbEffects1"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textColor="#007fff"
-                android:textSize="20sp"
-                android:text="Effect 1" />
 
-            <RadioButton
-                android:id="@+id/rbEffects2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textColor="#007fff"
-                android:textSize="20sp"
-                android:text="Effect 2" />
 
         </RadioGroup>
 
@@ -138,21 +109,7 @@
             android:layout_height="wrap_content"
             android:padding="10dp">
 
-            <RadioButton
-                android:id="@+id/rbSideEffects1"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textColor="#007fff"
-                android:textSize="20sp"
-                android:text="Side Effect 1" />
 
-            <RadioButton
-                android:id="@+id/rbSideEffects2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textColor="#007fff"
-                android:textSize="20sp"
-                android:text="Side Effect 2" />
 
         </RadioGroup>
 

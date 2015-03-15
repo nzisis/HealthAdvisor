@@ -71,20 +71,19 @@ public class SearchViewActivity extends ActionBarActivity {
         adapter = new CustomCursorAdapter(SearchViewActivity.this, cursor);
 
         listview.setAdapter(adapter);
-        /*listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
                 cursor.moveToPosition(position);
                 stopManagingCursor(cursor);
-                int idOfDisease = Integer.parseInt(cursor.getString(0));
-                Intent i = new Intent(SearchViewActivity.this, ESubstanceActivity.class);
-                i.putExtra("id", idOfDisease);
+                String nameOfDisease = cursor.getString(1);
+                Intent i = new Intent(SearchViewActivity.this, DiseaseActivity2.class);
+                i.putExtra("name", nameOfDisease);
                 startActivity(i);
 
             }
-        });*/
-
+        });
 
     }
 
