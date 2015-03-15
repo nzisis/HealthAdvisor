@@ -1,12 +1,16 @@
 package com.example.vromia.healthadvisor.Activities;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ExpandableListAdapter;
 import android.widget.ExpandableListView;
 
+import com.example.vromia.healthadvisor.Data.Database;
 import com.example.vromia.healthadvisor.R;
 import com.example.vromia.healthadvisor.Utils.CategoryViewAdapter;
 
@@ -21,6 +25,7 @@ public class CategoryViewActivity extends ActionBarActivity {
     ExpandableListView expListView;
     List<String> listDataHeader;
     HashMap<String, List<String>> listDataChild;
+    Database db;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,12 +47,36 @@ public class CategoryViewActivity extends ActionBarActivity {
 
         // setting list adapter
         expListView.setAdapter(listAdapter);
+
+
+        expListView.setOnChildClickListener(new ExpandableListView.OnChildClickListener() {
+            @Override
+            public boolean onChildClick(ExpandableListView parent, View v, int groupPosition, int childPosition, long id) {
+                String diseaseName = (String) listAdapter.getChild(groupPosition , childPosition);
+                Intent i = new Intent(CategoryViewActivity.this , DiseaseActivity2.class);
+                i.putExtra("name" , diseaseName);
+                startActivity(i);
+                return true;
+
+            }
+        });
     }
 
     private void prepareListData() {
-        listDataHeader = new ArrayList<String>();
-        listDataChild = new HashMap<String, List<String>>();
 
+        db = new Database(this);
+
+        listDataHeader = db.getAllCategories();
+
+        listDataChild = new HashMap<>();
+//        listDataHeader = new ArrayList<String>();
+//        listDataChild = new HashMap<String, List<String>>();
+
+        for(String cat : listDataHeader){
+            List<String> diseases = db.getAllDiseasesBasedOnCategories(cat);
+            listDataChild.put(cat , diseases);
+        }
+/*
         // Adding child data
         listDataHeader.add("Top 250");
         listDataHeader.add("Now Showing");
@@ -80,7 +109,7 @@ public class CategoryViewActivity extends ActionBarActivity {
 
         listDataChild.put(listDataHeader.get(0), top250); // Header, Child data
         listDataChild.put(listDataHeader.get(1), nowShowing);
-        listDataChild.put(listDataHeader.get(2), comingSoon);
+        listDataChild.put(listDataHeader.get(2), comingSoon);*/
     }
 
     @Override

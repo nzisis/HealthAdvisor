@@ -1,17 +1,13 @@
 package com.example.vromia.healthadvisor.Activities;
 
-import java.util.ArrayList;
-import java.util.Locale;
-
-import android.support.v7.app.ActionBarActivity;
-import android.support.v7.app.ActionBar;
+import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
 import android.support.v4.app.FragmentPagerAdapter;
-import android.os.Bundle;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.ViewPager;
-import android.view.Gravity;
+import android.support.v7.app.ActionBar;
+import android.support.v7.app.ActionBarActivity;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -25,6 +21,9 @@ import com.example.vromia.healthadvisor.Data.Database;
 import com.example.vromia.healthadvisor.Data.DiseaseItem;
 import com.example.vromia.healthadvisor.R;
 
+import java.util.ArrayList;
+import java.util.Locale;
+
 public class DiseaseActivity2 extends ActionBarActivity {
 
     /**
@@ -35,7 +34,7 @@ public class DiseaseActivity2 extends ActionBarActivity {
      * may be best to switch to a
      * {@link android.support.v4.app.FragmentStatePagerAdapter}.
      */
-   private SectionsPagerAdapter mSectionsPagerAdapter;
+    private SectionsPagerAdapter mSectionsPagerAdapter;
 
     /**
      * The {@link ViewPager} that will host the section contents.
@@ -45,7 +44,7 @@ public class DiseaseActivity2 extends ActionBarActivity {
 
     private ArrayList<DiseaseItem> diseaseItems;
     private Database db;
-    private    ActionBar.TabListener tabListener;
+    private ActionBar.TabListener tabListener;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -68,62 +67,65 @@ public class DiseaseActivity2 extends ActionBarActivity {
     }
 
 
-    private void initUI(){
+    private void initUI() {
 
-        tvDiseaseName=(TextView) findViewById(R.id.tvDiseaseName);
+        tvDiseaseName = (TextView) findViewById(R.id.tvDiseaseName);
         mViewPager = (ViewPager) findViewById(R.id.pager);
-        tvDiseaseName.setText(diseaseItems.get(0).getName());
+
 
     }
 
-   private void init(){
+    private void init() {
 
-       String name = (String) getIntent().getExtras().get("name");
+        String name = (String) getIntent().getExtras().get("name");
 
-       db=new Database(DiseaseActivity2.this);
-       diseaseItems=db.getDiseaseBasedOnName(name);
-
-       getSupportActionBar().setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
+        db = new Database(DiseaseActivity2.this);
+        diseaseItems = db.getDiseaseBasedOnName(name);
 
 
-       // Create the adapter that will return a fragment for each of the three
-       // primary sections of the activity.
-       mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager(),diseaseItems);
+        tvDiseaseName.setText(diseaseItems.get(0).getName());
 
-       // Set up the ViewPager with the sections adapter.
-       mViewPager.setAdapter(mSectionsPagerAdapter);
-
-   }
+        getSupportActionBar().setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
 
 
-  private void initListeners(){
-      mViewPager.setOnPageChangeListener(
-              new ViewPager.SimpleOnPageChangeListener() {
-                  @Override
-                  public void onPageSelected(int position) {
-                      // When swiping between pages, select the
-                      // corresponding tab.
-                      getSupportActionBar().setSelectedNavigationItem(position);
-                  }
-              });
+        // Create the adapter that will return a fragment for each of the three
+        // primary sections of the activity.
+        mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager(), diseaseItems);
 
-      // Create a tab listener that is called when the user changes tabs.
-         tabListener = new ActionBar.TabListener() {
-          public void onTabSelected(ActionBar.Tab tab, FragmentTransaction ft) {
-              // show the given tab
-              mViewPager.setCurrentItem(tab.getPosition());
-          }
+        // Set up the ViewPager with the sections adapter.
+        mViewPager.setAdapter(mSectionsPagerAdapter);
 
-          public void onTabUnselected(ActionBar.Tab tab, FragmentTransaction ft) {
-              // hide the given tab
-          }
+    }
 
-          public void onTabReselected(ActionBar.Tab tab, FragmentTransaction ft) {
-              // probably ignore this event
-          }
-      };
 
-  }
+    private void initListeners() {
+        mViewPager.setOnPageChangeListener(
+                new ViewPager.SimpleOnPageChangeListener() {
+                    @Override
+                    public void onPageSelected(int position) {
+                        // When swiping between pages, select the
+                        // corresponding tab.
+                        getSupportActionBar().setSelectedNavigationItem(position);
+                    }
+                });
+
+        // Create a tab listener that is called when the user changes tabs.
+        tabListener = new ActionBar.TabListener() {
+            public void onTabSelected(ActionBar.Tab tab, FragmentTransaction ft) {
+                // show the given tab
+                mViewPager.setCurrentItem(tab.getPosition());
+            }
+
+            public void onTabUnselected(ActionBar.Tab tab, FragmentTransaction ft) {
+                // hide the given tab
+            }
+
+            public void onTabReselected(ActionBar.Tab tab, FragmentTransaction ft) {
+                // probably ignore this event
+            }
+        };
+
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -158,13 +160,13 @@ public class DiseaseActivity2 extends ActionBarActivity {
         private int uniqueIDs[];
         private int numberOfUniqueIDs;
 
-        public SectionsPagerAdapter(FragmentManager fm,ArrayList<DiseaseItem> diseaseItems) {
+        public SectionsPagerAdapter(FragmentManager fm, ArrayList<DiseaseItem> diseaseItems) {
             super(fm);
 
-            numberOfUniqueIDs=diseaseItems.size();
-            uniqueIDs=new int[numberOfUniqueIDs];
-            for(int i=0; i<numberOfUniqueIDs; i++){
-                uniqueIDs[i]=diseaseItems.get(i).getId();
+            numberOfUniqueIDs = diseaseItems.size();
+            uniqueIDs = new int[numberOfUniqueIDs];
+            for (int i = 0; i < numberOfUniqueIDs; i++) {
+                uniqueIDs[i] = diseaseItems.get(i).getId();
             }
         }
 
@@ -174,8 +176,8 @@ public class DiseaseActivity2 extends ActionBarActivity {
             // Return a PlaceholderFragment (defined as a static inner class below).
             //return PlaceholderFragment.newInstance(position + 1);
 
-            if(position<numberOfUniqueIDs){
-                PlaceholderFragment fragment=new PlaceholderFragment();
+            if (position < numberOfUniqueIDs) {
+                PlaceholderFragment fragment = new PlaceholderFragment();
                 fragment.setDiseaseList(diseaseItems);
                 fragment.setID(uniqueIDs[position]);
                 return fragment;
@@ -242,50 +244,48 @@ public class DiseaseActivity2 extends ActionBarActivity {
                                  Bundle savedInstanceState) {
             View rootView = inflater.inflate(R.layout.fragment_disease_activity2, container, false);
 
-            RadioGroup source=(RadioGroup)rootView.findViewById(R.id.radioGroupSource);
-            RadioGroup effects=(RadioGroup)rootView.findViewById(R.id.radioGroupEffects);
-            RadioGroup side_effects=(RadioGroup)rootView.findViewById(R.id.radioGroupSideEffects);
+            RadioGroup source = (RadioGroup) rootView.findViewById(R.id.radioGroupSource);
+            RadioGroup effects = (RadioGroup) rootView.findViewById(R.id.radioGroupEffects);
+            RadioGroup side_effects = (RadioGroup) rootView.findViewById(R.id.radioGroupSideEffects);
 
-            DiseaseItem diseaseItem=null;
-            for(int i=0; i<items.size(); i++){
-                if(items.get(i).getId()==id){
-                    diseaseItem=items.get(i);
+            DiseaseItem diseaseItem = null;
+            for (int i = 0; i < items.size(); i++) {
+                if (items.get(i).getId() == id) {
+                    diseaseItem = items.get(i);
                 }
             }
 
-            for(int i=0; i<diseaseItem.getSources().size(); i++){
-                RadioButton rb=new RadioButton(rootView.getContext());
+            for (int i = 0; i < diseaseItem.getSources().size(); i++) {
+                RadioButton rb = new RadioButton(rootView.getContext());
                 rb.setText(diseaseItem.getSources().get(i));
                 source.addView(rb);
             }
 
 
-
-            for(int i=0; i<diseaseItem.getEffects().size(); i++){
-                RadioButton rb=new RadioButton(rootView.getContext());
+            for (int i = 0; i < diseaseItem.getEffects().size(); i++) {
+                RadioButton rb = new RadioButton(rootView.getContext());
                 rb.setText(diseaseItem.getEffects().get(i));
                 effects.addView(rb);
             }
 
 
-            for(int i=0; i<diseaseItem.getSide_effects().size(); i++){
+            for (int i = 0; i < diseaseItem.getSide_effects().size(); i++) {
 
-                RadioButton rb=new RadioButton(rootView.getContext());
+                RadioButton rb = new RadioButton(rootView.getContext());
                 rb.setText(diseaseItem.getSide_effects().get(i));
                 side_effects.addView(rb);
             }
-
 
 
             return rootView;
         }
 
         public void setID(int uniqueID) {
-        this.id=uniqueID;
+            this.id = uniqueID;
         }
 
-        public void setDiseaseList(ArrayList<DiseaseItem> diseases){
-            items=diseases;
+        public void setDiseaseList(ArrayList<DiseaseItem> diseases) {
+            items = diseases;
         }
 
     }

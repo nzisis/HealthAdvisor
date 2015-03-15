@@ -1,19 +1,31 @@
 package com.example.vromia.healthadvisor.Activities;
 
+import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 
 import com.example.vromia.healthadvisor.R;
 
 
-public class SearchMenuActivity extends ActionBarActivity {
+public class SearchMenuActivity extends ActionBarActivity implements View.OnClickListener{
+
+    Button bCategories , bSearch ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search_menu);
+
+        bCategories = (Button) findViewById(R.id.bSearchByCategory);
+        bSearch = (Button) findViewById(R.id.bSearchByName);
+
+        bCategories.setOnClickListener(this);
+        bSearch.setOnClickListener(this);
+
     }
 
 
@@ -37,5 +49,14 @@ public class SearchMenuActivity extends ActionBarActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onClick(View v) {
+        if(v.getId() == R.id.bSearchByCategory){
+            startActivity(new Intent(SearchMenuActivity.this , CategoryViewActivity.class));
+        }else{
+            startActivity(new Intent(SearchMenuActivity.this , SearchViewActivity.class));
+        }
     }
 }
