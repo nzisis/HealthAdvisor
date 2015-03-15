@@ -11,6 +11,8 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Created by Vromia on 28/2/2015.
@@ -21,12 +23,14 @@ public class Database extends SQLiteOpenHelper {
     private final static int DB_VERSION = 1;
     private final static String DB_NAME = "database.db";
     private Context context;
+    private HashMap<Integer,String> categories;
 
 
     public Database(Context context) {
         super(context, DB_NAME, null, DB_VERSION);
         // Store the context for later use
         this.context = context;
+        initCategories();
     }
 
 
@@ -69,6 +73,16 @@ public class Database extends SQLiteOpenHelper {
 //            // TODO Handle Script Failed to Execute
 //        }
     }
+
+    private void initCategories(){
+        categories=new HashMap<>();
+        categories.put(0,"Anapneustikes diataraxes");
+        categories.put(1,"Dermatikes diataraxes");
+        categories.put(2,"Stomatikes diataraxes");
+        categories.put(3,"Ponos");
+        categories.put(4,"Piretos");
+    }
+
 
    public void showTuples(){
 
@@ -194,6 +208,47 @@ public class Database extends SQLiteOpenHelper {
 
         return diseaseItems;
     }
+
+
+    public ArrayList<String> getAllCategories(){
+        ArrayList<String> categoriesNames=new ArrayList<>();
+
+        for(int i=0; i<categories.size(); i++){
+            categoriesNames.add(categories.get(i));
+        }
+
+        return categoriesNames;
+
+    }
+
+
+    public ArrayList<String> getAllDiseasesBasedOnCategories(String nameOfCategory){
+
+        ArrayList<String > diseases=new ArrayList<>();
+        int numberOfCategory=-1;
+       for(Map.Entry<Integer,String> entry:categories.entrySet()){
+           if(nameOfCategory.equals(entry.getValue())){
+               numberOfCategory=entry.getKey();
+           }
+       }
+
+        Cursor c=this.getAllDiseases();
+        if(c!=null){
+
+            for(c.moveToFirst(); !c.isAfterLast(); c.moveToNext()){
+
+               String allCategories=c.getString(6);
+               if(allCategories.contains(numberOfCategory+"")){
+                   diseases.add(c.getString(1));
+               }
+
+            }
+
+        }
+        return diseases;
+
+    }
+
 
 
 }

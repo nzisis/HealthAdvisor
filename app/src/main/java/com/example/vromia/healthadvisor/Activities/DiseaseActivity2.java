@@ -45,56 +45,19 @@ public class DiseaseActivity2 extends ActionBarActivity {
 
     private ArrayList<DiseaseItem> diseaseItems;
     private Database db;
+    private    ActionBar.TabListener tabListener;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_disease_activity2);
-        String name = (String) getIntent().getExtras().get("name");
-
-        db=new Database(DiseaseActivity2.this);
-        diseaseItems=db.getDiseaseBasedOnName(name);
 
 
         initUI();
+        init();
+        initListeners();
 
-        getSupportActionBar().setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
 
-
-        // Create the adapter that will return a fragment for each of the three
-        // primary sections of the activity.
-        mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager(),diseaseItems);
-
-        // Set up the ViewPager with the sections adapter.
-        mViewPager.setAdapter(mSectionsPagerAdapter);
-
-        mViewPager.setOnPageChangeListener(
-                new ViewPager.SimpleOnPageChangeListener() {
-                    @Override
-                    public void onPageSelected(int position) {
-                        // When swiping between pages, select the
-                        // corresponding tab.
-                        getSupportActionBar().setSelectedNavigationItem(position);
-                    }
-                });
-
-        // Create a tab listener that is called when the user changes tabs.
-        ActionBar.TabListener tabListener = new ActionBar.TabListener() {
-            public void onTabSelected(ActionBar.Tab tab, FragmentTransaction ft) {
-                // show the given tab
-                mViewPager.setCurrentItem(tab.getPosition());
-            }
-
-            public void onTabUnselected(ActionBar.Tab tab, FragmentTransaction ft) {
-                // hide the given tab
-            }
-
-            public void onTabReselected(ActionBar.Tab tab, FragmentTransaction ft) {
-                // probably ignore this event
-            }
-        };
-
-        // Add 3 tabs, specifying the tab's text and TabListener
         for (int i = 0; i < diseaseItems.size(); i++) {
             getSupportActionBar().addTab(
                     getSupportActionBar().newTab()
@@ -109,11 +72,58 @@ public class DiseaseActivity2 extends ActionBarActivity {
 
         tvDiseaseName=(TextView) findViewById(R.id.tvDiseaseName);
         mViewPager = (ViewPager) findViewById(R.id.pager);
-
         tvDiseaseName.setText(diseaseItems.get(0).getName());
 
     }
 
+   private void init(){
+
+       String name = (String) getIntent().getExtras().get("name");
+
+       db=new Database(DiseaseActivity2.this);
+       diseaseItems=db.getDiseaseBasedOnName(name);
+
+       getSupportActionBar().setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
+
+
+       // Create the adapter that will return a fragment for each of the three
+       // primary sections of the activity.
+       mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager(),diseaseItems);
+
+       // Set up the ViewPager with the sections adapter.
+       mViewPager.setAdapter(mSectionsPagerAdapter);
+
+   }
+
+
+  private void initListeners(){
+      mViewPager.setOnPageChangeListener(
+              new ViewPager.SimpleOnPageChangeListener() {
+                  @Override
+                  public void onPageSelected(int position) {
+                      // When swiping between pages, select the
+                      // corresponding tab.
+                      getSupportActionBar().setSelectedNavigationItem(position);
+                  }
+              });
+
+      // Create a tab listener that is called when the user changes tabs.
+         tabListener = new ActionBar.TabListener() {
+          public void onTabSelected(ActionBar.Tab tab, FragmentTransaction ft) {
+              // show the given tab
+              mViewPager.setCurrentItem(tab.getPosition());
+          }
+
+          public void onTabUnselected(ActionBar.Tab tab, FragmentTransaction ft) {
+              // hide the given tab
+          }
+
+          public void onTabReselected(ActionBar.Tab tab, FragmentTransaction ft) {
+              // probably ignore this event
+          }
+      };
+
+  }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -165,7 +175,8 @@ public class DiseaseActivity2 extends ActionBarActivity {
             //return PlaceholderFragment.newInstance(position + 1);
 
             if(position<numberOfUniqueIDs){
-                PlaceholderFragment fragment=new PlaceholderFragment(diseaseItems);
+                PlaceholderFragment fragment=new PlaceholderFragment();
+                fragment.setDiseaseList(diseaseItems);
                 fragment.setID(uniqueIDs[position]);
                 return fragment;
 
@@ -214,18 +225,14 @@ public class DiseaseActivity2 extends ActionBarActivity {
         private int id;
         private ArrayList<DiseaseItem> items;
 
-        public PlaceholderFragment(ArrayList<DiseaseItem> diseaseItems){
-          items=diseaseItems;
-        }
-
-
+        /*
         public static PlaceholderFragment newInstance(int sectionNumber) {
             PlaceholderFragment fragment = new PlaceholderFragment();
             Bundle args = new Bundle();
             args.putInt(ARG_SECTION_NUMBER, sectionNumber);
             fragment.setArguments(args);
             return fragment;
-        }
+        }*/
 
         public PlaceholderFragment() {
         }
@@ -276,6 +283,11 @@ public class DiseaseActivity2 extends ActionBarActivity {
         public void setID(int uniqueID) {
         this.id=uniqueID;
         }
+
+        public void setDiseaseList(ArrayList<DiseaseItem> diseases){
+            items=diseases;
+        }
+
     }
 
 }
