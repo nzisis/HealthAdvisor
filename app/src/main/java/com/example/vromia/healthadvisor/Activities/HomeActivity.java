@@ -2,6 +2,7 @@ package com.example.vromia.healthadvisor.Activities;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
@@ -11,6 +12,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.GridView;
 import android.widget.ImageView;
@@ -36,22 +38,34 @@ public class HomeActivity extends ActionBarActivity {
         Bitmap userIcon = BitmapFactory.decodeResource(this.getResources(), R.mipmap.ic_safe);
 
 
-        gridArray.add(new Item(homeIcon,"Menu item 1" ));
-        gridArray.add(new Item(userIcon,"Menu item 2" ));
-        gridArray.add(new Item(homeIcon,"Menu item 1" ));
-        gridArray.add(new Item(userIcon,"Menu item 2" ));
-        gridArray.add(new Item(homeIcon,"Menu item 1" ));
-        gridArray.add(new Item(userIcon,"Menu item 2" ));
-        gridArray.add(new Item(homeIcon,"Menu item 1" ));
-        gridArray.add(new Item(userIcon,"Menu item 2" ));
-        gridArray.add(new Item(homeIcon,"Menu item 1" ));
-        gridArray.add(new Item(userIcon,"Menu item 2" ));
-        gridArray.add(new Item(homeIcon,"Menu item 1" ));
-        gridArray.add(new Item(userIcon,"Menu item 2" ));
+        gridArray.add(new Item(homeIcon,"E substances" ));
+        gridArray.add(new Item(userIcon,"Diseases" ));
+        gridArray.add(new Item(homeIcon,"Settings" ));
+        gridArray.add(new Item(userIcon,"Exit" ));
 
         gridView = (GridView) findViewById(R.id.gridview);
         CustomGridAdapter adapter = new CustomGridAdapter(HomeActivity.this , R.layout.grid_item_menu , gridArray);
         gridView.setAdapter(adapter);
+        gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                switch (position){
+                    case 0:
+                        startActivity(new Intent(HomeActivity.this , ESubstancesListActivity.class));
+                        break;
+                    case 1:
+                        startActivity(new Intent(HomeActivity.this , SearchMenuActivity.class));
+                        break;
+                    case 2:
+                        startActivity(new Intent(HomeActivity.this , SettingsActivity.class));
+                        break;
+                    case 3:
+                        finish();
+                        break;
+
+                }
+            }
+        });
 
         Database mydb = new Database(this);
         mydb.showTuples();

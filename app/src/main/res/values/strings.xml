@@ -14,6 +14,17 @@
     <string name="title_activity_disease_activity2">DiseaseActivity2</string>
     <string name="search_hint">Search here</string>
 
+    <string-array name="pref_example_list_titles">
+        <item>Always</item>
+        <item>When possible</item>
+        <item>Never</item>
+    </string-array>
+    <string-array name="pref_example_list_values">
+        <item>1</item>
+        <item>0</item>
+        <item>-1</item>
+    </string-array>
+
 
     <string name="title_section1">Section 1</string>
     <string name="title_section2">Section 2</string>

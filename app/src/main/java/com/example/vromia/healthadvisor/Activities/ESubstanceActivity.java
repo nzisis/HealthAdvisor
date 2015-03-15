@@ -5,17 +5,17 @@ import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
-import android.text.Html;
-import android.util.Log;
-import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.ListAdapter;
+import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.vromia.healthadvisor.Data.Database;
 import com.example.vromia.healthadvisor.Data.ESubstanceItem;
@@ -23,14 +23,14 @@ import com.example.vromia.healthadvisor.R;
 import com.example.vromia.healthadvisor.Utils.CustomPopUp;
 import com.example.vromia.healthadvisor.Utils.ScrollableGridView;
 
-import org.w3c.dom.Text;
-
 import java.util.ArrayList;
 
 
 public class ESubstanceActivity extends ActionBarActivity {
 
     ScrollableGridView gridView;
+    ListView sideEffects;
+    SideEffectsAdapter effectsAdapter;
     ImageAdapter adapter;
     Database database;
     ESubstanceItem item;
@@ -69,17 +69,18 @@ public class ESubstanceActivity extends ActionBarActivity {
         tvCompound.setText(item.getCompound());
         tvAttribute.setText(item.getAttributes());
 
-        for (String s : item.getSideEffects()) {
-            TextView tvSideEffect = new TextView(this);
-
-            Log.i("nikos", item.getSideEffects().size() + "");
-
-            String htmlS = "&#8226; " + s;
-
-            tvSideEffect.setText(Html.fromHtml(htmlS));
-
-            llSideEffects.addView(tvSideEffect);
-        }
+        setListViewHeightBasedOnChildren(sideEffects);
+//        for (String s : item.getSideEffects()) {
+//            TextView tvSideEffect = new TextView(this);
+//
+//            Log.i("nikos", item.getSideEffects().size() + "");
+//
+//            String htmlS = "&#8226; " + s;
+//
+//            tvSideEffect.setText(Html.fromHtml(htmlS));
+//
+//            llSideEffects.addView(tvSideEffect);
+//        }
 
     }
 
@@ -92,6 +93,10 @@ public class ESubstanceActivity extends ActionBarActivity {
         adapter.updateIcons(item.getCategories());
 
         gridView.setAdapter(adapter);
+
+        effectsAdapter = new SideEffectsAdapter(this, R.layout.list_row_side_effect, item.getSideEffects());
+        sideEffects.setAdapter(effectsAdapter);
+
     }
 
     private void initUI() {
@@ -101,10 +106,12 @@ public class ESubstanceActivity extends ActionBarActivity {
         tvAttribute = (TextView) findViewById(R.id.tvAttribute);
 
         llsubstance = (LinearLayout) findViewById(R.id.llesubstance);
-        llSideEffects = (LinearLayout) findViewById(R.id.llSideEffects);
+        //llSideEffects = (LinearLayout) findViewById(R.id.llSideEffects);
 
         gridView = (ScrollableGridView) findViewById(R.id.gvIcons);
         gridView.setExpanded(true);
+
+        sideEffects = (ListView) findViewById(R.id.lvSideEffects);
     }
 
     private void initListeners() {
@@ -116,7 +123,7 @@ public class ESubstanceActivity extends ActionBarActivity {
                 // set content view
                 TextView tv = new TextView(ESubstanceActivity.this);
                 tv.setText(item.getSideEffects().get(1));
-                tv.setPadding(20,20,20,20);
+                tv.setPadding(20, 20, 20, 20);
                 tv.setTextColor(Color.WHITE);
                 pop.setBackgroundDrawable(new ColorDrawable(0xb3111213));
                 pop.setContentView(tv);
@@ -130,6 +137,56 @@ public class ESubstanceActivity extends ActionBarActivity {
                 pop.setMarginScreen(50);
             }
         });
+
+    }
+
+    public static void setListViewHeightBasedOnChildren(ListView listView) {
+        ListAdapter listAdapter = listView.getAdapter();
+        if (listAdapter == null)
+            return;
+
+        int desiredWidth = View.MeasureSpec.makeMeasureSpec(listView.getWidth(), View.MeasureSpec.UNSPECIFIED);
+        int totalHeight = 0;
+        View view = null;
+        for (int i = 0; i < listAdapter.getCount(); i++) {
+            view = listAdapter.getView(i, view, listView);
+            if (i == 0)
+                view.setLayoutParams(new ViewGroup.LayoutParams(desiredWidth, ViewGroup.LayoutParams.WRAP_CONTENT));
+
+            view.measure(desiredWidth, View.MeasureSpec.UNSPECIFIED);
+            totalHeight += view.getMeasuredHeight();
+        }
+        ViewGroup.LayoutParams params = listView.getLayoutParams();
+        params.height = totalHeight + (listView.getDividerHeight() * (listAdapter.getCount() +5));
+        listView.setLayoutParams(params);
+        listView.requestLayout();
+    }
+
+    public class SideEffectsAdapter extends ArrayAdapter {
+
+        Context context;
+        int resource;
+        ArrayList<String> items;
+
+        public SideEffectsAdapter(Context context, int resource, ArrayList items) {
+            super(context, resource, items);
+            this.context = context;
+            this.resource = resource;
+            this.items = items;
+        }
+
+        @Override
+        public View getView(int position, View convertView, ViewGroup parent) {
+            if (convertView == null) {
+                LayoutInflater inflater = (LayoutInflater) context.getSystemService(LAYOUT_INFLATER_SERVICE);
+                convertView = inflater.inflate(resource, parent, false);
+            }
+            TextView tvText = (TextView) convertView.findViewById(R.id.tv_side_effect);
+            tvText.setText(items.get(position));
+
+
+            return convertView;
+        }
 
     }
 
