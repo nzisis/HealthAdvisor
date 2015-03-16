@@ -12,6 +12,8 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.PopupWindow;
 
+import com.example.vromia.healthadvisor.R;
+
 /**
  * Created by mr on 14-8-5.
  * An extended PopupWindow which could add a pointer to the anchor view.
@@ -40,6 +42,7 @@ public class CustomPopUp extends PopupWindow {
         mAnchorImage = new ImageView(context);
         mContent = new FrameLayout(context);
         setBackgroundDrawable(new ColorDrawable());
+        setAnimationStyle(R.style.Animation);
         setOutsideTouchable(true);
         setFocusable(true);
     }

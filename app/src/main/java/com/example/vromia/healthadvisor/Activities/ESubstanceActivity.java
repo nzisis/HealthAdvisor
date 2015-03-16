@@ -35,7 +35,7 @@ public class ESubstanceActivity extends ActionBarActivity {
     ImageAdapter adapter;
     Database database;
     ESubstanceItem item;
-
+    String [] desc;
     TextView tvName, tvState, tvCompound, tvAttribute;
     LinearLayout llsubstance, llSideEffects;
 
@@ -110,7 +110,7 @@ public class ESubstanceActivity extends ActionBarActivity {
 
         adapter = new ImageAdapter(this);
         adapter.updateIcons(item.getCategories());
-
+        desc = getResources().getStringArray(R.array.popup_desc);
         gridView.setAdapter(adapter);
 
         effectsAdapter = new SideEffectsAdapter(this, R.layout.list_row_side_effect, item.getSideEffects());
@@ -143,7 +143,7 @@ public class ESubstanceActivity extends ActionBarActivity {
                 // set content view
                 TextView tv = new TextView(ESubstanceActivity.this);
                 //tv.setText(item.getSideEffects().get(1));
-                tv.setText("Mhstos");
+                tv.setText(desc[position]);
                 tv.setPadding(20, 20, 20, 20);
                 tv.setTextColor(Color.WHITE);
                 pop.setBackgroundDrawable(new ColorDrawable(0xb3111213));
@@ -309,23 +309,30 @@ public class ESubstanceActivity extends ActionBarActivity {
         private Integer[] mThumbIds = {
                 R.mipmap.ic_safe,
                 R.mipmap.ic_genetic,
+                R.mipmap.ic_earth,
                 R.mipmap.ic_danger,
-                R.mipmap.ic_bio_hazzard,
-                R.mipmap.ic_avoid,
+                R.mipmap.ic_cancer,
                 R.mipmap.ic_animal,
+                R.mipmap.ic_head,
+                R.mipmap.ic_heart,
                 R.mipmap.ic_suspicious,
-                R.mipmap.ic_radio,
+                R.mipmap.ic_stomach,
+                R.mipmap.ic_skin,
         };
         // set by sql category
         private Integer[] mThumbIdsActive = {
                 R.mipmap.ic_safe_active,
                 R.mipmap.ic_genetic_active,
+                R.mipmap.ic_earth_active,
                 R.mipmap.ic_danger_active,
-                R.mipmap.ic_bio_hazzard_active,
-                R.mipmap.ic_avoid_active,
+                R.mipmap.ic_cancer_active,
                 R.mipmap.ic_animal_active,
+                R.mipmap.ic_head_active,
+                R.mipmap.ic_heart_active,
                 R.mipmap.ic_suspicious_active,
-                R.mipmap.ic_radio_active,
+                R.mipmap.ic_stomach_active,
+                R.mipmap.ic_skin_active,
+
         };
 
 
