@@ -2,114 +2,145 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    tools:context="com.example.vromia.healthadvisor.Activities.ESubstanceActivity">
+    tools:context="com.example.vromia.healthadvisor.Activities.ESubstanceActivity"
+    android:background="@color/app_background">
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:paddingLeft="@dimen/activity_horizontal_margin"
-        android:paddingRight="@dimen/activity_horizontal_margin"
-        android:paddingTop="@dimen/activity_vertical_margin"
-        android:paddingBottom="@dimen/activity_vertical_margin">
+        android:padding="10dp"
+        >
 
-        <LinearLayout
-            android:id="@+id/llesubstance"
-            android:layout_width="wrap_content"
+
+        <RelativeLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:padding="10dp"
-            android:background="@color/red">
+            android:id="@+id/rlName"
+            android:layout_margin="5dp">
 
-            <TextView
-                android:id="@+id/tv_esubstance"
-                android:text="E102"
+
+            <LinearLayout
+                android:id="@+id/llesubstance"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="25sp"
-                android:textColor="#000" />
+                android:orientation="horizontal"
+                android:padding="10dp"
+                android:background="@color/red">
 
-        </LinearLayout>
+                <TextView
+                    android:id="@+id/tv_esubstance"
+                    android:text="E102"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/ESubstanceTitle"
+                    android:textColor="#000" />
 
-        <TextView
-            android:id="@+id/tvState"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_toRightOf="@+id/llesubstance"
-            android:text="Dangerous"
-            android:textSize="20sp"
-            android:layout_marginLeft="10dp"
-            android:textColor="@color/red" />
+            </LinearLayout>
 
-        <TextView
-            android:id="@+id/tv_esubstance_compound"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/llesubstance"
-            android:layout_marginTop="10dp"
-            android:text="Tartazinh"
-            android:textColor="#000"
-            android:textSize="28sp"
-            android:textStyle="bold" />
+            <TextView
+                android:id="@+id/tvState"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/llesubstance"
+                android:text="Dangerous"
+                android:textSize="@dimen/ESubstanceState"
+                android:layout_marginLeft="10dp"
+                android:textColor="@color/red" />
+
+
+        </RelativeLayout>
+
 
         <LinearLayout
-            android:id="@+id/llAttributes"
+            android:id="@+id/llCompound"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:weightSum="2"
-            android:layout_below="@id/tv_esubstance_compound"
-            android:layout_marginTop="5dp"
-
-            >
+            android:orientation="vertical"
+            android:background="@drawable/card_view"
+            android:layout_below="@+id/rlName"
+            android:layout_margin="5dp">
 
             <TextView
+                android:id="@+id/tv_esubstance_compound"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Attributes:"
+                android:layout_marginTop="10dp"
+                android:text="Tartazinh"
                 android:textColor="#000"
-                android:textSize="20sp"
-                android:layout_weight="1.4"
+                android:textSize="@dimen/ESubstanceName"
                 android:textStyle="bold" />
 
-            <TextView
-                android:id="@+id/tvAttribute"
+            <LinearLayout
+                android:id="@+id/llAttributes"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Red"
-                android:textColor="#000"
-                android:textSize="20sp"
-                android:layout_weight="0.6"
+                android:orientation="horizontal"
+                android:weightSum="2"
+                android:layout_marginTop="5dp">
 
-                />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Attributes:"
+                    android:textColor="#000"
+                    android:textSize="@dimen/ESubstanceAttributes"
+                    android:layout_weight="1.3"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tvAttribute"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Red"
+                    android:textColor="#000"
+                    android:textSize="@dimen/ESubstanceAttributes"
+                    android:layout_weight="0.7"
+
+                    />
+
+            </LinearLayout>
+
 
         </LinearLayout>
+
 
         <com.example.vromia.healthadvisor.Utils.ScrollableGridView
             android:id="@+id/gvIcons"
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
-            android:layout_below="@+id/llAttributes"
-            android:layout_margin="4dp"
+            android:layout_below="@+id/llCompound"
+            android:layout_margin="5dp"
             android:gravity="center"
             android:isScrollContainer="false"
             android:numColumns="5"
             android:verticalSpacing="5dp"
-            android:stretchMode="columnWidth" />
+            android:stretchMode="columnWidth"
+            android:background="@drawable/card_view"
+
+            />
 
         <!--<LinearLayout-->
-            <!--android:id="@+id/llSideEffects"-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:layout_below="@id/gvIcons"-->
-            <!--android:orientation="vertical" />-->
+        <!--android:id="@+id/llSideEffects"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_below="@id/gvIcons"-->
+        <!--android:orientation="vertical" />-->
 
-        <ListView
-            android:id="@+id/lvSideEffects"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:dividerHeight="3dp"
-            android:divider="#00ffffff"
-            android:layout_below="@id/gvIcons"/>
+
+
+            <LinearLayout
+                android:id="@+id/lvSideEffects"
+                android:orientation="vertical"
+                android:layout_below="@+id/gvIcons"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:dividerHeight="3dp"
+                android:divider="#00ffffff"
+                android:layout_margin="5dp"
+                android:background="@drawable/card_view"
+                />
+
+
 
 
     </RelativeLayout>

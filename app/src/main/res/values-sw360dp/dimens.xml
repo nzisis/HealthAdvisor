@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-
     <dimen name="ESubstanceTitle">35sp</dimen>
     <dimen name="ESubstanceState">25sp</dimen>
     <dimen name="ESubstanceName">30sp</dimen>
