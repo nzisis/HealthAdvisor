@@ -14,8 +14,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
-import android.widget.RadioButton;
-import android.widget.RadioGroup;
 import android.widget.TextView;
 
 import com.example.vromia.healthadvisor.Data.Database;
@@ -65,7 +63,7 @@ public class DiseaseActivity extends ActionBarActivity {
         for (int i = 0; i < diseaseItems.size(); i++) {
             getSupportActionBar().addTab(
                     getSupportActionBar().newTab()
-                            .setText(diseaseItems.get(i).getSubstance())
+                            .setText(diseaseItems.get(i).getSubstance().get(0))
                             .setTabListener(tabListener));
         }
 
@@ -248,49 +246,74 @@ public class DiseaseActivity extends ActionBarActivity {
             RadioGroup effects = (RadioGroup) rootView.findViewById(R.id.radioGroupEffects);
             RadioGroup side_effects = (RadioGroup) rootView.findViewById(R.id.radioGroupSideEffects);
 */
-             LinearLayout llSource,llEffects,llSideEffects;
+            LinearLayout llSource, llEffects, llSideEffects, llGeneral;
+            TextView tvOrigin;
 
-             llSource=(LinearLayout)rootView.findViewById(R.id.llSource);
-             llEffects=(LinearLayout)rootView.findViewById(R.id.llEffect);
-             llSideEffects=(LinearLayout)rootView.findViewById(R.id.llSideEffect);
+            llSource = (LinearLayout) rootView.findViewById(R.id.llSource);
+            llEffects = (LinearLayout) rootView.findViewById(R.id.llEffect);
+            llSideEffects = (LinearLayout) rootView.findViewById(R.id.llSideEffect);
+            llGeneral = (LinearLayout) rootView.findViewById(R.id.llGeneral);
+
+            tvOrigin = (TextView) rootView.findViewById(R.id.tvOrigin);
+
 
             DiseaseItem diseaseItem = null;
+
+
             for (int i = 0; i < items.size(); i++) {
                 if (items.get(i).getId() == id) {
                     diseaseItem = items.get(i);
                 }
             }
 
+            if (diseaseItem.getSubstance().get(1).trim().equals("natural")) {
+                tvOrigin.setText("Natural Origin");
+                tvOrigin.setCompoundDrawablesWithIntrinsicBounds(getResources().getDrawable(R.mipmap.ic_nature), null, null, null);
+                tvOrigin.setCompoundDrawablePadding(20);
+            } else {
+                tvOrigin.setText("Chemical Origin");
+                tvOrigin.setCompoundDrawablesWithIntrinsicBounds(getResources().getDrawable(R.mipmap.ic_chemical), null, null, null);
+                tvOrigin.setCompoundDrawablePadding(20);
+            }
 
-
-
+            if (!diseaseItem.getSubstance().get(2).trim().equals("0")) {
+                TextView tvChemicalName = new TextView(getActivity());
+                tvChemicalName.setText("Compound : " + diseaseItem.getSubstance().get(2));
+                tvChemicalName.setTextSize(getResources().getInteger(R.integer.DiseaseItemInt));
+                tvChemicalName.setPadding(10 , 10 , 10 , 10);
+                llGeneral.addView(tvChemicalName);
+            }
+            if (!diseaseItem.getSubstance().get(3).trim().equals("0")) {
+                TextView tvChemicalName = new TextView(getActivity());
+                tvChemicalName.setText("Trade Name : " + diseaseItem.getSubstance().get(3));
+                tvChemicalName.setTextSize(getResources().getInteger(R.integer.DiseaseItemInt));
+                tvChemicalName.setPadding(10 , 10 , 10 , 10);
+                llGeneral.addView(tvChemicalName);
+            }
 
 
             for (int i = 0; i < diseaseItem.getSources().size(); i++) {
 
-                View view=inflater.inflate(R.layout.list_row_side_effect,container,false);
-                TextView tvsource = (TextView)view.findViewById(R.id.tv_side_effect);
+                View view = inflater.inflate(R.layout.list_row_side_effect, container, false);
+                TextView tvsource = (TextView) view.findViewById(R.id.tv_side_effect);
                 tvsource.setText(diseaseItem.getSources().get(i));
                 llSource.addView(view);
             }
 
 
-
-
             for (int i = 0; i < diseaseItem.getEffects().size(); i++) {
 
-                View view=inflater.inflate(R.layout.list_row_side_effect,container,false);
-                TextView tvsource = (TextView)view.findViewById(R.id.tv_side_effect);
+                View view = inflater.inflate(R.layout.list_row_side_effect, container, false);
+                TextView tvsource = (TextView) view.findViewById(R.id.tv_side_effect);
                 tvsource.setText(diseaseItem.getEffects().get(i));
                 llEffects.addView(view);
             }
 
 
-
             for (int i = 0; i < diseaseItem.getSide_effects().size(); i++) {
 
-                View view=inflater.inflate(R.layout.list_row_side_effect,container,false);
-                TextView tvsource = (TextView)view.findViewById(R.id.tv_side_effect);
+                View view = inflater.inflate(R.layout.list_row_side_effect, container, false);
+                TextView tvsource = (TextView) view.findViewById(R.id.tv_side_effect);
                 tvsource.setText(diseaseItem.getSide_effects().get(i));
                 llSideEffects.addView(view);
             }

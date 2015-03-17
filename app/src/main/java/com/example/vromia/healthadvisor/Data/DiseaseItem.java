@@ -9,15 +9,15 @@ public class DiseaseItem {
 
     private int id;
     private String name;
-    private String substance;
+    private ArrayList<String> substance;
     private ArrayList<String> sources;
     private ArrayList<Integer> categories;
     private ArrayList<String> effects;
     private ArrayList<String> side_effects;
 
-    public DiseaseItem(String name,String substance){
-        this.name=name;
-        this.substance=substance;
+    public DiseaseItem(String name){
+        this.name = name;
+        this.substance = new ArrayList<>();
         sources=new ArrayList<>();
         categories=new ArrayList<>();
         effects=new ArrayList<>();
@@ -50,7 +50,7 @@ public class DiseaseItem {
         return name;
     }
 
-    public String getSubstance(){
+    public ArrayList<String> getSubstance(){
         return substance;
     }
 
@@ -70,6 +70,12 @@ public class DiseaseItem {
         return categories;
     }
 
+    public void setName(String s){
+        name = s;
+    }
+    public void addSubstance(String s){
+        substance.add(s);
+    }
 
     public int getId(){
         return id;

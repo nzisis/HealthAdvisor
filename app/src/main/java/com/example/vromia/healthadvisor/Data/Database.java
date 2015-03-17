@@ -175,8 +175,15 @@ public class Database extends SQLiteOpenHelper {
               String side_effects=c.getString(5);
               String categories=c.getString(6);
 
-              DiseaseItem item=new DiseaseItem(nameOfDisease,substance);
+              DiseaseItem item=new DiseaseItem(nameOfDisease);
               item.setId(Integer.parseInt(c.getString(0)));
+
+              String nameElements[]=substance.split("-");
+
+              for(int i=0; i<nameElements.length; i++){
+                  Log.i("test" , "added" + nameElements[i]);
+                  item.addSubstance(nameElements[i]);
+              }
 
               String sourcesElements[]=sources.split("-");
               for(int i=0; i<sourcesElements.length; i++){

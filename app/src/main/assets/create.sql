@@ -19,11 +19,10 @@
 
 
 
-
-   INSERT INTO diseases (name,substance,source,effect,side_effect,category) VALUES ("cold","vitamin C","cole,citrus","protect from infections","none","0-2-4");
-   INSERT INTO diseases (name,substance,source,effect,side_effect,category) VALUES ("cold","Echinachea","plant-herb","alithies","not for children under the age of 4","0-2-4");
-   INSERT INTO diseases (name,substance,source,effect,side_effect,category) VALUES ("elafria kapsimata","prwteines tupou alvouminwn","aspradi augvn","einai proteines megalis viologikis a3ias-kati allo","none","1-3");
-   INSERT INTO diseases (name,substance,source,effect,side_effect,category) VALUES ("ponodontos","mh steroeidh antiflegmonodi","farmakeutika skeusmata","analgitiki kai antipiretiki drash","kardiaka episodia","3");
+   INSERT INTO diseases (name,substance,source,effect,side_effect,category) VALUES ("Cold","Vitamin C-natural-0-0","cole,citrus","protect from infections","none","0-2-4");
+   INSERT INTO diseases (name,substance,source,effect,side_effect,category) VALUES ("Cold","Echinachea -natural-0-0","plant-herb","alithies","not for children under the age of 4","0-2-4");
+   INSERT INTO diseases (name,substance,source,effect,side_effect,category) VALUES ("High Fever","Paracetamol-chemical-0- Depon, panadol, apotel etc.","aspradi augvn","einai proteines megalis viologikis a3ias-kati allo","none","1-3");
+   INSERT INTO diseases (name,substance,source,effect,side_effect,category) VALUES ("High Fever","Aspirin-chemical-Acetylsalicylic acid-0 ","farmakeutika skeusmata","analgitiki kai antipiretiki drash","kardiaka episodia","3");
 
 
 

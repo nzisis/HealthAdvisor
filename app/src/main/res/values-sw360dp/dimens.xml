@@ -15,6 +15,9 @@
     <dimen name="DiseaseRowItem">20sp</dimen>
     <dimen name="CategoryHeader">22sp</dimen>
     <dimen name="DiseaseHeader">25sp</dimen>
+    <dimen name="DiseaseItem">20sp</dimen>
+    <integer name="DiseaseItemInt">20</integer>
+
 
     <integer name="popup_width">400</integer>
 
