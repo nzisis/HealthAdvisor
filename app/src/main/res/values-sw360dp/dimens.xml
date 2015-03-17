@@ -8,7 +8,7 @@
     <dimen name="ESubstanceSideEffect">22sp</dimen>
     <dimen name="BulletWidth">40dp</dimen>
     <dimen name="ESubstanceCardMargin">5dp</dimen>
-    <dimen name="ESubstanceCardPadding">5dp</dimen>
+    <dimen name="ESubstanceCardPadding">10dp</dimen>
     <dimen name="MainPadding">16dp</dimen>
     <dimen name="ESubstanceRowItemTitle">24sp</dimen>
     <dimen name="ESubstanceRowItemName">20sp</dimen>

@@ -5,7 +5,6 @@ import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,8 +13,6 @@ import android.widget.ArrayAdapter;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.ListAdapter;
-import android.widget.ListView;
 import android.widget.TextView;
 
 import com.example.vromia.healthadvisor.Data.Database;
@@ -35,7 +32,7 @@ public class ESubstanceActivity extends ActionBarActivity {
     ImageAdapter adapter;
     Database database;
     ESubstanceItem item;
-    String [] desc;
+    String[] desc;
     TextView tvName, tvState, tvCompound, tvAttribute;
     LinearLayout llsubstance, llSideEffects;
 
@@ -71,16 +68,15 @@ public class ESubstanceActivity extends ActionBarActivity {
         tvAttribute.setText(item.getAttributes());
 
 
-            LayoutInflater inflater = (LayoutInflater) this.getSystemService(LAYOUT_INFLATER_SERVICE);
-          for(int i=0; i<item.getSideEffects().size(); i++){
+        LayoutInflater inflater = (LayoutInflater) this.getSystemService(LAYOUT_INFLATER_SERVICE);
+        for (int i = 0; i < item.getSideEffects().size(); i++) {
 
-              View view=inflater.inflate(R.layout.list_row_side_effect,llSideEffects,false);
-              TextView tvText = (TextView) view.findViewById(R.id.tv_side_effect);
-              tvText.setText(item.getSideEffects().get(i));
-              llSideEffects.addView(view);
+            View view = inflater.inflate(R.layout.list_row_side_effect, llSideEffects, false);
+            TextView tvText = (TextView) view.findViewById(R.id.tv_side_effect);
+            tvText.setText(item.getSideEffects().get(i));
+            llSideEffects.addView(view);
 
-          }
-
+        }
 
 
     }
@@ -141,7 +137,6 @@ public class ESubstanceActivity extends ActionBarActivity {
         });
 
     }
-
 
 
     public class SideEffectsAdapter extends ArrayAdapter {
@@ -211,6 +206,7 @@ public class ESubstanceActivity extends ActionBarActivity {
         private Integer[] mThumbIds = {
                 R.mipmap.ic_safe,
                 R.mipmap.ic_genetic,
+                R.mipmap.ic_allergy,
                 R.mipmap.ic_earth,
                 R.mipmap.ic_danger,
                 R.mipmap.ic_cancer,
@@ -218,6 +214,7 @@ public class ESubstanceActivity extends ActionBarActivity {
                 R.mipmap.ic_head,
                 R.mipmap.ic_heart,
                 R.mipmap.ic_suspicious,
+                R.mipmap.forbidden,
                 R.mipmap.ic_stomach,
                 R.mipmap.ic_skin,
         };
@@ -225,6 +222,7 @@ public class ESubstanceActivity extends ActionBarActivity {
         private Integer[] mThumbIdsActive = {
                 R.mipmap.ic_safe_active,
                 R.mipmap.ic_genetic_active,
+                R.mipmap.ic_allergy_active,
                 R.mipmap.ic_earth_active,
                 R.mipmap.ic_danger_active,
                 R.mipmap.ic_cancer_active,
@@ -232,6 +230,7 @@ public class ESubstanceActivity extends ActionBarActivity {
                 R.mipmap.ic_head_active,
                 R.mipmap.ic_heart_active,
                 R.mipmap.ic_suspicious_active,
+                R.mipmap.forbidden_active,
                 R.mipmap.ic_stomach_active,
                 R.mipmap.ic_skin_active,
 
