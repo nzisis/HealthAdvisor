@@ -26,14 +26,19 @@
     </string-array>
 
     <string-array name="popup_desc">
-        <item>string 1</item>
-        <item>string 2</item>
-        <item>string 3</item>
-        <item>string 4</item>
-        <item>string 5</item>
-        <item>string 6</item>
-        <item>string 7</item>
-        <item>string 8</item>
+        <item>Considered Safe</item>
+        <item>Likely to be genetically modified (GM)</item>
+        <item>Possible allergic reaction</item>
+        <item>Forbidden in some parts of the western world</item>
+        <item>Dangerous</item>
+        <item>Cancer</item>
+        <item>Animal origin</item>
+        <item>May cause headaches</item>
+        <item>May increase blood pressure</item>
+        <item>Suspicious</item>
+        <item>Forbidden</item>
+        <item>Intestine Upset</item>
+        <item>Skin Disorders</item>
     </string-array>
 
 

@@ -16,4 +16,6 @@
     <dimen name="CategoryHeader">22sp</dimen>
     <dimen name="DiseaseHeader">25sp</dimen>
 
+    <integer name="popup_width">400</integer>
+
 </resources>

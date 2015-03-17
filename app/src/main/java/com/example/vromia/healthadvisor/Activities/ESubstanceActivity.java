@@ -116,7 +116,8 @@ public class ESubstanceActivity extends ActionBarActivity {
             public void onItemClick(AdapterView<?> parent, View v, int position, long id) {
                 //Toast.makeText(ESubstanceActivity.this, "" + position, Toast.LENGTH_SHORT).show();
                 // create window
-                CustomPopUp pop = new CustomPopUp(ESubstanceActivity.this, 200);//specify the window width explicitly
+                CustomPopUp pop = new CustomPopUp(ESubstanceActivity.this, getResources().getInteger(R.integer.popup_width));//specify the window width explicitly
+
                 // set content view
                 TextView tv = new TextView(ESubstanceActivity.this);
                 //tv.setText(item.getSideEffects().get(1));
