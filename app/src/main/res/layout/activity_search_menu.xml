@@ -1,8 +1,6 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
-    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    tools:context="com.example.vromia.healthadvisor.Activities.SearchMenuActivity">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
 
     <LinearLayout
@@ -11,8 +9,7 @@
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true"
-        android:weightSum="2"
-        >
+        android:weightSum="2">
 
         <Button
             android:id="@+id/bSearchByName"
@@ -24,8 +21,7 @@
             android:padding="20dp"
             android:layout_gravity="center"
             android:layout_marginBottom="30dp"
-            android:background="@color/red"
-            />
+            android:background="@color/red" />
 
         <Button
             android:id="@+id/bSearchByCategory"
@@ -41,7 +37,7 @@
             />
 
 
-        </LinearLayout>
+    </LinearLayout>
 
 
 </RelativeLayout>
