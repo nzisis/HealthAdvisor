@@ -6,7 +6,6 @@ import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.ExpandableListAdapter;
 import android.widget.ExpandableListView;
 
@@ -14,7 +13,6 @@ import com.example.vromia.healthadvisor.Data.Database;
 import com.example.vromia.healthadvisor.R;
 import com.example.vromia.healthadvisor.Utils.CategoryViewAdapter;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
@@ -53,7 +51,7 @@ public class CategoryViewActivity extends ActionBarActivity {
             @Override
             public boolean onChildClick(ExpandableListView parent, View v, int groupPosition, int childPosition, long id) {
                 String diseaseName = (String) listAdapter.getChild(groupPosition , childPosition);
-                Intent i = new Intent(CategoryViewActivity.this , DiseaseActivity2.class);
+                Intent i = new Intent(CategoryViewActivity.this , DiseaseActivity.class);
                 i.putExtra("name" , diseaseName);
                 startActivity(i);
                 return true;

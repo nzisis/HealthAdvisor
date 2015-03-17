@@ -30,7 +30,7 @@ import java.util.ArrayList;
 public class ESubstanceActivity extends ActionBarActivity {
 
     ScrollableGridView gridView;
-    LinearLayout sideEffects;
+    //LinearLayout sideEffects;
     SideEffectsAdapter effectsAdapter;
     ImageAdapter adapter;
     Database database;
@@ -77,29 +77,11 @@ public class ESubstanceActivity extends ActionBarActivity {
               View view=inflater.inflate(R.layout.list_row_side_effect,llSideEffects,false);
               TextView tvText = (TextView) view.findViewById(R.id.tv_side_effect);
               tvText.setText(item.getSideEffects().get(i));
-              sideEffects.addView(view);
+              llSideEffects.addView(view);
 
           }
 
-     //   TextView tvText = (TextView) convertView.findViewById(R.id.tv_side_effect);
-      //  tvText.setText(items.get(position));
 
-
-
-
-
-        // setListViewHeightBasedOnChildren(sideEffects);
-//        for (String s : item.getSideEffects()) {
-//            TextView tvSideEffect = new TextView(this);
-//
-//            Log.i("nikos", item.getSideEffects().size() + "");
-//
-//            String htmlS = "&#8226; " + s;
-//
-//            tvSideEffect.setText(Html.fromHtml(htmlS));
-//
-//            llSideEffects.addView(tvSideEffect);
-//        }
 
     }
 
@@ -125,12 +107,11 @@ public class ESubstanceActivity extends ActionBarActivity {
         tvAttribute = (TextView) findViewById(R.id.tvAttribute);
 
         llsubstance = (LinearLayout) findViewById(R.id.llesubstance);
-        //llSideEffects = (LinearLayout) findViewById(R.id.llSideEffects);
 
         gridView = (ScrollableGridView) findViewById(R.id.gvIcons);
         gridView.setExpanded(true);
 
-        sideEffects = (LinearLayout) findViewById(R.id.lvSideEffects);
+        llSideEffects = (LinearLayout) findViewById(R.id.llSideEffects);
 
     }
 
@@ -161,86 +142,7 @@ public class ESubstanceActivity extends ActionBarActivity {
 
     }
 
-    public static void setListViewHeightBasedOnChildren(ListView listView) {
 
-/*
-        ListAdapter listAdapter = listView.getAdapter();
-        if (listAdapter == null ) {
-            // pre-condition
-            return;
-        }
-
-        int totalHeight = 0;
-        int widthMeasureSpec = View.MeasureSpec.makeMeasureSpec(listView.getWidth(), View.MeasureSpec.AT_MOST);
-        int heightMeasureSpec = View.MeasureSpec.makeMeasureSpec(0, View.MeasureSpec.UNSPECIFIED);
-        ViewGroup.LayoutParams lp = new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-
-        for (int i = 0; i < listAdapter.getCount(); i++) {
-            View listItem = listAdapter.getView(i, null, listView);
-
-            if (listItem instanceof ViewGroup) listItem.setLayoutParams(lp);
-            listItem.measure(widthMeasureSpec, heightMeasureSpec);
-            totalHeight += listItem.getMeasuredHeight();
-        }
-
-        totalHeight += listView.getPaddingTop() + listView.getPaddingBottom();
-        totalHeight += (listView.getDividerHeight() * (listAdapter.getCount() - 1));
-        ViewGroup.LayoutParams params = listView.getLayoutParams();
-        params.height = totalHeight;
-        listView.setLayoutParams(params);
-        listView.requestLayout();
-        */
-        /*
-
-        ListAdapter listAdapter = listView.getAdapter();
-        if (listAdapter == null)
-            return;
-
-        int numberOfItems = listAdapter.getCount();
-
-        // Get total height of all items.
-        int totalItemsHeight = 0;
-        for (int itemPos = 0; itemPos < numberOfItems; itemPos++) {
-            View item = listAdapter.getView(itemPos, null, listView);
-            item.measure(View.MeasureSpec.UNSPECIFIED, View.MeasureSpec.UNSPECIFIED);
-            Log.i("Nikos",(itemPos+1)+item.getMeasuredHeight()+"");
-            totalItemsHeight += item.getMeasuredHeight();
-        }
-
-        // Get total height of all item dividers.
-        int totalDividersHeight = listView.getDividerHeight() *
-                (numberOfItems );
-
-        // Set list height.
-        ViewGroup.LayoutParams params = listView.getLayoutParams();
-        params.height = totalItemsHeight + totalDividersHeight;
-        listView.setLayoutParams(params);
-        listView.requestLayout();
-
-*/
-
-
-        ListAdapter listAdapter = listView.getAdapter();
-        if (listAdapter == null)
-            return;
-
-        int desiredWidth = View.MeasureSpec.makeMeasureSpec(listView.getWidth(), View.MeasureSpec.UNSPECIFIED);
-        int totalHeight = listView.getPaddingTop() + listView.getPaddingBottom();
-        View view = null;
-        for (int i = 0; i < listAdapter.getCount(); i++) {
-            view = listAdapter.getView(i, view, listView);
-            if (view instanceof ViewGroup)
-                view.setLayoutParams(new ViewGroup.LayoutParams(desiredWidth, ViewGroup.LayoutParams.WRAP_CONTENT));
-
-            view.measure(desiredWidth, View.MeasureSpec.UNSPECIFIED);
-            totalHeight += view.getMeasuredHeight();
-        }
-        ViewGroup.LayoutParams params = listView.getLayoutParams();
-        params.height = totalHeight + (listView.getDividerHeight() * (listAdapter.getCount() -1));
-        listView.setLayoutParams(params);
-        listView.requestLayout();
-
-    }
 
     public class SideEffectsAdapter extends ArrayAdapter {
 

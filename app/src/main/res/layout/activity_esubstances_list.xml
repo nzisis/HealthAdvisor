@@ -1,13 +1,10 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.vromia.healthadvisor.Activities.ESubstancesListActivity">
+    android:padding="@dimen/MainPadding"
+    android:focusableInTouchMode="true"
+    >
 
-    <RelativeLayout
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/edit_text_linear"
-        >
 
 
         <EditText
@@ -17,27 +14,18 @@
             android:layout_centerVertical="true"
             android:inputType="number"
             android:hint="Search here"
+            android:drawableLeft="@android:drawable/ic_menu_search"
+            android:selectAllOnFocus="true"
+            android:layout_alignParentTop="true"
             />
 
-        <ImageButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/ib_esubstances"
-            android:src="@android:drawable/ic_menu_search"
-            android:padding="10dp"
-            android:layout_alignTop="@id/et_esubstances"
-            android:layout_alignBottom="@id/et_esubstances"
-            android:layout_alignRight="@id/et_esubstances"
-            />
-
-    </RelativeLayout>
 
 
     <ListView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/lv_esubstances_list"
-        android:layout_below="@id/edit_text_linear"
+        android:layout_below="@id/et_esubstances"
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentLeft="true"

@@ -39,9 +39,7 @@
         <activity
             android:name=".Activities.ESubstanceActivity"
             android:label="@string/title_activity_esubstance"></activity>
-        <activity
-            android:name=".Activities.DiseaseActivity2"
-            android:label="@string/title_activity_disease_activity2"></activity>
+
     </application>
 
 </manifest>

@@ -8,7 +8,7 @@
 
     <ImageView
         android:id="@+id/ivBullet"
-        android:layout_width="40dp"
+        android:layout_width="@dimen/BulletWidth"
         android:layout_height="match_parent"
         android:src="@drawable/bullet"/>
 
@@ -17,34 +17,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_toRightOf="@+id/ivBullet"
-        android:textSize="22sp"
-
-
+        android:textSize="@dimen/ESubstanceSideEffect"
         />
 
 
-</RelativeLayout><!--
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="horizontal" android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:weightSum="1">
-
-    <ImageView
-        android:layout_width="0dp"
-        android:layout_height="match_parent"
-        android:layout_weight="0.2"
-        android:src="@drawable/bullet"/>
-
-    <TextView
-        android:id="@+id/tv_side_effect"
-        android:layout_width="0dp"
-        android:layout_height="match_parent"
-        android:layout_weight="0.8"
-        android:textSize="15sp"
-        android:layout_margin="8dp"
-
-        />
-
-</LinearLayout>
-
-        -->
+</RelativeLayout>

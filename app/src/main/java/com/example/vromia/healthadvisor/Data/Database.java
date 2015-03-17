@@ -155,7 +155,7 @@ public class Database extends SQLiteOpenHelper {
     }
 
     public Cursor getAllDiseasesDependOnName(String name){
-        return getReadableDatabase().rawQuery("SELECT * " + " FROM "+ "diseases "+" WHERE name LIKE '%" + name + "%'",null);
+        return getReadableDatabase().rawQuery("SELECT * " + " FROM "+ "diseases "+" WHERE name LIKE '%" + name + "%'" + " GROUP BY name" ,null);
     }
 
 

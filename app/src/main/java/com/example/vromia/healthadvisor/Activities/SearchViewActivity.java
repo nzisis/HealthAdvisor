@@ -78,7 +78,7 @@ public class SearchViewActivity extends ActionBarActivity {
                 cursor.moveToPosition(position);
                 stopManagingCursor(cursor);
                 String nameOfDisease = cursor.getString(1);
-                Intent i = new Intent(SearchViewActivity.this, DiseaseActivity2.class);
+                Intent i = new Intent(SearchViewActivity.this, DiseaseActivity.class);
                 i.putExtra("name", nameOfDisease);
                 startActivity(i);
 

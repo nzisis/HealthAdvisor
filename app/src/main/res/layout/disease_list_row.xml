@@ -9,6 +9,9 @@
         android:id="@+id/tvName"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:gravity="center" />
+        android:gravity="center"
+        android:textSize="@dimen/DiseaseRowItem"
+        android:textStyle="bold"
+        />
 
 </LinearLayout>

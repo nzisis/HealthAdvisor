@@ -58,7 +58,9 @@
             android:orientation="vertical"
             android:background="@drawable/card_view"
             android:layout_below="@+id/rlName"
-            android:layout_margin="5dp">
+            android:layout_margin="@dimen/ESubstanceCardMargin"
+            android:padding="@dimen/ESubstanceCardPadding"
+            >
 
             <TextView
                 android:id="@+id/tv_esubstance_compound"
@@ -109,34 +111,27 @@
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
             android:layout_below="@+id/llCompound"
-            android:layout_margin="5dp"
             android:gravity="center"
             android:isScrollContainer="false"
             android:numColumns="5"
             android:verticalSpacing="5dp"
             android:stretchMode="columnWidth"
             android:background="@drawable/card_view"
-
+            android:padding="@dimen/ESubstanceCardPadding"
+            android:layout_margin="@dimen/ESubstanceCardMargin"
             />
-
-        <!--<LinearLayout-->
-        <!--android:id="@+id/llSideEffects"-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:layout_below="@id/gvIcons"-->
-        <!--android:orientation="vertical" />-->
 
 
 
             <LinearLayout
-                android:id="@+id/lvSideEffects"
+                android:id="@+id/llSideEffects"
                 android:orientation="vertical"
                 android:layout_below="@+id/gvIcons"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:dividerHeight="3dp"
                 android:divider="#00ffffff"
-                android:layout_margin="5dp"
+                android:layout_margin="@dimen/ESubstanceCardMargin"
                 android:background="@drawable/card_view"
                 />
 
