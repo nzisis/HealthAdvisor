@@ -13,6 +13,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
@@ -40,11 +41,12 @@ public class DiseaseActivity extends ActionBarActivity {
      * The {@link ViewPager} that will host the section contents.
      */
     private ViewPager mViewPager;
-    private TextView tvDiseaseName;
+
 
     private ArrayList<DiseaseItem> diseaseItems;
     private Database db;
     private ActionBar.TabListener tabListener;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,6 +57,9 @@ public class DiseaseActivity extends ActionBarActivity {
         initUI();
         init();
         initListeners();
+
+
+        getSupportActionBar().setTitle(diseaseItems.get(0).getName());
 
 
         for (int i = 0; i < diseaseItems.size(); i++) {
@@ -68,10 +73,7 @@ public class DiseaseActivity extends ActionBarActivity {
 
 
     private void initUI() {
-
-        tvDiseaseName = (TextView) findViewById(R.id.tvDiseaseName);
         mViewPager = (ViewPager) findViewById(R.id.pager);
-
 
     }
 
@@ -82,8 +84,6 @@ public class DiseaseActivity extends ActionBarActivity {
         db = new Database(DiseaseActivity.this);
         diseaseItems = db.getDiseaseBasedOnName(name);
 
-
-        tvDiseaseName.setText(diseaseItems.get(0).getName());
 
         getSupportActionBar().setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
 
@@ -243,10 +243,16 @@ public class DiseaseActivity extends ActionBarActivity {
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                                  Bundle savedInstanceState) {
             View rootView = inflater.inflate(R.layout.fragment_disease_activity2, container, false);
-
+/*
             RadioGroup source = (RadioGroup) rootView.findViewById(R.id.radioGroupSource);
             RadioGroup effects = (RadioGroup) rootView.findViewById(R.id.radioGroupEffects);
             RadioGroup side_effects = (RadioGroup) rootView.findViewById(R.id.radioGroupSideEffects);
+*/
+             LinearLayout llSource,llEffects,llSideEffects;
+
+             llSource=(LinearLayout)rootView.findViewById(R.id.llSource);
+             llEffects=(LinearLayout)rootView.findViewById(R.id.llEffect);
+             llSideEffects=(LinearLayout)rootView.findViewById(R.id.llSideEffect);
 
             DiseaseItem diseaseItem = null;
             for (int i = 0; i < items.size(); i++) {
@@ -255,12 +261,43 @@ public class DiseaseActivity extends ActionBarActivity {
                 }
             }
 
+
+
+
+
+
             for (int i = 0; i < diseaseItem.getSources().size(); i++) {
-                RadioButton rb = new RadioButton(rootView.getContext());
-                rb.setText(diseaseItem.getSources().get(i));
-                source.addView(rb);
+
+                View view=inflater.inflate(R.layout.list_row_side_effect,container,false);
+                TextView tvsource = (TextView)view.findViewById(R.id.tv_side_effect);
+                tvsource.setText(diseaseItem.getSources().get(i));
+                llSource.addView(view);
             }
 
+
+
+
+            for (int i = 0; i < diseaseItem.getEffects().size(); i++) {
+
+                View view=inflater.inflate(R.layout.list_row_side_effect,container,false);
+                TextView tvsource = (TextView)view.findViewById(R.id.tv_side_effect);
+                tvsource.setText(diseaseItem.getEffects().get(i));
+                llEffects.addView(view);
+            }
+
+
+
+            for (int i = 0; i < diseaseItem.getSide_effects().size(); i++) {
+
+                View view=inflater.inflate(R.layout.list_row_side_effect,container,false);
+                TextView tvsource = (TextView)view.findViewById(R.id.tv_side_effect);
+                tvsource.setText(diseaseItem.getSide_effects().get(i));
+                llSideEffects.addView(view);
+            }
+
+
+
+/*
 
             for (int i = 0; i < diseaseItem.getEffects().size(); i++) {
                 RadioButton rb = new RadioButton(rootView.getContext());
@@ -275,7 +312,7 @@ public class DiseaseActivity extends ActionBarActivity {
                 rb.setText(diseaseItem.getSide_effects().get(i));
                 side_effects.addView(rb);
             }
-
+*/
 
             return rootView;
         }

@@ -1,6 +1,10 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:padding="@dimen/MainPadding"
+    android:background="@color/app_background"
+    >
+
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -8,110 +12,184 @@
         android:orientation="vertical"
         android:padding="5dp">
 
-        <!--<TextView android:id="@+id/section_label" android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:text="section"/>-->
-
         <LinearLayout
+            android:id="@+id/llSource"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:padding="5dp"
-            android:weightSum="3">
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_margin="@dimen/ESubstanceCardMargin"
+            android:padding="@dimen/ESubstanceCardPadding"
+            android:background="@drawable/card_view"
+            >
 
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_weight="2"
-                android:src="@drawable/source" />
+
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="fill_parent"
                 android:text="Main Source"
-                android:textColor="#ff7f00"
-                android:textSize="30sp"
-                android:gravity="center"
-                android:layout_weight="1" />
+                android:textSize="@dimen/DiseaseHeader"
+                 android:gravity="center_vertical"
+                android:layout_weight="1"
+                android:drawableLeft="@drawable/source"
+                android:drawablePadding="10dp"
+                />
+
 
         </LinearLayout>
 
-        <RadioGroup
-            android:id="@+id/radioGroupSource"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="10dp">
-
-
-        </RadioGroup>
 
         <LinearLayout
+            android:id="@+id/llEffect"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:padding="5dp"
-            android:weightSum="3">
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_margin="@dimen/ESubstanceCardMargin"
+            android:padding="@dimen/ESubstanceCardPadding"
+            android:background="@drawable/card_view"
+            >
 
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_weight="2"
-                android:src="@mipmap/ic_avoid" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="fill_parent"
                 android:text="Effects"
-                android:textColor="#ff7f00"
-                android:textSize="30sp"
-                android:gravity="center"
-                android:layout_weight="1" />
+                android:textSize="@dimen/DiseaseHeader"
+                android:gravity="center_vertical"
+                android:layout_weight="1"
+                android:drawableLeft="@drawable/source"
+                android:drawablePadding="10dp"
+                />
+
 
         </LinearLayout>
 
-        <RadioGroup
-            android:id="@+id/radioGroupEffects"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="10dp">
-
-
-
-        </RadioGroup>
-
         <LinearLayout
+            android:id="@+id/llSideEffect"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:padding="5dp"
-            android:weightSum="3">
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_margin="@dimen/ESubstanceCardMargin"
+            android:padding="@dimen/ESubstanceCardPadding"
+            android:background="@drawable/card_view">
 
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_weight="2"
-                android:src="@mipmap/ic_danger" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="fill_parent"
                 android:text="Side Effects"
-                android:textColor="#ff7f00"
-                android:textSize="30sp"
-                android:gravity="center"
-                android:layout_weight="1" />
+                android:textSize="@dimen/DiseaseHeader"
+                android:gravity="center_vertical"
+                android:layout_weight="1"
+                android:drawableLeft="@drawable/source"
+                android:drawablePadding="10dp"
+                />
+
 
         </LinearLayout>
 
-        <RadioGroup
-            android:id="@+id/radioGroupSideEffects"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="10dp">
 
-
-
-        </RadioGroup>
 
     </LinearLayout>
+
+    <!--<LinearLayout-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:orientation="horizontal"-->
+    <!--android:padding="5dp"-->
+    <!--android:weightSum="3">-->
+
+    <!--<ImageView-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="50dp"-->
+    <!--android:layout_weight="2"-->
+    <!--android:src="@drawable/source" />-->
+
+    <!--<TextView-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="fill_parent"-->
+    <!--android:text="Main Source"-->
+    <!--android:textColor="#ff7f00"-->
+    <!--android:textSize="30sp"-->
+    <!--android:gravity="center"-->
+    <!--android:layout_weight="1" />-->
+
+    <!--</LinearLayout>-->
+
+    <!--<RadioGroup-->
+    <!--android:id="@+id/radioGroupSource"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:padding="10dp">-->
+
+
+    <!--</RadioGroup>-->
+
+    <!--<LinearLayout-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:orientation="horizontal"-->
+    <!--android:padding="5dp"-->
+    <!--android:weightSum="3">-->
+
+    <!--<ImageView-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="50dp"-->
+    <!--android:layout_weight="2"-->
+    <!--android:src="@mipmap/ic_avoid" />-->
+
+    <!--<TextView-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="fill_parent"-->
+    <!--android:text="Effects"-->
+    <!--android:textColor="#ff7f00"-->
+    <!--android:textSize="30sp"-->
+    <!--android:gravity="center"-->
+    <!--android:layout_weight="1" />-->
+
+    <!--</LinearLayout>-->
+
+    <!--<RadioGroup-->
+    <!--android:id="@+id/radioGroupEffects"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:padding="10dp">-->
+
+
+    <!--</RadioGroup>-->
+
+    <!--<LinearLayout-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:orientation="horizontal"-->
+    <!--android:padding="5dp"-->
+    <!--android:weightSum="3">-->
+
+    <!--<ImageView-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="50dp"-->
+    <!--android:layout_weight="2"-->
+    <!--android:src="@mipmap/ic_danger" />-->
+
+    <!--<TextView-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="fill_parent"-->
+    <!--android:text="Side Effects"-->
+    <!--android:textColor="#ff7f00"-->
+    <!--android:textSize="30sp"-->
+    <!--android:gravity="center"-->
+    <!--android:layout_weight="1" />-->
+
+    <!--</LinearLayout>-->
+
+    <!--<RadioGroup-->
+    <!--android:id="@+id/radioGroupSideEffects"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:padding="10dp">-->
+
+
+    <!--</RadioGroup>-->
+
+
 </ScrollView>

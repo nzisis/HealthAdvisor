@@ -13,5 +13,7 @@
     <dimen name="ESubstanceRowItemTitle">24sp</dimen>
     <dimen name="ESubstanceRowItemName">20sp</dimen>
     <dimen name="DiseaseRowItem">20sp</dimen>
+    <dimen name="CategoryHeader">22sp</dimen>
+    <dimen name="DiseaseHeader">25sp</dimen>
 
 </resources>
