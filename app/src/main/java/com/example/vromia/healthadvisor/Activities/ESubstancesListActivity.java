@@ -91,14 +91,7 @@ public class ESubstancesListActivity extends ActionBarActivity {
 
     }
 
-    public void PullRightPushLeft(Activity a)
-    {
-        a.overridePendingTransition(R.anim.pull_in_right, R.anim.push_out_left);
-    }
-    public void PullLeftPushRight(Activity a)
-    {
-        a.overridePendingTransition(R.anim.pull_in_left, R.anim.push_out_right);
-    }
+
 
 
     @Override
@@ -192,4 +185,9 @@ public class ESubstancesListActivity extends ActionBarActivity {
 
     }
 
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        overridePendingTransition(R.anim.disappear_top_left_in, R.anim.disappear_top_left_out);
+    }
 }

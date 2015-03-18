@@ -59,7 +59,7 @@
                 android:textSize="@dimen/DiseaseHeader"
                 android:gravity="center_vertical"
                 android:layout_weight="1"
-                android:drawableLeft="@drawable/ic_ic_source"
+                android:drawableLeft="@drawable/ic_source"
                 android:drawablePadding="10dp" />
 
 
@@ -83,7 +83,7 @@
                 android:textSize="@dimen/DiseaseHeader"
                 android:gravity="center_vertical"
                 android:layout_weight="1"
-                android:drawableLeft="@drawable/ic_angel_96"
+                android:drawableLeft="@drawable/ic_effect"
                 android:drawablePadding="10dp" />
 
 
@@ -106,7 +106,7 @@
                 android:textSize="@dimen/DiseaseHeader"
                 android:gravity="center_vertical"
                 android:layout_weight="1"
-                android:drawableLeft="@drawable/ic_evil_96_1"
+                android:drawableLeft="@drawable/ic_side_effect"
                 android:drawablePadding="10dp" />
 
 

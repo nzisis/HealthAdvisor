@@ -57,4 +57,10 @@ public class SettingsActivity extends PreferenceActivity {
 
 
     }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        overridePendingTransition(R.anim.disappear_top_left_in, R.anim.disappear_top_left_out);
+    }
 }

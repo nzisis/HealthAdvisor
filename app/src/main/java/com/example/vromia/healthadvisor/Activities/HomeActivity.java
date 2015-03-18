@@ -34,14 +34,16 @@ public class HomeActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
-        Bitmap homeIcon = BitmapFactory.decodeResource(this.getResources(), R.mipmap.ic_avoid);
-        Bitmap userIcon = BitmapFactory.decodeResource(this.getResources(), R.mipmap.ic_safe);
+        Bitmap eSubstanceIcon = BitmapFactory.decodeResource(this.getResources(), R.drawable.ic_menu_esubstance);
+        Bitmap diseaseIcon = BitmapFactory.decodeResource(this.getResources(), R.drawable.ic_menu_disease);
+        Bitmap settingsIcon = BitmapFactory.decodeResource(this.getResources(), R.drawable.ic_menu_settings);
+        Bitmap exitIcon = BitmapFactory.decodeResource(this.getResources(), R.drawable.ic_exit);
 
 
-        gridArray.add(new Item(homeIcon,"E substances" ));
-        gridArray.add(new Item(userIcon,"Diseases" ));
-        gridArray.add(new Item(homeIcon,"Settings" ));
-        gridArray.add(new Item(userIcon,"Exit" ));
+        gridArray.add(new Item(eSubstanceIcon,"E substances" ));
+        gridArray.add(new Item(diseaseIcon,"Diseases" ));
+        gridArray.add(new Item(settingsIcon,"Settings" ));
+        gridArray.add(new Item(exitIcon,"Exit" ));
 
         gridView = (GridView) findViewById(R.id.gridview);
         CustomGridAdapter adapter = new CustomGridAdapter(HomeActivity.this , R.layout.grid_item_menu , gridArray);
@@ -52,12 +54,15 @@ public class HomeActivity extends ActionBarActivity {
                 switch (position){
                     case 0:
                         startActivity(new Intent(HomeActivity.this , ESubstancesListActivity.class));
+                        overridePendingTransition(R.anim.appear_top_left_in, R.anim.appear_top_left_out);
                         break;
                     case 1:
                         startActivity(new Intent(HomeActivity.this , SearchMenuActivity.class));
+                        overridePendingTransition(R.anim.appear_top_left_in, R.anim.appear_top_left_out);
                         break;
                     case 2:
                         startActivity(new Intent(HomeActivity.this , SettingsActivity.class));
+                        overridePendingTransition(R.anim.appear_top_left_in, R.anim.appear_top_left_out);
                         break;
                     case 3:
                         finish();

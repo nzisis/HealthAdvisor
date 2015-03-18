@@ -8,8 +8,7 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:padding="10dp"
-        >
+        android:padding="10dp">
 
 
         <RelativeLayout
@@ -59,8 +58,7 @@
             android:background="@drawable/card_view"
             android:layout_below="@+id/rlName"
             android:layout_margin="@dimen/ESubstanceCardMargin"
-            android:padding="@dimen/ESubstanceCardPadding"
-            >
+            android:padding="@dimen/ESubstanceCardPadding">
 
             <TextView
                 android:id="@+id/tv_esubstance_compound"
@@ -114,28 +112,23 @@
             android:gravity="center"
             android:isScrollContainer="false"
             android:numColumns="5"
-            android:verticalSpacing="5dp"
+            android:verticalSpacing="10dp"
             android:stretchMode="columnWidth"
             android:background="@drawable/card_view"
             android:padding="@dimen/ESubstanceCardPadding"
+            android:layout_margin="@dimen/ESubstanceCardMargin" />
+
+
+        <LinearLayout
+            android:id="@+id/llSideEffects"
+            android:orientation="vertical"
+            android:layout_below="@+id/gvIcons"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:dividerHeight="3dp"
+            android:divider="#00ffffff"
             android:layout_margin="@dimen/ESubstanceCardMargin"
-            />
-
-
-
-            <LinearLayout
-                android:id="@+id/llSideEffects"
-                android:orientation="vertical"
-                android:layout_below="@+id/gvIcons"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:dividerHeight="3dp"
-                android:divider="#00ffffff"
-                android:layout_margin="@dimen/ESubstanceCardMargin"
-                android:background="@drawable/card_view"
-                />
-
-
+            android:background="@drawable/card_view" />
 
 
     </RelativeLayout>

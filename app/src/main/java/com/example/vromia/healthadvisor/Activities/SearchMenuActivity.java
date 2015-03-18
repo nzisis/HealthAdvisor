@@ -59,4 +59,10 @@ public class SearchMenuActivity extends ActionBarActivity implements View.OnClic
             startActivity(new Intent(SearchMenuActivity.this , SearchViewActivity.class));
         }
     }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        overridePendingTransition(R.anim.disappear_top_left_in, R.anim.disappear_top_left_out);
+    }
 }
