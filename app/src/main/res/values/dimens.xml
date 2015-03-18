@@ -2,22 +2,24 @@
 <resources>
 
 
-    <dimen name="ESubstanceTitle">35sp</dimen>
-    <dimen name="ESubstanceState">25sp</dimen>
-    <dimen name="ESubstanceName">30sp</dimen>
-    <dimen name="ESubstanceAttributes">22sp</dimen>
-    <dimen name="ESubstanceSideEffect">22sp</dimen>
-    <dimen name="BulletWidth">40dp</dimen>
+    <dimen name="ESubstanceTitle">25sp</dimen>
+    <dimen name="ESubstanceState">20sp</dimen>
+    <dimen name="ESubstanceName">25sp</dimen>
+    <dimen name="ESubstanceAttributes">18sp</dimen>
+    <dimen name="ESubstanceSideEffect">18sp</dimen>
+    <dimen name="BulletWidth">30dp</dimen>
     <dimen name="ESubstanceCardMargin">5dp</dimen>
     <dimen name="ESubstanceCardPadding">5dp</dimen>
-    <dimen name="MainPadding">16dp</dimen>
-    <dimen name="ESubstanceRowItemTitle">24sp</dimen>
-    <dimen name="ESubstanceRowItemName">20sp</dimen>
-    <dimen name="DiseaseRowItem">20sp</dimen>
+    <dimen name="MainPadding">10dp</dimen>
+    <dimen name="ESubstanceRowItemTitle">20sp</dimen>
+    <dimen name="ESubstanceRowItemName">17sp</dimen>
+    <dimen name="DiseaseRowItem">16sp</dimen>
     <dimen name="CategoryHeader">24sp</dimen>
-    <dimen name="DiseaseHeader">25sp</dimen>
+    <dimen name="DiseaseHeader">20sp</dimen>
+    <dimen name="ButtonTextSize">16sp</dimen>
+    <dimen name="ButtonLayoutPadding">20dp</dimen>
 
-
+    <integer name="DiseaseItemInt">16</integer>
     <integer name="popup_width">200</integer>
 
 </resources>

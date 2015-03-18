@@ -36,7 +36,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:text="Chemical Origin"
-                android:textSize="20sp"
+                android:textSize="@dimen/DiseaseRowItem"
                 android:gravity="center_vertical" />
 
 
@@ -115,104 +115,6 @@
 
     </LinearLayout>
 
-    <!--<LinearLayout-->
-    <!--android:layout_width="match_parent"-->
-    <!--android:layout_height="wrap_content"-->
-    <!--android:orientation="horizontal"-->
-    <!--android:padding="5dp"-->
-    <!--android:weightSum="3">-->
-
-    <!--<ImageView-->
-    <!--android:layout_width="match_parent"-->
-    <!--android:layout_height="50dp"-->
-    <!--android:layout_weight="2"-->
-    <!--android:src="@drawable/source" />-->
-
-    <!--<TextView-->
-    <!--android:layout_width="match_parent"-->
-    <!--android:layout_height="fill_parent"-->
-    <!--android:text="Main Source"-->
-    <!--android:textColor="#ff7f00"-->
-    <!--android:textSize="30sp"-->
-    <!--android:gravity="center"-->
-    <!--android:layout_weight="1" />-->
-
-    <!--</LinearLayout>-->
-
-    <!--<RadioGroup-->
-    <!--android:id="@+id/radioGroupSource"-->
-    <!--android:layout_width="match_parent"-->
-    <!--android:layout_height="wrap_content"-->
-    <!--android:padding="10dp">-->
-
-
-    <!--</RadioGroup>-->
-
-    <!--<LinearLayout-->
-    <!--android:layout_width="match_parent"-->
-    <!--android:layout_height="wrap_content"-->
-    <!--android:orientation="horizontal"-->
-    <!--android:padding="5dp"-->
-    <!--android:weightSum="3">-->
-
-    <!--<ImageView-->
-    <!--android:layout_width="match_parent"-->
-    <!--android:layout_height="50dp"-->
-    <!--android:layout_weight="2"-->
-    <!--android:src="@mipmap/ic_avoid" />-->
-
-    <!--<TextView-->
-    <!--android:layout_width="match_parent"-->
-    <!--android:layout_height="fill_parent"-->
-    <!--android:text="Effects"-->
-    <!--android:textColor="#ff7f00"-->
-    <!--android:textSize="30sp"-->
-    <!--android:gravity="center"-->
-    <!--android:layout_weight="1" />-->
-
-    <!--</LinearLayout>-->
-
-    <!--<RadioGroup-->
-    <!--android:id="@+id/radioGroupEffects"-->
-    <!--android:layout_width="match_parent"-->
-    <!--android:layout_height="wrap_content"-->
-    <!--android:padding="10dp">-->
-
-
-    <!--</RadioGroup>-->
-
-    <!--<LinearLayout-->
-    <!--android:layout_width="match_parent"-->
-    <!--android:layout_height="wrap_content"-->
-    <!--android:orientation="horizontal"-->
-    <!--android:padding="5dp"-->
-    <!--android:weightSum="3">-->
-
-    <!--<ImageView-->
-    <!--android:layout_width="match_parent"-->
-    <!--android:layout_height="50dp"-->
-    <!--android:layout_weight="2"-->
-    <!--android:src="@mipmap/ic_danger" />-->
-
-    <!--<TextView-->
-    <!--android:layout_width="match_parent"-->
-    <!--android:layout_height="fill_parent"-->
-    <!--android:text="Side Effects"-->
-    <!--android:textColor="#ff7f00"-->
-    <!--android:textSize="30sp"-->
-    <!--android:gravity="center"-->
-    <!--android:layout_weight="1" />-->
-
-    <!--</LinearLayout>-->
-
-    <!--<RadioGroup-->
-    <!--android:id="@+id/radioGroupSideEffects"-->
-    <!--android:layout_width="match_parent"-->
-    <!--android:layout_height="wrap_content"-->
-    <!--android:padding="10dp">-->
-
-
-    <!--</RadioGroup>-->
 
 
 </ScrollView>

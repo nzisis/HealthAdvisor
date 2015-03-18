@@ -17,6 +17,8 @@
     <dimen name="DiseaseHeader">25sp</dimen>
     <dimen name="DiseaseItem">20sp</dimen>
     <integer name="DiseaseItemInt">20</integer>
+    <dimen name="ButtonTextSize">20sp</dimen>
+    <dimen name="ButtonLayoutPadding">30dp</dimen>
 
 
     <integer name="popup_width">400</integer>
