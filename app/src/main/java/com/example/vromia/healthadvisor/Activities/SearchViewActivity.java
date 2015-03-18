@@ -81,6 +81,7 @@ public class SearchViewActivity extends ActionBarActivity {
                 Intent i = new Intent(SearchViewActivity.this, DiseaseActivity.class);
                 i.putExtra("name", nameOfDisease);
                 startActivity(i);
+                overridePendingTransition(R.anim.pull_in_right, R.anim.push_out_left);
 
             }
         });

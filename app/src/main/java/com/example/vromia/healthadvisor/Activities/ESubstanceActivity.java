@@ -168,6 +168,13 @@ public class ESubstanceActivity extends ActionBarActivity {
 
     }
 
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        finish();
+        overridePendingTransition(R.anim.pull_in_left, R.anim.push_out_right);
+    }
+
     public class ImageAdapter extends BaseAdapter {
         private Context mContext;
 

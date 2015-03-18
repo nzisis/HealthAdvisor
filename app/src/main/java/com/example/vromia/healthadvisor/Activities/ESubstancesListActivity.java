@@ -1,5 +1,6 @@
 package com.example.vromia.healthadvisor.Activities;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
@@ -83,10 +84,20 @@ public class ESubstancesListActivity extends ActionBarActivity {
                 Intent i=new Intent(ESubstancesListActivity.this,ESubstanceActivity.class);
                 i.putExtra("id",idOfEsubstance);
                 startActivity(i);
+                overridePendingTransition(R.anim.pull_in_right, R.anim.push_out_left);
 
             }
         });
 
+    }
+
+    public void PullRightPushLeft(Activity a)
+    {
+        a.overridePendingTransition(R.anim.pull_in_right, R.anim.push_out_left);
+    }
+    public void PullLeftPushRight(Activity a)
+    {
+        a.overridePendingTransition(R.anim.pull_in_left, R.anim.push_out_right);
     }
 
 

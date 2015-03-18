@@ -54,6 +54,7 @@ public class CategoryViewActivity extends ActionBarActivity {
                 Intent i = new Intent(CategoryViewActivity.this , DiseaseActivity.class);
                 i.putExtra("name" , diseaseName);
                 startActivity(i);
+                overridePendingTransition(R.anim.pull_in_right, R.anim.push_out_left);
                 return true;
 
             }
