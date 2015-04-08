@@ -126,7 +126,7 @@ public class ESubstancesListActivity extends ActionBarActivity {
             holder.tvDescription = (TextView) newView.findViewById(R.id.tv_esubstance_desc);
 
             //set texts and image view from cursor
-            if (cursor.getString(5).equals("0")) {
+            if (cursor.getString(5).contains("0")) {
                 // good drawable
                 holder.iv.setImageDrawable(getResources().getDrawable(R.mipmap.ic_safe_green));
             } else {
@@ -147,7 +147,7 @@ public class ESubstancesListActivity extends ActionBarActivity {
 
             //set text and image view from cursor
 
-            if (cursor.getString(5).equals("0")) {
+            if (cursor.getString(5).contains("0")) {
                 // good drawable
                 holder.iv.setImageDrawable(getResources().getDrawable(R.mipmap.ic_safe_green));
             } else {
