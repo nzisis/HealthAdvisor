@@ -3,7 +3,9 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     tools:context="com.example.vromia.healthadvisor.Activities.ESubstanceActivity"
-    android:background="@color/app_background">
+    android:background="@color/app_background"
+    android:scrollbars="none"
+    >
 
     <RelativeLayout
         android:layout_width="match_parent"
