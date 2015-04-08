@@ -57,7 +57,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:background="@drawable/card_view"
+            android:background="@drawable/container_dropshadow"
             android:layout_below="@+id/rlName"
             android:layout_margin="@dimen/ESubstanceCardMargin"
             android:padding="@dimen/ESubstanceCardPadding">

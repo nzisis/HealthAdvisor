@@ -2,6 +2,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="@dimen/MainPadding"
+    android:scrollbars="none"
     android:background="@color/app_background">
 
 
@@ -26,6 +27,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:text="General"
+                android:textColor="@color/primary_material_dark"
                 android:textSize="@dimen/DiseaseHeader"
                 android:gravity="center"
                 android:layout_weight="1"
@@ -37,6 +39,7 @@
                 android:layout_height="match_parent"
                 android:text="Chemical Origin"
                 android:textSize="@dimen/DiseaseRowItem"
+                android:padding="10dp"
                 android:gravity="center_vertical" />
 
 
@@ -53,11 +56,13 @@
 
 
             <TextView
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="fill_parent"
                 android:text="Main Source"
                 android:textSize="@dimen/DiseaseHeader"
-                android:gravity="center_vertical"
+                android:textColor="@color/primary_material_dark"
+                android:layout_gravity="center"
+                android:gravity="center"
                 android:layout_weight="1"
                 android:drawableLeft="@drawable/ic_source"
                 android:drawablePadding="10dp" />
@@ -77,11 +82,13 @@
 
 
             <TextView
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="fill_parent"
                 android:text="Effects"
                 android:textSize="@dimen/DiseaseHeader"
+                android:textColor="@color/primary_material_dark"
                 android:gravity="center_vertical"
+                android:layout_gravity="center"
                 android:layout_weight="1"
                 android:drawableLeft="@drawable/ic_effect"
                 android:drawablePadding="10dp" />
@@ -100,21 +107,20 @@
 
 
             <TextView
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="fill_parent"
                 android:text="Side Effects"
+                android:textColor="@color/primary_material_dark"
                 android:textSize="@dimen/DiseaseHeader"
                 android:gravity="center_vertical"
+                android:layout_gravity="center"
                 android:layout_weight="1"
                 android:drawableLeft="@drawable/ic_side_effect"
                 android:drawablePadding="10dp" />
 
-
         </LinearLayout>
 
-
     </LinearLayout>
-
 
 
 </ScrollView>

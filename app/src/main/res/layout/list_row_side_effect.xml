@@ -3,22 +3,20 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="5dp"
-    >
+    android:padding="5dp">
 
     <ImageView
         android:id="@+id/ivBullet"
         android:layout_width="@dimen/BulletWidth"
         android:layout_height="match_parent"
-        android:src="@drawable/bullet"/>
+        android:src="@drawable/bullet_blue" />
 
     <TextView
         android:id="@+id/tv_side_effect"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_toRightOf="@+id/ivBullet"
-        android:textSize="@dimen/ESubstanceSideEffect"
-        />
+        android:textSize="@dimen/ESubstanceSideEffect" />
 
 
 </RelativeLayout>

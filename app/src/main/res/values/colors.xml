@@ -137,7 +137,8 @@
     <color name="bg_light">#FAFAFA</color>
     <color name="action_bar_light">#EEEEEE</color>
 
-    <color name="app_background">#f1f1f3</color>
+    <color name="app_background">#E0EEEE</color>
+    <!--<color name="app_background">#f1f1f3</color>-->
 <!--F5F6FA-->
 
 
