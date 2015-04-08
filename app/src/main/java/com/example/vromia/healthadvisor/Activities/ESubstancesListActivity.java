@@ -1,10 +1,10 @@
 package com.example.vromia.healthadvisor.Activities;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.v7.app.ActionBarActivity;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -34,11 +34,17 @@ public class ESubstancesListActivity extends ActionBarActivity {
 
     private EditText etSearch;
 
+    private boolean hasAnimations;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_esubstances_list);
+
+
+        hasAnimations = PreferenceManager.getDefaultSharedPreferences(ESubstancesListActivity.this).getBoolean("pref_key_animations", false);
+
 
         database = new Database(ESubstancesListActivity.this);
 
@@ -52,14 +58,14 @@ public class ESubstancesListActivity extends ActionBarActivity {
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                if(!s.toString().equals("")){
+                if (!s.toString().equals("")) {
                     cursor = database.getAllEsubstancesDependOnNumber(s.toString());
-                }else{
+                } else {
                     cursor = database.getAllESubstances();
                 }
                 adapter.changeCursor(cursor);
                 adapter.notifyDataSetChanged();
-                Toast.makeText(ESubstancesListActivity.this , s.toString() , Toast.LENGTH_SHORT).show();
+                Toast.makeText(ESubstancesListActivity.this, s.toString(), Toast.LENGTH_SHORT).show();
             }
 
             @Override
@@ -80,18 +86,17 @@ public class ESubstancesListActivity extends ActionBarActivity {
 
                 cursor.moveToPosition(position);
                 stopManagingCursor(cursor);
-                int idOfEsubstance=Integer.parseInt(cursor.getString(0));
-                Intent i=new Intent(ESubstancesListActivity.this,ESubstanceActivity.class);
-                i.putExtra("id",idOfEsubstance);
+                int idOfEsubstance = Integer.parseInt(cursor.getString(0));
+                Intent i = new Intent(ESubstancesListActivity.this, ESubstanceActivity.class);
+                i.putExtra("id", idOfEsubstance);
                 startActivity(i);
-                overridePendingTransition(R.anim.pull_in_right, R.anim.push_out_left);
-
+                if (hasAnimations) {
+                    overridePendingTransition(R.anim.pull_in_right, R.anim.push_out_left);
+                }
             }
         });
 
     }
-
-
 
 
     @Override
@@ -188,6 +193,8 @@ public class ESubstancesListActivity extends ActionBarActivity {
     @Override
     public void onBackPressed() {
         super.onBackPressed();
-        overridePendingTransition(R.anim.disappear_top_left_in, R.anim.disappear_top_left_out);
+        if (hasAnimations) {
+            overridePendingTransition(R.anim.disappear_top_left_in, R.anim.disappear_top_left_out);
+        }
     }
 }

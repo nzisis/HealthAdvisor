@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.v7.app.ActionBarActivity;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -32,10 +33,16 @@ public class SearchViewActivity extends ActionBarActivity {
 
     private EditText etSearch;
 
+    private boolean hasAnimations;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search_view);
+
+
+        hasAnimations = PreferenceManager.getDefaultSharedPreferences(SearchViewActivity.this).getBoolean("pref_key_animations", false);
+
 
         database = new Database(SearchViewActivity.this);
 
@@ -81,8 +88,9 @@ public class SearchViewActivity extends ActionBarActivity {
                 Intent i = new Intent(SearchViewActivity.this, DiseaseActivity.class);
                 i.putExtra("name", nameOfDisease);
                 startActivity(i);
-                overridePendingTransition(R.anim.pull_in_right, R.anim.push_out_left);
-
+                if (hasAnimations) {
+                    overridePendingTransition(R.anim.pull_in_right, R.anim.push_out_left);
+                }
             }
         });
 

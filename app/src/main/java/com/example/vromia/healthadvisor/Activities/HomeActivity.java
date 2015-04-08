@@ -6,7 +6,9 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.v7.app.ActionBarActivity;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -29,10 +31,15 @@ public class HomeActivity extends ActionBarActivity {
     GridView gridView;
     ArrayList<Item> gridArray = new ArrayList<>();
 
+    private boolean hasAnimations;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+
+        hasAnimations = PreferenceManager.getDefaultSharedPreferences(HomeActivity.this).getBoolean("pref_key_animations", false);
+        Log.i("nikos", hasAnimations + "");
 
         Bitmap eSubstanceIcon = BitmapFactory.decodeResource(this.getResources(), R.drawable.ic_menu_esubstance);
         Bitmap diseaseIcon = BitmapFactory.decodeResource(this.getResources(), R.drawable.ic_menu_disease);
@@ -40,29 +47,35 @@ public class HomeActivity extends ActionBarActivity {
         Bitmap exitIcon = BitmapFactory.decodeResource(this.getResources(), R.drawable.ic_exit);
 
 
-        gridArray.add(new Item(eSubstanceIcon,"E substances" ));
-        gridArray.add(new Item(diseaseIcon,"Diseases" ));
-        gridArray.add(new Item(settingsIcon,"Settings" ));
-        gridArray.add(new Item(exitIcon,"Exit" ));
+        gridArray.add(new Item(eSubstanceIcon, "E substances"));
+        gridArray.add(new Item(diseaseIcon, "Diseases"));
+        gridArray.add(new Item(settingsIcon, "Settings"));
+        gridArray.add(new Item(exitIcon, "Exit"));
 
         gridView = (GridView) findViewById(R.id.gridview);
-        CustomGridAdapter adapter = new CustomGridAdapter(HomeActivity.this , R.layout.grid_item_menu , gridArray);
+        CustomGridAdapter adapter = new CustomGridAdapter(HomeActivity.this, R.layout.grid_item_menu, gridArray);
         gridView.setAdapter(adapter);
         gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                switch (position){
+                switch (position) {
                     case 0:
-                        startActivity(new Intent(HomeActivity.this , ESubstancesListActivity.class));
-                        overridePendingTransition(R.anim.appear_top_left_in, R.anim.appear_top_left_out);
+                        startActivity(new Intent(HomeActivity.this, ESubstancesListActivity.class));
+                        if (hasAnimations) {
+                            overridePendingTransition(R.anim.appear_top_left_in, R.anim.appear_top_left_out);
+                        }
                         break;
                     case 1:
-                        startActivity(new Intent(HomeActivity.this , SearchMenuActivity.class));
-                        overridePendingTransition(R.anim.appear_top_left_in, R.anim.appear_top_left_out);
+                        startActivity(new Intent(HomeActivity.this, SearchMenuActivity.class));
+                        if (hasAnimations) {
+                            overridePendingTransition(R.anim.appear_top_left_in, R.anim.appear_top_left_out);
+                        }
                         break;
                     case 2:
-                        startActivity(new Intent(HomeActivity.this , SettingsActivity.class));
-                        overridePendingTransition(R.anim.appear_top_left_in, R.anim.appear_top_left_out);
+                        startActivity(new Intent(HomeActivity.this, SettingsActivity.class));
+                        if (hasAnimations) {
+                            overridePendingTransition(R.anim.appear_top_left_in, R.anim.appear_top_left_out);
+                        }
                         break;
                     case 3:
                         finish();
@@ -78,6 +91,12 @@ public class HomeActivity extends ActionBarActivity {
 
     }
 
+    @Override
+    protected void onResume() {
+        hasAnimations = PreferenceManager.getDefaultSharedPreferences(HomeActivity.this).getBoolean("pref_key_animations", false);
+
+        super.onResume();
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -109,11 +128,12 @@ public class HomeActivity extends ActionBarActivity {
         ArrayList<Item> data;
 
         public CustomGridAdapter(Context context, int layoutResourceId, ArrayList<Item> data) {
-            super(context, layoutResourceId , data);
-            this.layoutResourceId=layoutResourceId;
-            this.context=context;
-            this.data=data;
+            super(context, layoutResourceId, data);
+            this.layoutResourceId = layoutResourceId;
+            this.context = context;
+            this.data = data;
         }
+
         @Override
         public View getView(int position, View convertView, ViewGroup parent) {
             View row = convertView;
@@ -137,6 +157,7 @@ public class HomeActivity extends ActionBarActivity {
             return row;
 
         }
+
         class Holder {
             TextView txtTitle;
             ImageView imageItem;

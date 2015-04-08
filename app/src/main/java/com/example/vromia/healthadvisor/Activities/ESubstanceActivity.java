@@ -4,6 +4,8 @@ import android.content.Context;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.preference.PreferenceCategory;
+import android.preference.PreferenceManager;
 import android.support.v7.app.ActionBarActivity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -35,6 +37,8 @@ public class ESubstanceActivity extends ActionBarActivity {
     String[] desc;
     TextView tvName, tvState, tvCompound, tvAttribute;
     LinearLayout llsubstance, llSideEffects;
+
+    private boolean hasAnimations;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -82,6 +86,9 @@ public class ESubstanceActivity extends ActionBarActivity {
     }
 
     private void init() {
+
+        hasAnimations = PreferenceManager.getDefaultSharedPreferences(ESubstanceActivity.this).getBoolean("pref_key_animations" , false);
+
         int id = (int) getIntent().getExtras().get("id");
         database = new Database(this);
         item = database.getESubstanceItemById(id);
@@ -172,7 +179,9 @@ public class ESubstanceActivity extends ActionBarActivity {
     public void onBackPressed() {
         super.onBackPressed();
         finish();
-        overridePendingTransition(R.anim.pull_in_left, R.anim.push_out_right);
+        if (hasAnimations) {
+            overridePendingTransition(R.anim.pull_in_left, R.anim.push_out_right);
+        }
     }
 
     public class ImageAdapter extends BaseAdapter {

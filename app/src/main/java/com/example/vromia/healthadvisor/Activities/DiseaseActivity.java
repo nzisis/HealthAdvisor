@@ -1,6 +1,7 @@
 package com.example.vromia.healthadvisor.Activities;
 
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
@@ -45,6 +46,8 @@ public class DiseaseActivity extends ActionBarActivity {
     private Database db;
     private ActionBar.TabListener tabListener;
 
+    private boolean hasAnimations;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -76,6 +79,8 @@ public class DiseaseActivity extends ActionBarActivity {
     }
 
     private void init() {
+
+        hasAnimations = PreferenceManager.getDefaultSharedPreferences(DiseaseActivity.this).getBoolean("pref_key_animations", false);
 
         String name = (String) getIntent().getExtras().get("name");
 
@@ -151,7 +156,9 @@ public class DiseaseActivity extends ActionBarActivity {
     public void onBackPressed() {
         super.onBackPressed();
         finish();
-        overridePendingTransition(R.anim.pull_in_left, R.anim.push_out_right);
+        if (hasAnimations) {
+            overridePendingTransition(R.anim.pull_in_left, R.anim.push_out_right);
+        }
     }
 
 
@@ -287,14 +294,14 @@ public class DiseaseActivity extends ActionBarActivity {
                 TextView tvChemicalName = new TextView(getActivity());
                 tvChemicalName.setText("Compound : " + diseaseItem.getSubstance().get(2));
                 tvChemicalName.setTextSize(getResources().getInteger(R.integer.DiseaseItemInt));
-                tvChemicalName.setPadding(10 , 10 , 10 , 10);
+                tvChemicalName.setPadding(10, 10, 10, 10);
                 llGeneral.addView(tvChemicalName);
             }
             if (!diseaseItem.getSubstance().get(3).trim().equals("0")) {
                 TextView tvChemicalName = new TextView(getActivity());
                 tvChemicalName.setText("Trade Name : " + diseaseItem.getSubstance().get(3));
                 tvChemicalName.setTextSize(getResources().getInteger(R.integer.DiseaseItemInt));
-                tvChemicalName.setPadding(10 , 10 , 10 , 10);
+                tvChemicalName.setPadding(10, 10, 10, 10);
                 llGeneral.addView(tvChemicalName);
             }
 

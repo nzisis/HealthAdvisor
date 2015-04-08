@@ -6,14 +6,22 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.preference.Preference;
 import android.preference.PreferenceActivity;
+import android.preference.PreferenceManager;
 
 import com.example.vromia.healthadvisor.R;
 
 
 public class SettingsActivity extends PreferenceActivity {
+
+    private boolean hasAnimations;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+
+        hasAnimations = PreferenceManager.getDefaultSharedPreferences(SettingsActivity.this).getBoolean("pref_key_animations", false);
+
 
         setUpPrefs();
 
@@ -54,7 +62,17 @@ public class SettingsActivity extends PreferenceActivity {
             @Override
             public boolean onPreferenceClick(Preference preference) {
                 startActivity(new Intent(SettingsActivity.this, HelpActivity.class));
-                return false;
+                return true;
+            }
+        });
+
+        screen = findPreference("pref_key_animations");
+        screen.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
+            @Override
+            public boolean onPreferenceChange(Preference preference, Object newValue) {
+                hasAnimations = (boolean) newValue;
+//                Log.i("nikos" , newValue.toString());
+                return true;
             }
         });
 
@@ -63,6 +81,8 @@ public class SettingsActivity extends PreferenceActivity {
     @Override
     public void onBackPressed() {
         super.onBackPressed();
-        overridePendingTransition(R.anim.disappear_top_left_in, R.anim.disappear_top_left_out);
+        if (hasAnimations) {
+            overridePendingTransition(R.anim.disappear_top_left_in, R.anim.disappear_top_left_out);
+        }
     }
 }
