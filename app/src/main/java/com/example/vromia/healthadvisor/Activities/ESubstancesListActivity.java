@@ -128,10 +128,10 @@ public class ESubstancesListActivity extends ActionBarActivity {
             //set texts and image view from cursor
             if (cursor.getString(5).equals("0")) {
                 // good drawable
-                holder.iv.setImageDrawable(getResources().getDrawable(R.mipmap.ic_safe));
+                holder.iv.setImageDrawable(getResources().getDrawable(R.mipmap.ic_safe_green));
             } else {
                 //bad drawable
-                holder.iv.setImageDrawable(getResources().getDrawable(R.mipmap.ic_danger));
+                holder.iv.setImageDrawable(getResources().getDrawable(R.mipmap.ic_dangerous));
             }
             holder.tvName.setText(cursor.getString(1));
             holder.tvDescription.setText(cursor.getString(2));
@@ -149,10 +149,10 @@ public class ESubstancesListActivity extends ActionBarActivity {
 
             if (cursor.getString(5).equals("0")) {
                 // good drawable
-                holder.iv.setImageDrawable(getResources().getDrawable(R.mipmap.ic_safe));
+                holder.iv.setImageDrawable(getResources().getDrawable(R.mipmap.ic_safe_green));
             } else {
                 //bad drawable
-                holder.iv.setImageDrawable(getResources().getDrawable(R.mipmap.ic_danger));
+                holder.iv.setImageDrawable(getResources().getDrawable(R.mipmap.ic_dangerous));
             }
             holder.tvName.setText(cursor.getString(1));
             holder.tvDescription.setText(cursor.getString(2));
