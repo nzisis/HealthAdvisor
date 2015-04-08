@@ -27,6 +27,7 @@ import java.util.ArrayList;
 public class HomeActivity extends ActionBarActivity {
 
     GridView gridView;
+    ImageView imageView;
     ArrayList<Item> gridArray = new ArrayList<>();
 
     private boolean hasAnimations;
@@ -35,6 +36,10 @@ public class HomeActivity extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+
+        imageView = (ImageView) findViewById(R.id.imageIcon);
+        imageView.setImageDrawable(getResources().getDrawable(R.drawable.ic_lan_menu));
+
 
         hasAnimations = PreferenceManager.getDefaultSharedPreferences(HomeActivity.this).getBoolean("pref_key_animations", false);
         Log.i("nikos", hasAnimations + "");
