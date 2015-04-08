@@ -2,14 +2,10 @@ package com.example.vromia.healthadvisor.Activities;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
+import android.os.Bundle;
 import android.preference.Preference;
 import android.preference.PreferenceActivity;
-import android.preference.PreferenceCategory;
-import android.preference.PreferenceScreen;
-import android.support.v7.app.ActionBarActivity;
-import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
 
 import com.example.vromia.healthadvisor.R;
 
@@ -49,12 +45,18 @@ public class SettingsActivity extends PreferenceActivity {
                 AlertDialog dialog = builder.create();
                 dialog.show();
 
-
                 return false;
             }
         });
 
-
+        screen = findPreference("pref_key_help");
+        screen.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
+            @Override
+            public boolean onPreferenceClick(Preference preference) {
+                startActivity(new Intent(SettingsActivity.this, HelpActivity.class));
+                return false;
+            }
+        });
 
     }
 
