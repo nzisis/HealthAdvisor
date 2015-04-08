@@ -1,25 +1,21 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/app_background"
     android:padding="@dimen/MainPadding"
-    android:focusableInTouchMode="true"
-    >
+    android:focusableInTouchMode="true">
 
 
-
-        <EditText
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/et_esubstances"
-            android:layout_centerVertical="true"
-            android:inputType="number"
-            android:hint="Search here"
-            android:drawableLeft="@android:drawable/ic_menu_search"
-            android:selectAllOnFocus="true"
-            android:layout_alignParentTop="true"
-            />
-
-
+    <EditText
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/et_esubstances"
+        android:layout_centerVertical="true"
+        android:inputType="number"
+        android:hint="Search here"
+        android:drawableLeft="@android:drawable/ic_menu_search"
+        android:selectAllOnFocus="true"
+        android:layout_alignParentTop="true" />
 
     <ListView
         android:layout_width="wrap_content"
@@ -31,6 +27,8 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentRight="true"
         android:scrollbars="none"
-        />
+        android:layout_marginTop="10dp"
+        android:divider="@android:color/transparent"
+        android:dividerHeight="8dp" />
 
 </RelativeLayout>

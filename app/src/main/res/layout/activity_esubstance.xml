@@ -1,11 +1,10 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="match_parent"
     tools:context="com.example.vromia.healthadvisor.Activities.ESubstanceActivity"
     android:background="@color/app_background"
-    android:scrollbars="none"
-    >
+    android:scrollbars="none">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -48,9 +47,7 @@
                 android:layout_marginLeft="10dp"
                 android:textColor="@color/red" />
 
-
         </RelativeLayout>
-
 
         <LinearLayout
             android:id="@+id/llCompound"
@@ -116,66 +113,63 @@
             android:numColumns="5"
             android:verticalSpacing="10dp"
             android:stretchMode="columnWidth"
-            android:background="@drawable/card_view"
+            android:background="@drawable/container_dropshadow"
             android:padding="@dimen/ESubstanceCardPadding"
             android:layout_margin="@dimen/ESubstanceCardMargin" />
 
-  <LinearLayout
-      android:layout_width="match_parent"
-      android:layout_height="wrap_content"
-      android:orientation="vertical"
-      android:background="@drawable/card_view"
-      android:layout_below="@+id/gvIcons"
-      android:layout_margin="@dimen/ESubstanceCardMargin"
-      android:padding="@dimen/ESubstanceCardPadding"
-      >
-
-      <TextView
-          android:id="@+id/echaracteristics"
-          android:layout_width="match_parent"
-          android:layout_height="wrap_content"
-          android:text="Characteristics"
-          android:textColor="#000"
-          android:layout_margin="@dimen/ESubstanceCardMargin"
-          android:textSize="@dimen/ESubstanceState"
-          android:textStyle="bold"
-          />
-
-      <LinearLayout
-          android:id="@+id/llSideEffects"
-          android:orientation="vertical"
-          android:layout_width="match_parent"
-          android:layout_height="match_parent"
-          android:dividerHeight="3dp"
-          android:divider="#00ffffff"
-         />
-
-  </LinearLayout>
-<!--
-  <TextView
-      android:id="@+id/echaracteristics"
-      android:layout_width="match_parent"
-      android:layout_height="wrap_content"
-      android:text="Characteristics"
-      android:layout_above="@+id/llSideEffects"
-      android:textColor="#000"
-      android:layout_margin="@dimen/ESubstanceCardMargin"
-      android:textSize="@dimen/ESubstanceAttributes"
-      android:textStyle="bold"
-      />
-
-
         <LinearLayout
-            android:id="@+id/llSideEffects"
-            android:orientation="vertical"
-            android:layout_below="@+id/gvIcons"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:dividerHeight="3dp"
-            android:divider="#00ffffff"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/container_dropshadow"
+            android:layout_below="@+id/gvIcons"
             android:layout_margin="@dimen/ESubstanceCardMargin"
-            android:background="@drawable/card_view" />
--->
+            android:padding="@dimen/ESubstanceCardPadding">
+
+            <TextView
+                android:id="@+id/echaracteristics"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Characteristics"
+                android:textColor="#000"
+                android:layout_margin="@dimen/ESubstanceCardMargin"
+                android:textSize="@dimen/ESubstanceState"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:id="@+id/llSideEffects"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:dividerHeight="3dp"
+                android:divider="#00ffffff" />
+
+        </LinearLayout>
+        <!--
+          <TextView
+              android:id="@+id/echaracteristics"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:text="Characteristics"
+              android:layout_above="@+id/llSideEffects"
+              android:textColor="#000"
+              android:layout_margin="@dimen/ESubstanceCardMargin"
+              android:textSize="@dimen/ESubstanceAttributes"
+              android:textStyle="bold"
+              />
+
+
+                <LinearLayout
+                    android:id="@+id/llSideEffects"
+                    android:orientation="vertical"
+                    android:layout_below="@+id/gvIcons"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:dividerHeight="3dp"
+                    android:divider="#00ffffff"
+                    android:layout_margin="@dimen/ESubstanceCardMargin"
+                    android:background="@drawable/card_view" />
+        -->
 
     </RelativeLayout>
 </ScrollView>

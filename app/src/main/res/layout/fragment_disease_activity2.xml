@@ -20,7 +20,7 @@
             android:orientation="vertical"
             android:layout_margin="@dimen/ESubstanceCardMargin"
             android:padding="@dimen/ESubstanceCardPadding"
-            android:background="@drawable/card_view">
+            android:background="@drawable/container_dropshadow">
 
 
             <TextView
@@ -52,7 +52,7 @@
             android:orientation="vertical"
             android:layout_margin="@dimen/ESubstanceCardMargin"
             android:padding="@dimen/ESubstanceCardPadding"
-            android:background="@drawable/card_view">
+            android:background="@drawable/container_dropshadow">
 
 
             <TextView
@@ -78,7 +78,7 @@
             android:orientation="vertical"
             android:layout_margin="@dimen/ESubstanceCardMargin"
             android:padding="@dimen/ESubstanceCardPadding"
-            android:background="@drawable/card_view">
+            android:background="@drawable/container_dropshadow">
 
 
             <TextView
@@ -103,7 +103,7 @@
             android:orientation="vertical"
             android:layout_margin="@dimen/ESubstanceCardMargin"
             android:padding="@dimen/ESubstanceCardPadding"
-            android:background="@drawable/card_view">
+            android:background="@drawable/container_dropshadow">
 
 
             <TextView
