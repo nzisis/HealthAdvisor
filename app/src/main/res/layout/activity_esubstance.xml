@@ -63,9 +63,8 @@
                 android:id="@+id/tv_esubstance_compound"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
                 android:text="Tartazinh"
-                android:textColor="#000"
+                android:textColor="#4169e1"
                 android:textSize="@dimen/ESubstanceName"
                 android:textStyle="bold" />
 
@@ -91,17 +90,12 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Red"
-                    android:textColor="#000"
                     android:textSize="@dimen/ESubstanceAttributes"
-                    android:layout_weight="0.7"
-
-                    />
+                    android:layout_weight="0.7" />
 
             </LinearLayout>
 
-
         </LinearLayout>
-
 
         <com.example.vromia.healthadvisor.Utils.ScrollableGridView
             android:id="@+id/gvIcons"
