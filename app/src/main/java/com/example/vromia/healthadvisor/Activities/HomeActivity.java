@@ -44,13 +44,13 @@ public class HomeActivity extends ActionBarActivity {
         hasAnimations = PreferenceManager.getDefaultSharedPreferences(HomeActivity.this).getBoolean("pref_key_animations", false);
         Log.i("nikos", hasAnimations + "");
 
-        Bitmap eSubstanceIcon = BitmapFactory.decodeResource(this.getResources(), R.drawable.ic_menu_esubstance);
+        Bitmap eSubstanceIcon = BitmapFactory.decodeResource(this.getResources(), R.drawable.ic_menu_e);
         Bitmap diseaseIcon = BitmapFactory.decodeResource(this.getResources(), R.drawable.ic_menu_disease);
         Bitmap settingsIcon = BitmapFactory.decodeResource(this.getResources(), R.drawable.ic_menu_settings);
-        Bitmap exitIcon = BitmapFactory.decodeResource(this.getResources(), R.drawable.ic_exit);
+        Bitmap exitIcon = BitmapFactory.decodeResource(this.getResources(), R.drawable.ic_menu_exit);
 
 
-        gridArray.add(new Item(eSubstanceIcon, "E substances"));
+        gridArray.add(new Item(eSubstanceIcon, "E Substances"));
         gridArray.add(new Item(diseaseIcon, "Diseases"));
         gridArray.add(new Item(settingsIcon, "Settings"));
         gridArray.add(new Item(exitIcon, "Exit"));
