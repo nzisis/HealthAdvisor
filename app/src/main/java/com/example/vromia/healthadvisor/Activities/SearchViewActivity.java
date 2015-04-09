@@ -74,7 +74,6 @@ public class SearchViewActivity extends ActionBarActivity {
 
         listview = (ListView) findViewById(R.id.lvSearch);
         cursor = database.getAllDiseases();
-        startManagingCursor(cursor);
         adapter = new CustomCursorAdapter(SearchViewActivity.this, cursor);
 
         listview.setAdapter(adapter);
@@ -83,7 +82,6 @@ public class SearchViewActivity extends ActionBarActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
                 cursor.moveToPosition(position);
-                stopManagingCursor(cursor);
                 String nameOfDisease = cursor.getString(1);
                 Intent i = new Intent(SearchViewActivity.this, DiseaseActivity.class);
                 i.putExtra("name", nameOfDisease);
