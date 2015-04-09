@@ -38,7 +38,7 @@ public class HomeActivity extends ActionBarActivity {
         setContentView(R.layout.activity_home);
 
         imageView = (ImageView) findViewById(R.id.imageIcon);
-        imageView.setImageDrawable(getResources().getDrawable(R.drawable.ic_lan_menu));
+        imageView.setImageDrawable(getResources().getDrawable(R.drawable.ic_logo));
 
 
         hasAnimations = PreferenceManager.getDefaultSharedPreferences(HomeActivity.this).getBoolean("pref_key_animations", false);

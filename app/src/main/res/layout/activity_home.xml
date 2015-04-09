@@ -6,7 +6,7 @@
 
     <ImageView
         android:id="@+id/imageIcon"
-        android:src="@drawable/ic_lan_menu"
+        android:src="@drawable/ic_logo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center" />
