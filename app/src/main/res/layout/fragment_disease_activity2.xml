@@ -3,7 +3,7 @@
     android:layout_height="match_parent"
     android:padding="@dimen/MainPadding"
     android:scrollbars="none"
-    android:background="@color/app_background">
+    android:background="@drawable/app_background">
 
 
     <LinearLayout
