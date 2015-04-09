@@ -9,7 +9,7 @@
         android:id="@+id/ivBullet"
         android:layout_width="@dimen/BulletWidth"
         android:layout_height="match_parent"
-        android:src="@drawable/bullet_blue" />
+        android:src="@drawable/bullet" />
 
     <TextView
         android:id="@+id/tv_side_effect"
