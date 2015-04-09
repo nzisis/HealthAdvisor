@@ -25,6 +25,7 @@ public class SettingsActivity extends PreferenceActivity {
 
         setUpPrefs();
 
+
     }
 
     private void setUpPrefs() {

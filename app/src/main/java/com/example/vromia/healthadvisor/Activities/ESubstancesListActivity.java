@@ -92,6 +92,9 @@ public class ESubstancesListActivity extends ActionBarActivity {
             }
         });
 
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        getSupportActionBar().setIcon(getResources().getDrawable(R.mipmap.ic_launcher));
+
     }
 
 

@@ -68,6 +68,10 @@ public class DiseaseActivity extends ActionBarActivity {
                             .setTabListener(tabListener));
         }
 
+
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        getSupportActionBar().setIcon(getResources().getDrawable(R.mipmap.ic_launcher));
+
     }
 
 

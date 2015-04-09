@@ -53,6 +53,9 @@ public class ESubstanceActivity extends ActionBarActivity {
 
         setUI();
 
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        getSupportActionBar().setIcon(getResources().getDrawable(R.mipmap.ic_launcher));
+
     }
 
     private void setUI() {

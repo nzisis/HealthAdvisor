@@ -34,6 +34,10 @@ public class CategoryViewActivity extends ActionBarActivity {
         hasAnimations = PreferenceManager.getDefaultSharedPreferences(CategoryViewActivity.this).getBoolean("pref_key_animations", false);
 
         init();
+
+
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        getSupportActionBar().setIcon(getResources().getDrawable(R.mipmap.ic_launcher));
     }
 
     private void init() {

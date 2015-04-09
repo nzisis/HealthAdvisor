@@ -13,6 +13,9 @@ public class HelpActivity extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_help);
+
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        getSupportActionBar().setIcon(getResources().getDrawable(R.mipmap.ic_launcher));
     }
 
 

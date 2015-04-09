@@ -33,6 +33,9 @@ public class SearchMenuActivity extends ActionBarActivity implements View.OnClic
         bCategories.setOnClickListener(this);
         bSearch.setOnClickListener(this);
 
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        getSupportActionBar().setIcon(getResources().getDrawable(R.mipmap.ic_launcher));
+
     }
 
 

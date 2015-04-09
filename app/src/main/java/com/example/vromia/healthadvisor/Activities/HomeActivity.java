@@ -92,6 +92,10 @@ public class HomeActivity extends ActionBarActivity {
         mydb.showTuples();
         mydb.close();
 
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        getSupportActionBar().setIcon(getResources().getDrawable(R.mipmap.ic_launcher));
+
+
     }
 
     @Override

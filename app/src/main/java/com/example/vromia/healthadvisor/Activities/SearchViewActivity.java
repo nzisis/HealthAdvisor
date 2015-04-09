@@ -92,6 +92,9 @@ public class SearchViewActivity extends ActionBarActivity {
             }
         });
 
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        getSupportActionBar().setIcon(getResources().getDrawable(R.mipmap.ic_launcher));
+
     }
 
     private class CustomCursorAdapter extends CursorAdapter {
