@@ -1,16 +1,16 @@
 <resources>
-    <string name="app_name">HealthAdvisor</string>
+    <string name="app_name">Health Advisor</string>
 
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
-    <string name="title_activity_search_menu">SearchMenuActivity</string>
-    <string name="title_activity_category_view">CategoryViewActivity</string>
-    <string name="title_activity_search_view">SearchViewActivity</string>
+    <string name="title_activity_search_menu">Search Disease</string>
+    <string name="title_activity_category_view">Diseases</string>
+    <string name="title_activity_search_view">Diseases</string>
     <string name="title_activity_disease">DiseaseActivity</string>
     <string name="title_activity_settings">SettingsActivity</string>
-    <string name="title_activity_esubstances_list">ESubstancesListActivity</string>
+    <string name="title_activity_esubstances_list">Search E-Substance</string>
     <string name="tilte_esubstances_list_row">tilte_esubstances_list_row</string>
-    <string name="title_activity_esubstance">ESubstanceActivity</string>
+    <string name="title_activity_esubstance">E-Substance</string>
     <string name="title_activity_disease_activity2">DiseaseActivity2</string>
     <string name="search_hint">Search here</string>
 
