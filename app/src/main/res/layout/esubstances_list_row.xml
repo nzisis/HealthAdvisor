@@ -26,6 +26,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textColor="#000"
+            android:textStyle="bold"
             android:textSize="@dimen/ESubstanceRowItemTitle"
             android:text="E 100" />
 
@@ -34,14 +35,10 @@
             android:layout_height="match_parent"
             android:text="@string/tilte_esubstances_list_row"
             android:id="@+id/tv_esubstance_desc"
-            android:textStyle="italic"
             android:textSize="@dimen/ESubstanceRowItemName"
             android:paddingLeft="10dp"
             android:textColor="#4169e1"/>
 
         </LinearLayout>
-
-
-
 
 </LinearLayout>
