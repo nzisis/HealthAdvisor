@@ -9,8 +9,6 @@ import android.support.v7.app.ActionBarActivity;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -76,7 +74,6 @@ public class ESubstancesListActivity extends ActionBarActivity {
 
         listview = (ListView) findViewById(R.id.lv_esubstances_list);
         cursor = database.getAllESubstances();
-        startManagingCursor(cursor);
         adapter = new CustomCursorAdapter(ESubstancesListActivity.this, cursor);
 
         listview.setAdapter(adapter);
@@ -85,7 +82,6 @@ public class ESubstancesListActivity extends ActionBarActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
                 cursor.moveToPosition(position);
-                stopManagingCursor(cursor);
                 int idOfEsubstance = Integer.parseInt(cursor.getString(0));
                 Intent i = new Intent(ESubstancesListActivity.this, ESubstanceActivity.class);
                 i.putExtra("id", idOfEsubstance);
