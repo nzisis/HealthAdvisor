@@ -138,6 +138,13 @@ public class HomeActivity extends ActionBarActivity {
 
             Item item = data.get(position);
             holder.txtTitle.setText(item.getTitle());
+            if(item.getTitle().equals("E Substances")){
+                holder.txtTitle.setTextColor(getResources().getColor(R.color.esubstancesmenu));
+            }else if(item.getTitle().equals("Diseases")){
+                holder.txtTitle.setTextColor(getResources().getColor(R.color.diseasemenu));
+            }else if(item.getTitle().equals("Exit")){
+                holder.txtTitle.setTextColor(getResources().getColor(R.color.exitmenu));
+            }
             holder.imageItem.setImageBitmap(item.getImage());
             return row;
 

@@ -140,6 +140,9 @@
     <color name="app_background">#E0EEEE</color>
     <!--<color name="app_background">#f1f1f3</color>-->
 <!--F5F6FA-->
+    <color name="esubstancesmenu">#8e44ad </color>
+    <color name="diseasemenu">#3498db </color>
+    <color name="exitmenu">#e74c3c </color>
 
 
 </resources>
