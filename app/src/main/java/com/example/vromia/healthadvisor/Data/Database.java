@@ -76,11 +76,11 @@ public class Database extends SQLiteOpenHelper {
 
     private void initCategories(){
         categories=new HashMap<>();
-        categories.put(0,"Anapneustikes diataraxes");
-        categories.put(1,"Dermatikes diataraxes");
-        categories.put(2,"Stomatikes diataraxes");
-        categories.put(3,"Ponos");
-        categories.put(4,"Piretos");
+        categories.put(0,"Respiratory Disorders");
+        categories.put(1,"Skin Disorders");
+        categories.put(2,"Stomach Disorders");
+        categories.put(3,"Pain");
+        categories.put(4,"High Fever");
     }
 
 
