@@ -41,8 +41,12 @@ public class SettingsActivity extends PreferenceActivity {
 
                 AlertDialog.Builder builder = new AlertDialog.Builder(SettingsActivity.this);
 
-                builder.setMessage("This app was developed by A , B , C in association with D ." +
-                        "\n Special thanks to A , B , C , D")
+                builder.setMessage("Health Advisor was developed by the development team NG^2, by Nick Zisis, Nick Stampoulis and Ilias Zosimadis  in association " +
+                        "with Chemical postgraduate student Argyri Kozari ." +
+                        "\n\n Libraries used:" +
+                        "\n-ActivityTransaction by ophilbert" +
+                        "\n-CustomPopUp by ..." +
+                        "\n\n Most of our icons designed by www.icons8.com  ")
                         .setTitle("About Us");
                 builder.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
                     @Override
