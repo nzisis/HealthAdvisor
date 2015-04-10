@@ -18,6 +18,9 @@
     <dimen name="ButtonTextSize">16sp</dimen>
     <dimen name="ButtonLayoutPadding">20dp</dimen>
 
+    <dimen name="text_help_question">20sp</dimen>
+    <dimen name="text_help_answer">14sp</dimen>
+
     <integer name="DiseaseItemInt">16</integer>
     <integer name="popup_width">200</integer>
     <!-- Default screen margins, per the Android Design guidelines. -->

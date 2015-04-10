@@ -20,6 +20,8 @@
     <dimen name="ButtonTextSize">20sp</dimen>
     <dimen name="ButtonLayoutPadding">30dp</dimen>
 
+    <dimen name="text_help_question">24sp</dimen>
+    <dimen name="text_help_answer">18sp</dimen>
 
     <integer name="popup_width">400</integer>
 
