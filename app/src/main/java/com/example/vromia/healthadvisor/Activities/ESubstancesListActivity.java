@@ -63,7 +63,7 @@ public class ESubstancesListActivity extends ActionBarActivity {
                 }
                 adapter.changeCursor(cursor);
                 adapter.notifyDataSetChanged();
-                Toast.makeText(ESubstancesListActivity.this, s.toString(), Toast.LENGTH_SHORT).show();
+                //Toast.makeText(ESubstancesListActivity.this, s.toString(), Toast.LENGTH_SHORT).show();
             }
 
             @Override
