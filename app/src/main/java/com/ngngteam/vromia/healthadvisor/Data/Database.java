@@ -106,7 +106,7 @@ public class Database extends SQLiteOpenHelper {
 
 
     public Cursor getAllESubstances(){
-        return getReadableDatabase().rawQuery("SELECT * "+ " FROM "+ "esubstances ORDER BY name",null);
+        return getReadableDatabase().rawQuery("SELECT * "+ " FROM "+ "esubstances ORDER BY _id",null);
     }
 
     public Cursor getAllEsubstancesDependOnNumber(String number){
