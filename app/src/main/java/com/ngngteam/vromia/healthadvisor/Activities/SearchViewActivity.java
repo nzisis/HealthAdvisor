@@ -39,7 +39,7 @@ public class SearchViewActivity extends ActionBarActivity {
         setContentView(R.layout.activity_search_view);
 
 
-        hasAnimations = PreferenceManager.getDefaultSharedPreferences(SearchViewActivity.this).getBoolean("pref_key_animations", false);
+        hasAnimations = PreferenceManager.getDefaultSharedPreferences(SearchViewActivity.this).getBoolean("pref_key_animations", true);
 
 
         database = new Database(SearchViewActivity.this);

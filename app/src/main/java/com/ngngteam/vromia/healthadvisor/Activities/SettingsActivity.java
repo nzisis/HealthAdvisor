@@ -20,7 +20,7 @@ public class SettingsActivity extends PreferenceActivity {
         super.onCreate(savedInstanceState);
 
 
-        hasAnimations = PreferenceManager.getDefaultSharedPreferences(SettingsActivity.this).getBoolean("pref_key_animations", false);
+        hasAnimations = PreferenceManager.getDefaultSharedPreferences(SettingsActivity.this).getBoolean("pref_key_animations", true);
 
 
         setUpPrefs();

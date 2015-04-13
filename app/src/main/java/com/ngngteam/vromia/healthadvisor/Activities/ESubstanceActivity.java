@@ -89,7 +89,7 @@ public class ESubstanceActivity extends ActionBarActivity {
 
     private void init() {
 
-        hasAnimations = PreferenceManager.getDefaultSharedPreferences(ESubstanceActivity.this).getBoolean("pref_key_animations" , false);
+        hasAnimations = PreferenceManager.getDefaultSharedPreferences(ESubstanceActivity.this).getBoolean("pref_key_animations" , true);
 
         int id = (int) getIntent().getExtras().get("id");
         database = new Database(this);

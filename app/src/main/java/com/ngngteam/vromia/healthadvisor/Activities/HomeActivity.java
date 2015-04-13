@@ -41,7 +41,7 @@ public class HomeActivity extends ActionBarActivity {
         imageView.setImageDrawable(getResources().getDrawable(R.drawable.ic_logo));
 
 
-        hasAnimations = PreferenceManager.getDefaultSharedPreferences(HomeActivity.this).getBoolean("pref_key_animations", false);
+        hasAnimations = PreferenceManager.getDefaultSharedPreferences(HomeActivity.this).getBoolean("pref_key_animations", true);
         Log.i("nikos", hasAnimations + "");
 
         Bitmap eSubstanceIcon = BitmapFactory.decodeResource(this.getResources(), R.drawable.ic_menu_e);
@@ -100,7 +100,7 @@ public class HomeActivity extends ActionBarActivity {
 
     @Override
     protected void onResume() {
-        hasAnimations = PreferenceManager.getDefaultSharedPreferences(HomeActivity.this).getBoolean("pref_key_animations", false);
+        hasAnimations = PreferenceManager.getDefaultSharedPreferences(HomeActivity.this).getBoolean("pref_key_animations", true);
 
         super.onResume();
     }

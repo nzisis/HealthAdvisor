@@ -22,7 +22,7 @@ public class SearchMenuActivity extends ActionBarActivity implements View.OnClic
         setContentView(R.layout.activity_search_menu);
 
 
-        hasAnimations = PreferenceManager.getDefaultSharedPreferences(SearchMenuActivity.this).getBoolean("pref_key_animations", false);
+        hasAnimations = PreferenceManager.getDefaultSharedPreferences(SearchMenuActivity.this).getBoolean("pref_key_animations", true);
 
 
         bCategories = (Button) findViewById(R.id.bSearchByCategory);

@@ -31,7 +31,7 @@ public class CategoryViewActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_category_view);
 
-        hasAnimations = PreferenceManager.getDefaultSharedPreferences(CategoryViewActivity.this).getBoolean("pref_key_animations", false);
+        hasAnimations = PreferenceManager.getDefaultSharedPreferences(CategoryViewActivity.this).getBoolean("pref_key_animations", true);
 
         init();
 

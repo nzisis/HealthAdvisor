@@ -82,7 +82,7 @@ public class DiseaseActivity extends ActionBarActivity {
 
     private void init() {
 
-        hasAnimations = PreferenceManager.getDefaultSharedPreferences(DiseaseActivity.this).getBoolean("pref_key_animations", false);
+        hasAnimations = PreferenceManager.getDefaultSharedPreferences(DiseaseActivity.this).getBoolean("pref_key_animations", true);
 
         String name = (String) getIntent().getExtras().get("name");
 

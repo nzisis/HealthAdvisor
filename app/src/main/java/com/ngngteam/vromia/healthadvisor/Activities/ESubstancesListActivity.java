@@ -40,7 +40,7 @@ public class ESubstancesListActivity extends ActionBarActivity {
         setContentView(R.layout.activity_esubstances_list);
 
 
-        hasAnimations = PreferenceManager.getDefaultSharedPreferences(ESubstancesListActivity.this).getBoolean("pref_key_animations", false);
+        hasAnimations = PreferenceManager.getDefaultSharedPreferences(ESubstancesListActivity.this).getBoolean("pref_key_animations", true);
 
 
         database = new Database(ESubstancesListActivity.this);
