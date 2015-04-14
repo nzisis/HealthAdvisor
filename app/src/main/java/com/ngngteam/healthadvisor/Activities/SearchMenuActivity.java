@@ -1,4 +1,4 @@
-package com.ngngteam.vromia.healthadvisor.Activities;
+package com.ngngteam.healthadvisor.Activities;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -7,7 +7,7 @@ import android.support.v7.app.ActionBarActivity;
 import android.view.View;
 import android.widget.Button;
 
-import com.ngngteam.vromia.healthadvisor.R;
+import com.ngngteam.healthadvisor.R;
 
 
 public class SearchMenuActivity extends ActionBarActivity implements View.OnClickListener {

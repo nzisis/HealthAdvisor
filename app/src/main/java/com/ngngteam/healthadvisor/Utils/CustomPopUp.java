@@ -1,4 +1,4 @@
-package com.ngngteam.vromia.healthadvisor.Utils;
+package com.ngngteam.healthadvisor.Utils;
 
 import android.content.Context;
 import android.graphics.Bitmap;
@@ -12,7 +12,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.PopupWindow;
 
-import com.ngngteam.vromia.healthadvisor.R;
+import com.ngngteam.healthadvisor.R;
 
 /**
  * Created by mr on 14-8-5.

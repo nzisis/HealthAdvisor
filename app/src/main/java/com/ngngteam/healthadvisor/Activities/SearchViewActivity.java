@@ -1,4 +1,4 @@
-package com.ngngteam.vromia.healthadvisor.Activities;
+package com.ngngteam.healthadvisor.Activities;
 
 import android.content.Context;
 import android.content.Intent;
@@ -18,8 +18,8 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.ngngteam.vromia.healthadvisor.Data.Database;
-import com.ngngteam.vromia.healthadvisor.R;
+import com.ngngteam.healthadvisor.Data.Database;
+import com.ngngteam.healthadvisor.R;
 
 
 public class SearchViewActivity extends ActionBarActivity {

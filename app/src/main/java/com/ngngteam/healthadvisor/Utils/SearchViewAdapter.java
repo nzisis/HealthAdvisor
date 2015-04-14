@@ -1,4 +1,4 @@
-package com.ngngteam.vromia.healthadvisor.Utils;
+package com.ngngteam.healthadvisor.Utils;
 
 /**
  * Created by Vromia on 28/2/2015.

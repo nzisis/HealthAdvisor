@@ -1,4 +1,4 @@
-package com.ngngteam.vromia.healthadvisor.Utils;
+package com.ngngteam.healthadvisor.Utils;
 
 import android.content.Context;
 import android.graphics.Typeface;
@@ -8,7 +8,7 @@ import android.view.ViewGroup;
 import android.widget.BaseExpandableListAdapter;
 import android.widget.TextView;
 
-import com.ngngteam.vromia.healthadvisor.R;
+import com.ngngteam.healthadvisor.R;
 
 import java.util.HashMap;
 import java.util.List;

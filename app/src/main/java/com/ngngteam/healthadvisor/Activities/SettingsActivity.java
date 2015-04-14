@@ -1,4 +1,4 @@
-package com.ngngteam.vromia.healthadvisor.Activities;
+package com.ngngteam.healthadvisor.Activities;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
@@ -8,7 +8,7 @@ import android.preference.Preference;
 import android.preference.PreferenceActivity;
 import android.preference.PreferenceManager;
 
-import com.ngngteam.vromia.healthadvisor.R;
+import com.ngngteam.healthadvisor.R;
 
 
 public class SettingsActivity extends PreferenceActivity {

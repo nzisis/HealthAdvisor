@@ -1,4 +1,4 @@
-package com.ngngteam.vromia.healthadvisor;
+package com.ngngteam.healthadvisor;
 
 import android.app.Application;
 import android.test.ApplicationTestCase;

@@ -1,4 +1,4 @@
-package com.ngngteam.vromia.healthadvisor.Data;
+package com.ngngteam.healthadvisor.Data;
 
 import java.util.ArrayList;
 

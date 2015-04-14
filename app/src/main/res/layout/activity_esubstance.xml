@@ -2,7 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.ngngteam.vromia.healthadvisor.Activities.ESubstanceActivity"
+    tools:context="com.ngngteam.healthadvisor.Activities.ESubstanceActivity"
     android:background="@drawable/app_background"
     android:scrollbars="none">
 
@@ -97,7 +97,7 @@
 
         </LinearLayout>
 
-        <com.ngngteam.vromia.healthadvisor.Utils.ScrollableGridView
+        <com.ngngteam.healthadvisor.Utils.ScrollableGridView
             android:id="@+id/gvIcons"
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"

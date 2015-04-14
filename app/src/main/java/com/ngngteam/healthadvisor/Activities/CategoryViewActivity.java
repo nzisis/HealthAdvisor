@@ -1,4 +1,4 @@
-package com.ngngteam.vromia.healthadvisor.Activities;
+package com.ngngteam.healthadvisor.Activities;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -8,9 +8,9 @@ import android.view.View;
 import android.widget.ExpandableListAdapter;
 import android.widget.ExpandableListView;
 
-import com.ngngteam.vromia.healthadvisor.Data.Database;
-import com.ngngteam.vromia.healthadvisor.R;
-import com.ngngteam.vromia.healthadvisor.Utils.CategoryViewAdapter;
+import com.ngngteam.healthadvisor.Data.Database;
+import com.ngngteam.healthadvisor.R;
+import com.ngngteam.healthadvisor.Utils.CategoryViewAdapter;
 
 import java.util.HashMap;
 import java.util.List;

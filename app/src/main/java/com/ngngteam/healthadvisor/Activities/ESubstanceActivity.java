@@ -1,4 +1,4 @@
-package com.ngngteam.vromia.healthadvisor.Activities;
+package com.ngngteam.healthadvisor.Activities;
 
 import android.content.Context;
 import android.graphics.Color;
@@ -16,11 +16,11 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.ngngteam.vromia.healthadvisor.Data.Database;
-import com.ngngteam.vromia.healthadvisor.Data.ESubstanceItem;
-import com.ngngteam.vromia.healthadvisor.R;
-import com.ngngteam.vromia.healthadvisor.Utils.CustomPopUp;
-import com.ngngteam.vromia.healthadvisor.Utils.ScrollableGridView;
+import com.ngngteam.healthadvisor.Data.Database;
+import com.ngngteam.healthadvisor.Data.ESubstanceItem;
+import com.ngngteam.healthadvisor.R;
+import com.ngngteam.healthadvisor.Utils.CustomPopUp;
+import com.ngngteam.healthadvisor.Utils.ScrollableGridView;
 
 import java.util.ArrayList;
 

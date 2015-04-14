@@ -1,11 +1,9 @@
-package com.ngngteam.vromia.healthadvisor.Activities;
+package com.ngngteam.healthadvisor.Activities;
 
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
 
-import com.ngngteam.vromia.healthadvisor.R;
+import com.ngngteam.healthadvisor.R;
 
 public class HelpActivity extends ActionBarActivity {
 

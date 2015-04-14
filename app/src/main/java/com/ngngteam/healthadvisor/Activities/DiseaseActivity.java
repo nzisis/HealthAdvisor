@@ -1,4 +1,4 @@
-package com.ngngteam.vromia.healthadvisor.Activities;
+package com.ngngteam.healthadvisor.Activities;
 
 import android.os.Bundle;
 import android.preference.PreferenceManager;
@@ -15,9 +15,9 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.ngngteam.vromia.healthadvisor.Data.Database;
-import com.ngngteam.vromia.healthadvisor.Data.DiseaseItem;
-import com.ngngteam.vromia.healthadvisor.R;
+import com.ngngteam.healthadvisor.Data.Database;
+import com.ngngteam.healthadvisor.Data.DiseaseItem;
+import com.ngngteam.healthadvisor.R;
 
 import java.util.ArrayList;
 import java.util.Locale;

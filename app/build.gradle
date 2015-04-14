@@ -5,7 +5,7 @@ android {
     buildToolsVersion "21.1.1"
 
     defaultConfig {
-        applicationId "com.ngngteam.vromia.healthadvisor"
+        applicationId "com.ngngteam.healthadvisor"
         minSdkVersion 10
         targetSdkVersion 21
         versionCode 1
