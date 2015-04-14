@@ -18,7 +18,7 @@ public class HelpActivity extends ActionBarActivity {
         getSupportActionBar().setIcon(getResources().getDrawable(R.mipmap.ic_launcher));
     }
 
-
+/*
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -39,5 +39,5 @@ public class HelpActivity extends ActionBarActivity {
         }
 
         return super.onOptionsItemSelected(item);
-    }
+    }*/
 }

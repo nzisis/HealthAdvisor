@@ -58,7 +58,7 @@ public class DiseaseActivity extends ActionBarActivity {
         initListeners();
 
 
-        getSupportActionBar().setTitle(diseaseItems.get(0).getName());
+        getSupportActionBar().setTitle("Treatment for "+diseaseItems.get(0).getName());
 
 
         for (int i = 0; i < diseaseItems.size(); i++) {
