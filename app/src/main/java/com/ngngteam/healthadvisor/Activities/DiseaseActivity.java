@@ -58,7 +58,7 @@ public class DiseaseActivity extends ActionBarActivity {
         initListeners();
 
 
-        getSupportActionBar().setTitle("Treatment for "+diseaseItems.get(0).getName());
+        getSupportActionBar().setTitle("Treatment for " + diseaseItems.get(0).getName());
 
 
         for (int i = 0; i < diseaseItems.size(); i++) {
@@ -241,7 +241,7 @@ public class DiseaseActivity extends ActionBarActivity {
             RadioGroup side_effects = (RadioGroup) rootView.findViewById(R.id.radioGroupSideEffects);
 */
             LinearLayout llSource, llEffects, llSideEffects, llGeneral;
-            TextView tvOrigin;
+            TextView tvOrigin, tvSubstanceName;
 
             llSource = (LinearLayout) rootView.findViewById(R.id.llSource);
             llEffects = (LinearLayout) rootView.findViewById(R.id.llEffect);
@@ -250,6 +250,7 @@ public class DiseaseActivity extends ActionBarActivity {
 
             tvOrigin = (TextView) rootView.findViewById(R.id.tvOrigin);
 
+            tvSubstanceName = (TextView) rootView.findViewById(R.id.tvSubstanceName);
 
             DiseaseItem diseaseItem = null;
 
@@ -259,6 +260,8 @@ public class DiseaseActivity extends ActionBarActivity {
                     diseaseItem = items.get(i);
                 }
             }
+
+            tvSubstanceName.setText(diseaseItem.getSubstance().get(0));
 
             if (diseaseItem.getSubstance().get(1).trim().equals("natural")) {
                 tvOrigin.setText("Natural Origin");

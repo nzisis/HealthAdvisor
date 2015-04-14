@@ -13,6 +13,17 @@
         android:padding="5dp">
 
 
+        <TextView
+            android:id="@+id/tvSubstanceName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textSize="@dimen/DiseaseHeader"
+            android:textStyle="bold"
+            android:padding="@dimen/ESubstanceCardPadding"
+            android:textColor="#4169e1" />
+
+
         <LinearLayout
             android:id="@+id/llGeneral"
             android:layout_width="match_parent"
