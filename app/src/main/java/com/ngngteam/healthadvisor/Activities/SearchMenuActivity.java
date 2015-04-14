@@ -50,7 +50,7 @@ public class SearchMenuActivity extends ActionBarActivity implements View.OnClic
     public void onBackPressed() {
         super.onBackPressed();
         if (hasAnimations) {
-            overridePendingTransition(R.anim.disappear_top_left_in, R.anim.disappear_top_left_out);
+            overridePendingTransition(R.anim.unzoom_in, R.anim.unzoom_out);
         }
     }
 }

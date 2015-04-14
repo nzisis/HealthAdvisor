@@ -65,19 +65,19 @@ public class HomeActivity extends ActionBarActivity {
                     case 0:
                         startActivity(new Intent(HomeActivity.this, ESubstancesListActivity.class));
                         if (hasAnimations) {
-                            overridePendingTransition(R.anim.appear_top_left_in, R.anim.appear_top_left_out);
+                            overridePendingTransition(R.anim.unzoom_in, R.anim.unzoom_out);
                         }
                         break;
                     case 1:
                         startActivity(new Intent(HomeActivity.this, SearchMenuActivity.class));
                         if (hasAnimations) {
-                            overridePendingTransition(R.anim.appear_top_left_in, R.anim.appear_top_left_out);
+                            overridePendingTransition(R.anim.unzoom_in, R.anim.unzoom_out);
                         }
                         break;
                     case 2:
                         startActivity(new Intent(HomeActivity.this, SettingsActivity.class));
                         if (hasAnimations) {
-                            overridePendingTransition(R.anim.appear_top_left_in, R.anim.appear_top_left_out);
+                            overridePendingTransition(R.anim.unzoom_in, R.anim.unzoom_out);
                         }
                         break;
                     case 3:

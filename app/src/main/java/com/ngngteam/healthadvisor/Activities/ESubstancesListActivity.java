@@ -86,7 +86,7 @@ public class ESubstancesListActivity extends ActionBarActivity {
                 i.putExtra("id", idOfEsubstance);
                 startActivity(i);
                 if (hasAnimations) {
-                    overridePendingTransition(R.anim.pull_in_right, R.anim.push_out_left);
+                    overridePendingTransition(R.anim.unzoom_in, R.anim.unzoom_out);
                 }
             }
         });
@@ -170,7 +170,7 @@ public class ESubstancesListActivity extends ActionBarActivity {
     public void onBackPressed() {
         super.onBackPressed();
         if (hasAnimations) {
-            overridePendingTransition(R.anim.disappear_top_left_in, R.anim.disappear_top_left_out);
+            overridePendingTransition(R.anim.unzoom_in, R.anim.unzoom_out);
         }
     }
 }
