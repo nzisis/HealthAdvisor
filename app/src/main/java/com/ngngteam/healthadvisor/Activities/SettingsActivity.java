@@ -45,8 +45,9 @@ public class SettingsActivity extends PreferenceActivity {
                         "with Chemical postgraduate student Argyri Kozari ." +
                         "\n\n Libraries used:" +
                         "\n-ActivityTransaction by ophilbert" +
-                        "\n-CustomPopUp by ..." +
-                        "\n\n Most of our icons designed by www.icons8.com  ")
+                        "\n-CustomPopUp by RuiMa" +
+                        "\n\n Most of our icons designed by www.icons8.com  " +
+                        "\n\n Contact us: ngngteam2014@gmail.com")
                         .setTitle("About Us");
                 builder.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
                     @Override
