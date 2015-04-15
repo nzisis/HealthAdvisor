@@ -48,23 +48,22 @@
     <string name="title_activity_help">Help</string>
     <string name="text_question_what_it_is">What is Health Advisor ?</string>
     <string name="text_question_what">
-        Health Advisor is a health - nutrition application , giving advice on common health issues.
-        It intends to help you overcome common health issues such as headaches , colds , high fever etc
-        by consuming certain physical or non-physical substances
-        without necessarily consulting a doctor . Alongside , it provides a reference to the E-substances
-        , that can be found only in non-physical products , helping you maintain a healthy - safe diet .
+       The purpose of Health Advisor is to help you overcome common health issues such as headaches, colds, high fever etc
+        by suggesting consumption of certain natural or non-natural substances. Therefore, it makes you capable of managing
+        possible health problems on your own, without necessarily consulting a doctor. Alongside, it provides a reference to
+        the E-substances that can be found only in non-natural products and can help you maintain a healthy - safe diet.
     </string>
     <string name="text_question_how_it_works">How Health Advisor works ?</string>
     <string name="text_answer_how_it_works" >
         You can navigate from the main menu to search either an E-substance or a disease .
-        E-substance can be searched by their number only . Diseases , on the other hand ,
+        E-substances can be searched by their number only . Diseases , on the other hand ,
         can be searched in two ways . You can either find a disease by its name or by its
         general disease category .
     </string>
     <string name="text_question_disease" >How disease information is displayed ?</string>
     <string name="text_answer_disease" >
             Each disease can be dealt with several treatments - substances . Each treatment-substance is displayed
-        in a different tab which contains basic information about this particular substance such as where it can be found
+        on a different tab which contains basic information about this particular substance such as where it can be found
         , its effects and side effects .
     </string>
     <string name="text_question_recommendation">We are not responsible for the possible way of usage of this app .</string>
