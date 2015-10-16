@@ -14,7 +14,7 @@
     <dimen name="ESubstanceRowItemName">20sp</dimen>
     <dimen name="DiseaseRowItem">20sp</dimen>
     <dimen name="CategoryHeader">22sp</dimen>
-    <dimen name="DiseaseHeader">25sp</dimen>
+    <dimen name="DiseaseHeader">24sp</dimen>
     <dimen name="DiseaseItem">20sp</dimen>
     <integer name="DiseaseItemInt">20</integer>
     <dimen name="ButtonTextSize">20sp</dimen>
