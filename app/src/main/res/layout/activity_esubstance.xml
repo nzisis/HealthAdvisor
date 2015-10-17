@@ -1,5 +1,4 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:card_view="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -55,47 +54,48 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/rlName"
-            android:layout_margin="@dimen/ESubstanceCardMargin"
-            card_view:contentPadding="@dimen/ESubstanceCardPadding">
+            android:layout_margin="@dimen/ESubstanceCardMargin">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:paddingBottom="24dp"
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp">
 
                 <TextView
                     android:id="@+id/tv_esubstance_compound"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:paddingTop="16dp"
                     android:text="Tartazinh"
                     android:textColor="#4169e1"
-                    android:textSize="@dimen/ESubstanceName"
+                    android:textSize="24sp"
                     android:textStyle="bold" />
 
                 <LinearLayout
                     android:id="@+id/llAttributes"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
-                    android:orientation="horizontal"
-                    android:weightSum="2">
+                    android:orientation="horizontal">
 
                     <TextView
-                        android:layout_width="match_parent"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1.3"
-                        android:text="Attributes:"
+                        android:paddingTop="16dp"
+                        android:text="Attributes : "
                         android:textColor="#000"
-                        android:textSize="@dimen/ESubstanceAttributes"
+                        android:textSize="14sp"
                         android:textStyle="bold" />
 
                     <TextView
                         android:id="@+id/tvAttribute"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_weight="0.7"
+                        android:paddingLeft="4dp"
                         android:text="Red"
-                        android:textSize="@dimen/ESubstanceAttributes" />
+                        android:textSize="14sp" />
 
                 </LinearLayout>
 
@@ -109,17 +109,16 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/cardCompound"
-            android:layout_margin="@dimen/ESubstanceCardMargin"
-            card_view:contentPadding="@dimen/ESubstanceCardPadding">
+            android:layout_margin="@dimen/ESubstanceCardMargin">
 
             <com.ngngteam.healthadvisor.Utils.ScrollableGridView
+                android:id="@+id/gvIcons"
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
                 android:gravity="center"
-                android:id="@+id/gvIcons"
                 android:isScrollContainer="false"
                 android:numColumns="5"
-                android:padding="@dimen/ESubstanceCardPadding"
+                android:padding="16dp"
                 android:stretchMode="columnWidth"
                 android:verticalSpacing="10dp" />
 
@@ -129,19 +128,22 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/cardIcons"
-            android:layout_margin="@dimen/ESubstanceCardMargin"
-            card_view:contentPadding="@dimen/ESubstanceCardPadding">
+            android:layout_margin="@dimen/ESubstanceCardMargin">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:paddingBottom="24dp"
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp">
 
                 <TextView
                     android:id="@+id/echaracteristics"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_margin="@dimen/ESubstanceCardMargin"
+                    android:paddingBottom="16dp"
+                    android:paddingTop="16dp"
                     android:text="Characteristics"
                     android:textColor="#000"
                     android:textSize="@dimen/ESubstanceState"
