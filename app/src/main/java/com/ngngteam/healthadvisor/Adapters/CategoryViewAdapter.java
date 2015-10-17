@@ -1,13 +1,16 @@
-package com.ngngteam.healthadvisor.Utils;
+package com.ngngteam.healthadvisor.Adapters;
 
 import android.content.Context;
 import android.graphics.Typeface;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseExpandableListAdapter;
 import android.widget.TextView;
 
+import com.ngngteam.healthadvisor.Fragments.CategoryView;
+import com.ngngteam.healthadvisor.Model.CategoryViewModel;
 import com.ngngteam.healthadvisor.R;
 
 import java.util.HashMap;
@@ -18,39 +21,67 @@ import java.util.List;
  */
 public class CategoryViewAdapter extends BaseExpandableListAdapter {
 
-    Context context;
+    private Context context;
     private List<String> listDataHeader; // header titles
     // child data in format of header title, child title
     private HashMap<String, List<String>> listDataChild;
+    private List<CategoryViewModel> data;
+
 
     public CategoryViewAdapter(Context context, List<String> listDataHeader,
-                                 HashMap<String, List<String>> listChildData) {
+                               HashMap<String, List<String>> listChildData) {
         this.context = context;
         this.listDataHeader = listDataHeader;
         this.listDataChild = listChildData;
     }
 
+    public CategoryViewAdapter(Context context, List<CategoryViewModel> data) {
+        this.context = context;
+        this.data = data;
+    }
+
 
     @Override
     public int getGroupCount() {
-        return this.listDataHeader.size();
+        int size = 0;
+        for (CategoryViewModel model : data) {
+            if (model.isHeader()) size++;
+        }
+
+        return size;
     }
 
     @Override
     public int getChildrenCount(int groupPosition) {
-        return this.listDataChild.get(this.listDataHeader.get(groupPosition))
-                .size();
+        int size = 0;
+        for (CategoryViewModel model : data) {
+            if (!model.isHeader() && model.getGroupPosition()==groupPosition) size++;
+        }
+
+        return size;
     }
 
     @Override
     public Object getGroup(int groupPosition) {
-        return this.listDataHeader.get(groupPosition);
+        for (CategoryViewModel model : data) {
+            if (model.isHeader() && model.getGroupPosition() == groupPosition) return model;
+        }
+        return null;
+
+
     }
 
     @Override
     public Object getChild(int groupPosition, int childPosition) {
-        return this.listDataChild.get(this.listDataHeader.get(groupPosition))
-                .get(childPosition);
+        for (CategoryViewModel model : data) {
+            if (!model.isHeader() && model.getGroupPosition() == groupPosition && model.getChildPosition() == childPosition) {
+                //                Log.d("Context",model.getContext());
+                return model;
+            }
+        }
+
+        return null;
+
     }
 
     @Override
@@ -70,7 +101,7 @@ public class CategoryViewAdapter extends BaseExpandableListAdapter {
 
     @Override
     public View getGroupView(int groupPosition, boolean isExpanded, View convertView, ViewGroup parent) {
-        String headerTitle = (String) getGroup(groupPosition);
+        String headerTitle = ((CategoryViewModel) getGroup(groupPosition)).getTitle();
         if (convertView == null) {
             LayoutInflater infalInflater = (LayoutInflater) this.context
                     .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
@@ -87,7 +118,8 @@ public class CategoryViewAdapter extends BaseExpandableListAdapter {
 
     @Override
     public View getChildView(int groupPosition, int childPosition, boolean isLastChild, View convertView, ViewGroup parent) {
-        final String childText = (String) getChild(groupPosition, childPosition);
+
+        String childText = ((CategoryViewModel) getChild(groupPosition, childPosition)).getContext();
 
         if (convertView == null) {
             LayoutInflater infalInflater = (LayoutInflater) this.context

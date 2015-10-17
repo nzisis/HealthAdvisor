@@ -10,7 +10,7 @@ import android.widget.ExpandableListView;
 
 import com.ngngteam.healthadvisor.Data.Database;
 import com.ngngteam.healthadvisor.R;
-import com.ngngteam.healthadvisor.Utils.CategoryViewAdapter;
+import com.ngngteam.healthadvisor.Adapters.CategoryViewAdapter;
 
 import java.util.HashMap;
 import java.util.List;
