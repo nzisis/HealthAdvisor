@@ -280,11 +280,11 @@ public class DiseaseActivity extends ActionBarActivity {
 //                tvChemicalName.setText("Compound : " + diseaseItem.getSubstance().get(2));
 //                tvChemicalName.setPadding(4, 4, 4, 4);
 
-                TextView tv = new TextView(getContext());
+                TextView tv = new TextView(getActivity());
                 tv.setText("Compound : " + diseaseItem.getSubstance().get(2));
                 tv.setTextSize(14);
                 tv.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT));
-                Drawable img = getContext().getResources().getDrawable(R.drawable.bullet);
+                Drawable img = getActivity().getResources().getDrawable(R.drawable.bullet);
                 img.setBounds(0, 0, 10, 10);
                 tv.setCompoundDrawables(img, null, null, null);
                 tv.setCompoundDrawablePadding(8);
@@ -296,11 +296,11 @@ public class DiseaseActivity extends ActionBarActivity {
 //                TextView tvChemicalName = new TextView(getActivity());
 //                tvChemicalName.setText("Trade Name : " + diseaseItem.getSubstance().get(3));
 //                tvChemicalName.setPadding(4, 4, 4, 4);
-                TextView tv = new TextView(getContext());
+                TextView tv = new TextView(getActivity());
                 tv.setText("Trade Name : " + diseaseItem.getSubstance().get(3));
                 tv.setTextSize(14);
                 tv.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT));
-                Drawable img = getContext().getResources().getDrawable(R.drawable.bullet);
+                Drawable img = getActivity().getResources().getDrawable(R.drawable.bullet);
                 img.setBounds(0, 0, 10, 10);
                 tv.setCompoundDrawables(img, null, null, null);
                 tv.setCompoundDrawablePadding(8);
