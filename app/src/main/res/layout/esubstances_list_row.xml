@@ -5,7 +5,9 @@
     android:orientation="horizontal"
     android:weightSum="2"
     android:layout_marginTop="10dp"
-    android:padding="@dimen/MainPadding">
+    android:padding="@dimen/MainPadding"
+    android:background="?android:selectableItemBackground"
+    >
 
 
     <ImageView
