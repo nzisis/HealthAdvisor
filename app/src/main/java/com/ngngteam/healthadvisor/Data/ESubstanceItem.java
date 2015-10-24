@@ -13,6 +13,7 @@ public class ESubstanceItem {
     private String attributes;
     private ArrayList<String> sideEffects;
     private ArrayList<Integer> categories;
+    private String tag ;
 
     public ESubstanceItem(String name,String compound,String attributes){
 
@@ -29,6 +30,9 @@ public class ESubstanceItem {
 
     }
 
+    public void setTag(String tag){
+        this.tag=tag;
+    }
     public void addSideEffect(String sideEffect){
         sideEffects.add(sideEffect);
     }
@@ -57,5 +61,8 @@ public class ESubstanceItem {
         return categories;
     }
 
+    public String getTag(){
+        return tag;
+    }
 
 }
