@@ -26,5 +26,6 @@ dependencies {
     compile 'com.android.support:cardview-v7:23.1.0'
     compile 'com.android.support:recyclerview-v7:23.1.0'
     compile 'com.levelupstudio:expandable-recyclerview:1.0.1'
+    compile 'com.github.aakira:expandable-layout:1.3.0@aar'
 
 }

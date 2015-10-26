@@ -16,18 +16,22 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.ngngteam.healthadvisor.Data.DiseaseItem;
 import com.ngngteam.healthadvisor.Data.ESubstanceItem;
 import com.ngngteam.healthadvisor.Fragments.CategoryView;
+import com.ngngteam.healthadvisor.Fragments.Disease;
 import com.ngngteam.healthadvisor.Fragments.ESubstance;
 import com.ngngteam.healthadvisor.Fragments.ESubstanceSearch;
 import com.ngngteam.healthadvisor.Fragments.NormalView;
+import com.ngngteam.healthadvisor.Intefaces.DiseaseListener;
 import com.ngngteam.healthadvisor.Intefaces.ESubstanceListener;
 import com.ngngteam.healthadvisor.R;
 import com.ngngteam.healthadvisor.Utils.CustomViewPager;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 
-public class MainActivity extends AppCompatActivity implements ESubstanceListener {
+public class MainActivity extends AppCompatActivity {
 
     /**
      * The {@link android.support.v4.view.PagerAdapter} that will provide
@@ -52,6 +56,32 @@ public class MainActivity extends AppCompatActivity implements ESubstanceListene
 
     private FragmentManager manager;
 
+    private ESubstanceListener eSubstanceListener = new ESubstanceListener() {
+        @Override
+        public void onESubstanceSelected(ESubstanceItem item) {
+            manager.beginTransaction().remove(components.get(currentESubstanceTag)).commit();
+            currentESubstanceTag=item.getTag();
+            ((ESubstance)components.get(currentESubstanceTag)).initESubstanceItem(item);
+            secondPage = components.get(currentESubstanceTag);
+            mSectionsPagerAdapter.notifyDataSetChanged();
+        }
+    };
+
+    private DiseaseListener diseaseListener = new DiseaseListener() {
+        @Override
+        public void onDiseaseSelected(ArrayList<DiseaseItem> items) {
+            manager.beginTransaction().remove(components.get(currentDiseaseTag)).commit();
+            currentDiseaseTag="Disease";
+            ((Disease)components.get(currentDiseaseTag)).initTreatments(items);
+            firstPage =components.get(currentDiseaseTag);
+            mSectionsPagerAdapter.notifyDataSetChanged();
+
+
+        }
+    };
+
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -72,6 +102,7 @@ public class MainActivity extends AppCompatActivity implements ESubstanceListene
 
         String tag="NormalView";
         NormalView normalView = new NormalView();
+        normalView.setDiseaseListener(diseaseListener);
         components.put(tag,normalView);
 
         currentDiseaseTag=tag;
@@ -79,11 +110,11 @@ public class MainActivity extends AppCompatActivity implements ESubstanceListene
 
         tag="CategoryView";
         CategoryView categoryView=new CategoryView();
-        components.put(tag,categoryView);
+        components.put(tag, categoryView);
 
         tag="ESubstanceSearch";
         ESubstanceSearch eSubstanceSearch = new ESubstanceSearch();
-        eSubstanceSearch.setESubstanceListener(this);
+        eSubstanceSearch.setESubstanceListener(eSubstanceListener);
         //eSubstanceSearch.setRe
         components.put(tag,eSubstanceSearch);
 
@@ -92,6 +123,10 @@ public class MainActivity extends AppCompatActivity implements ESubstanceListene
         tag="ESubstance";
         ESubstance eSubstance=new ESubstance();
         components.put(tag,eSubstance);
+
+        tag="Disease";
+        Disease disease = new Disease();
+        components.put(tag,disease);
 
         manager = getSupportFragmentManager();
 
@@ -104,13 +139,14 @@ public class MainActivity extends AppCompatActivity implements ESubstanceListene
 
         // Set up the ViewPager with the sections adapter.
         mViewPager = (ViewPager) findViewById(R.id.container);
-     //        viewPager = (CustomViewPager) findViewById(R.id.container);
+
         mViewPager.setAdapter(mSectionsPagerAdapter);
-        //viewPager.setAd
 
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
         tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
         tabLayout.setupWithViewPager(mViewPager);
+
+
     }
 
     private void setUpToolbar() {
@@ -140,14 +176,16 @@ public class MainActivity extends AppCompatActivity implements ESubstanceListene
         return super.onOptionsItemSelected(item);
     }
 
-    @Override
-    public void onESubstanceSelected(ESubstanceItem item) {
-          manager.beginTransaction().remove(components.get(currentESubstanceTag)).commit();
-          currentESubstanceTag=item.getTag();
-         ((ESubstance)components.get(currentESubstanceTag)).initESubstanceItem(item);
-          secondPage = components.get(currentESubstanceTag);
-          mSectionsPagerAdapter.notifyDataSetChanged();
-    }
+
+
+//    @Override
+//    public void onESubstanceSelected(ESubstanceItem item) {
+//          manager.beginTransaction().remove(components.get(currentESubstanceTag)).commit();
+//          currentESubstanceTag=item.getTag();
+//         ((ESubstance)components.get(currentESubstanceTag)).initESubstanceItem(item);
+//          secondPage = components.get(currentESubstanceTag);
+//          mSectionsPagerAdapter.notifyDataSetChanged();
+//    }
 
 
     /**
@@ -164,12 +202,11 @@ public class MainActivity extends AppCompatActivity implements ESubstanceListene
         public Fragment getItem(int position) {
             switch (position) {
                 case 0:
-                    firstPage= components.get(currentDiseaseTag);
+                    if(firstPage == null) firstPage= components.get(currentDiseaseTag);
                     return  firstPage;
                 //getFragmentManager().beginTransaction().rem
                 case 1:
                     if(secondPage == null) secondPage =components.get(currentESubstanceTag);
-
                     return secondPage;
             }
             return null;
@@ -182,10 +219,14 @@ public class MainActivity extends AppCompatActivity implements ESubstanceListene
             return 2;
         }
 
+
+
+
         @Override
         public CharSequence getPageTitle(int position) {
             switch (position) {
                 case 0:
+                    if(firstPage!=null && firstPage instanceof Disease) return "TREATMENT";
                     return "DISEASES";
                 case 1:
                     return "E-SUBSTANCES";
@@ -193,11 +234,18 @@ public class MainActivity extends AppCompatActivity implements ESubstanceListene
             return null;
         }
 
+
+
+
         @Override
         public int getItemPosition(Object object) {
             if(object instanceof ESubstanceSearch && secondPage instanceof ESubstance ){
                 return POSITION_NONE;
-            }else if(object instanceof ESubstance && secondPage instanceof ESubstanceSearch ){
+            }if(object instanceof ESubstance && secondPage instanceof ESubstanceSearch ){
+                return POSITION_NONE;
+            }if(object instanceof  NormalView && firstPage instanceof Disease){
+                return POSITION_NONE;
+            }if(object instanceof  Disease && firstPage instanceof NormalView){
                 return POSITION_NONE;
             }
             return POSITION_UNCHANGED;
@@ -259,6 +307,17 @@ public class MainActivity extends AppCompatActivity implements ESubstanceListene
             }
 
 
+        }else if(mViewPager.getCurrentItem() == 0){
+
+            if(firstPage instanceof Disease){
+                manager.beginTransaction().remove(components.get(currentDiseaseTag)).commit();
+                currentDiseaseTag="NormalView";
+                firstPage=components.get(currentDiseaseTag);
+
+                mSectionsPagerAdapter.notifyDataSetChanged();
+            }else {
+                super.onBackPressed();
+            }
         }
 
     }

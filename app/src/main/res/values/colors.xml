@@ -143,6 +143,8 @@
     <color name="esubstancesmenu">#84c225 </color>
     <color name="diseasemenu">#3498db </color>
     <color name="exitmenu">#e74c3c </color>
+    <color name="chemical">#8E44AD </color>
+    <color name="natural">#22B201 </color>
 
 
 </resources>

@@ -9,6 +9,7 @@ import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.Editable;
+import android.text.InputType;
 import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -73,7 +74,7 @@ public class ESubstanceSearch extends Fragment implements RecycleViewListener {
         database = new Database(getActivity());
         cursor = database.getAllESubstances();
 
-
+            etSearch.setInputType(InputType.TYPE_CLASS_NUMBER);
             adapter = new SimpleESubstanceCursorRecycleAdapter(cursor, this,getActivity());
             rvSearch.setAdapter(adapter);
 
