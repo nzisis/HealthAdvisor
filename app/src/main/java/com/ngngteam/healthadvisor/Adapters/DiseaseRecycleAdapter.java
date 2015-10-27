@@ -30,6 +30,7 @@ public class DiseaseRecycleAdapter extends RecyclerView.Adapter<DiseaseRecycleAd
     private ArrayList<DiseaseItem> items;
     private SparseBooleanArray expandState;
     private Context context;
+    private boolean firstTime;
 
     public DiseaseRecycleAdapter(ArrayList<DiseaseItem> items ){
         this.items = items;
@@ -37,6 +38,7 @@ public class DiseaseRecycleAdapter extends RecyclerView.Adapter<DiseaseRecycleAd
         for(int i=0 ; i<items.size(); i++){
             expandState.append(i,false);
         }
+        firstTime = true;
     }
 
 
@@ -69,59 +71,66 @@ public class DiseaseRecycleAdapter extends RecyclerView.Adapter<DiseaseRecycleAd
             holder.buttonLayout.setBackgroundColor(context.getResources().getColor(R.color.chemical));
         }
 
-        if (!diseaseItem.getSubstance().get(2).trim().equals("0")) {
+
+
+
+        if(firstTime){
+
+
+
+
+            if (!diseaseItem.getSubstance().get(2).trim().equals("0")) {
 //                TextView tvChemicalName = new TextView(getActivity());
 //                tvChemicalName.setText("Compound : " + diseaseItem.getSubstance().get(2));
 //                tvChemicalName.setPadding(4, 4, 4, 4);
 
-            TextView tv = new TextView(context);
-            tv.setText("Compound : " + diseaseItem.getSubstance().get(2));
-            tv.setTextSize(14);
-            tv.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT));
-            Drawable img = context.getResources().getDrawable(R.drawable.bullet);
-            img.setBounds(0, 0, 10, 10);
-            tv.setCompoundDrawables(img, null, null, null);
-            tv.setCompoundDrawablePadding(8);
-            tv.setGravity(Gravity.TOP);
-            tv.setPadding(4, 4, 4, 4);
-            holder.llGeneral.addView(tv);
-        }
+                TextView tv = new TextView(context);
+                tv.setText("Compound : " + diseaseItem.getSubstance().get(2));
+                tv.setTextSize(14);
+                tv.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT));
+                Drawable img = context.getResources().getDrawable(R.drawable.bullet);
+                img.setBounds(0, 0, 10, 10);
+                tv.setCompoundDrawables(img, null, null, null);
+                tv.setCompoundDrawablePadding(8);
+                tv.setGravity(Gravity.TOP);
+                tv.setPadding(4, 4, 4, 4);
+                holder.llGeneral.addView(tv);
+            }
 
-
-        if (!diseaseItem.getSubstance().get(3).trim().equals("0")) {
+            if (!diseaseItem.getSubstance().get(3).trim().equals("0")) {
 //                TextView tvChemicalName = new TextView(getActivity());
 //                tvChemicalName.setText("Trade Name : " + diseaseItem.getSubstance().get(3));
 //                tvChemicalName.setPadding(4, 4, 4, 4);
-            TextView tv = new TextView(context);
-            tv.setText("Trade Name : " + diseaseItem.getSubstance().get(3));
-            tv.setTextSize(14);
-            tv.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT));
-            Drawable img = context.getResources().getDrawable(R.drawable.bullet);
-            img.setBounds(0, 0, 10, 10);
-            tv.setCompoundDrawables(img, null, null, null);
-            tv.setCompoundDrawablePadding(8);
-            tv.setGravity(Gravity.TOP);
-            tv.setPadding(4, 4, 4, 4);
-            holder.llGeneral.addView(tv);
-        }
+                TextView tv = new TextView(context);
+                tv.setText("Trade Name : " + diseaseItem.getSubstance().get(3));
+                tv.setTextSize(14);
+                tv.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT));
+                Drawable img = context.getResources().getDrawable(R.drawable.bullet);
+                img.setBounds(0, 0, 10, 10);
+                tv.setCompoundDrawables(img, null, null, null);
+                tv.setCompoundDrawablePadding(8);
+                tv.setGravity(Gravity.TOP);
+                tv.setPadding(4, 4, 4, 4);
+                holder.llGeneral.addView(tv);
+            }
 
 
-        for (int i = 0; i < diseaseItem.getSources().size(); i++) {
+            for (int i = 0; i < diseaseItem.getSources().size(); i++) {
 
 
-            View view = inflater.inflate(R.layout.list_row_side_effect, null, false);
-            TextView tvsource = (TextView) view.findViewById(R.id.tv_side_effect);
-            tvsource.setText(diseaseItem.getSources().get(i));
-            holder.llSource.addView(view);
-        }
+                View view = inflater.inflate(R.layout.list_row_side_effect, null, false);
+                TextView tvsource = (TextView) view.findViewById(R.id.tv_side_effect);
+                tvsource.setText(diseaseItem.getSources().get(i));
+                holder.llSource.addView(view);
+            }
 
 
 
-        for (int i = 0; i < diseaseItem.getEffects().size(); i++) {
+            for (int i = 0; i < diseaseItem.getEffects().size(); i++) {
 
-            View view = inflater.inflate(R.layout.list_row_side_effect, null, false);
-            TextView tvsource = (TextView) view.findViewById(R.id.tv_side_effect);
-            tvsource.setText(diseaseItem.getEffects().get(i));
+                View view = inflater.inflate(R.layout.list_row_side_effect, null, false);
+                TextView tvsource = (TextView) view.findViewById(R.id.tv_side_effect);
+                tvsource.setText(diseaseItem.getEffects().get(i));
 //                TextView tv = new TextView(getContext());
 //                tv.setText(diseaseItem.getEffects().get(i));
 //                tv.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT));
@@ -131,15 +140,15 @@ public class DiseaseRecycleAdapter extends RecyclerView.Adapter<DiseaseRecycleAd
 //                tv.setCompoundDrawablePadding(8);
 //                tv.setGravity(Gravity.TOP);
 //                tv.setPadding(4, 4, 4, 4);
-            holder.llEffects.addView(view);
-        }
+                holder.llEffects.addView(view);
+            }
 
 
-        for (int i = 0; i < diseaseItem.getSide_effects().size(); i++) {
+            for (int i = 0; i < diseaseItem.getSide_effects().size(); i++) {
 
-            View view = inflater.inflate(R.layout.list_row_side_effect, null, false);
-            TextView tvsource = (TextView) view.findViewById(R.id.tv_side_effect);
-            tvsource.setText(diseaseItem.getSide_effects().get(i));
+                View view = inflater.inflate(R.layout.list_row_side_effect, null, false);
+                TextView tvsource = (TextView) view.findViewById(R.id.tv_side_effect);
+                tvsource.setText(diseaseItem.getSide_effects().get(i));
 //                TextView tv = new TextView(getContext());
 //                tv.setText(diseaseItem.getEffects().get(i));
 //                tv.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT));
@@ -149,8 +158,11 @@ public class DiseaseRecycleAdapter extends RecyclerView.Adapter<DiseaseRecycleAd
 //                tv.setCompoundDrawablePadding(8);
 //                tv.setGravity(Gravity.TOP);
 //                tv.setPadding(4, 4, 4, 4);
-            holder.llSideEffects.addView(view);
+                holder.llSideEffects.addView(view);
+            }
+
         }
+
 
 
 
@@ -169,6 +181,7 @@ public class DiseaseRecycleAdapter extends RecyclerView.Adapter<DiseaseRecycleAd
 
             @Override
             public void onPreOpen() {
+                firstTime=false;
                 createRotateAnimator(holder.buttonLayout, 0f, 180f).start();
             }
 
