@@ -2,18 +2,17 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="horizontal"
-    android:weightSum="2"
     android:layout_marginTop="10dp"
-    android:padding="@dimen/MainPadding"
     android:background="?android:selectableItemBackground"
-    >
+    android:orientation="horizontal"
+    android:padding="@dimen/MainPadding"
+    android:weightSum="2">
 
 
     <ImageView
+        android:id="@+id/iv_esubstances"
         android:layout_width="0dp"
         android:layout_height="match_parent"
-        android:id="@+id/iv_esubstances"
         android:layout_weight="0.3"
         android:src="@mipmap/ic_avoid" />
 
@@ -23,24 +22,25 @@
         android:layout_weight="1.7"
         android:orientation="vertical"
         android:padding="10dp">
+
         <TextView
             android:id="@+id/tv_esubstance_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:text="E 100"
             android:textColor="#000"
-            android:textStyle="bold"
             android:textSize="@dimen/ESubstanceRowItemTitle"
-            android:text="E 100" />
+            android:textStyle="bold" />
 
         <TextView
+            android:id="@+id/tv_esubstance_desc"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="@string/tilte_esubstances_list_row"
-            android:id="@+id/tv_esubstance_desc"
-            android:textSize="@dimen/ESubstanceRowItemName"
             android:paddingLeft="10dp"
-            android:textColor="#4169e1"/>
+            android:text="@string/tilte_esubstances_list_row"
+            android:textColor="@color/accent"
+            android:textSize="@dimen/ESubstanceRowItemName" />
 
-        </LinearLayout>
+    </LinearLayout>
 
 </LinearLayout>
