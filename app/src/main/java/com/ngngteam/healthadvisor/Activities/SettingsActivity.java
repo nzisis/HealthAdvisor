@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.preference.Preference;
 import android.preference.PreferenceActivity;
 
+import com.ngngteam.healthadvisor.HelpActivity2;
 import com.ngngteam.healthadvisor.R;
 
 
@@ -59,7 +60,7 @@ public class SettingsActivity extends PreferenceActivity {
         screen.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
             @Override
             public boolean onPreferenceClick(Preference preference) {
-                startActivity(new Intent(SettingsActivity.this, HelpActivity.class));
+                startActivity(new Intent(SettingsActivity.this, HelpActivity2.class));
                 return true;
             }
         });

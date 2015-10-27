@@ -19,4 +19,18 @@
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Dark" />
 
+    <style name="HelpQuestion" >
+        <item name="android:paddingTop">16dp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">24sp</item>
+    </style>
+
+    <style name="HelpAnswer" >
+        <item name="android:paddingTop">16dp</item>
+        <item name="android:paddingBottom">16dp</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+
+
+
 </resources>

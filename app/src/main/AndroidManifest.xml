@@ -105,6 +105,15 @@
             android:label="@string/title_activity_main"
             android:screenOrientation="portrait" >
         </activity>
+        <activity
+            android:name=".HelpActivity2"
+            android:label="@string/title_activity_help2"
+            android:parentActivityName=".Activities.SettingsActivity"
+            android:theme="@style/AppTheme" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.ngngteam.healthadvisor.Activities.SettingsActivity" />
+        </activity>
     </application>
 
 </manifest>
