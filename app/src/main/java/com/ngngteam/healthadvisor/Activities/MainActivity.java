@@ -1,5 +1,6 @@
 package com.ngngteam.healthadvisor.Activities;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
@@ -26,7 +27,6 @@ import com.ngngteam.healthadvisor.Fragments.NormalView;
 import com.ngngteam.healthadvisor.Intefaces.DiseaseListener;
 import com.ngngteam.healthadvisor.Intefaces.ESubstanceListener;
 import com.ngngteam.healthadvisor.R;
-import com.ngngteam.healthadvisor.Utils.CustomViewPager;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -49,10 +49,10 @@ public class MainActivity extends AppCompatActivity {
     private ViewPager mViewPager;
 
 
-    private HashMap<String,Fragment> components;
-    private String currentDiseaseTag,currentESubstanceTag;
+    private HashMap<String, Fragment> components;
+    private String currentDiseaseTag, currentESubstanceTag;
 
-    private Fragment firstPage,secondPage;
+    private Fragment firstPage, secondPage;
 
     private FragmentManager manager;
 
@@ -60,8 +60,8 @@ public class MainActivity extends AppCompatActivity {
         @Override
         public void onESubstanceSelected(ESubstanceItem item) {
             manager.beginTransaction().remove(components.get(currentESubstanceTag)).commit();
-            currentESubstanceTag=item.getTag();
-            ((ESubstance)components.get(currentESubstanceTag)).initESubstanceItem(item);
+            currentESubstanceTag = item.getTag();
+            ((ESubstance) components.get(currentESubstanceTag)).initESubstanceItem(item);
             secondPage = components.get(currentESubstanceTag);
             mSectionsPagerAdapter.notifyDataSetChanged();
         }
@@ -71,16 +71,14 @@ public class MainActivity extends AppCompatActivity {
         @Override
         public void onDiseaseSelected(ArrayList<DiseaseItem> items) {
             manager.beginTransaction().remove(components.get(currentDiseaseTag)).commit();
-            currentDiseaseTag="Disease";
-            ((Disease)components.get(currentDiseaseTag)).initTreatments(items);
-            firstPage =components.get(currentDiseaseTag);
+            currentDiseaseTag = "Disease";
+            ((Disease) components.get(currentDiseaseTag)).initTreatments(items);
+            firstPage = components.get(currentDiseaseTag);
             mSectionsPagerAdapter.notifyDataSetChanged();
 
 
         }
     };
-
-
 
 
     @Override
@@ -100,33 +98,33 @@ public class MainActivity extends AppCompatActivity {
     private void init() {
         components = new HashMap<>();
 
-        String tag="NormalView";
+        String tag = "NormalView";
         NormalView normalView = new NormalView();
         normalView.setDiseaseListener(diseaseListener);
-        components.put(tag,normalView);
+        components.put(tag, normalView);
 
-        currentDiseaseTag=tag;
+        currentDiseaseTag = tag;
 
 
-        tag="CategoryView";
-        CategoryView categoryView=new CategoryView();
+        tag = "CategoryView";
+        CategoryView categoryView = new CategoryView();
         components.put(tag, categoryView);
 
-        tag="ESubstanceSearch";
+        tag = "ESubstanceSearch";
         ESubstanceSearch eSubstanceSearch = new ESubstanceSearch();
         eSubstanceSearch.setESubstanceListener(eSubstanceListener);
         //eSubstanceSearch.setRe
-        components.put(tag,eSubstanceSearch);
+        components.put(tag, eSubstanceSearch);
 
-        currentESubstanceTag=tag;
+        currentESubstanceTag = tag;
 
-        tag="ESubstance";
-        ESubstance eSubstance=new ESubstance();
-        components.put(tag,eSubstance);
+        tag = "ESubstance";
+        ESubstance eSubstance = new ESubstance();
+        components.put(tag, eSubstance);
 
-        tag="Disease";
+        tag = "Disease";
         Disease disease = new Disease();
-        components.put(tag,disease);
+        components.put(tag, disease);
 
         manager = getSupportFragmentManager();
 
@@ -170,12 +168,12 @@ public class MainActivity extends AppCompatActivity {
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
+            startActivity(new Intent(this, SettingsActivity.class));
             return true;
         }
 
         return super.onOptionsItemSelected(item);
     }
-
 
 
 //    @Override
@@ -192,7 +190,7 @@ public class MainActivity extends AppCompatActivity {
      * A {@link FragmentPagerAdapter} that returns a fragment corresponding to
      * one of the sections/tabs/pages.
      */
-    public class SectionsPagerAdapter extends FragmentStatePagerAdapter{
+    public class SectionsPagerAdapter extends FragmentStatePagerAdapter {
 
         public SectionsPagerAdapter(FragmentManager fm) {
             super(fm);
@@ -202,11 +200,11 @@ public class MainActivity extends AppCompatActivity {
         public Fragment getItem(int position) {
             switch (position) {
                 case 0:
-                    if(firstPage == null) firstPage= components.get(currentDiseaseTag);
-                    return  firstPage;
+                    if (firstPage == null) firstPage = components.get(currentDiseaseTag);
+                    return firstPage;
                 //getFragmentManager().beginTransaction().rem
                 case 1:
-                    if(secondPage == null) secondPage =components.get(currentESubstanceTag);
+                    if (secondPage == null) secondPage = components.get(currentESubstanceTag);
                     return secondPage;
             }
             return null;
@@ -220,13 +218,11 @@ public class MainActivity extends AppCompatActivity {
         }
 
 
-
-
         @Override
         public CharSequence getPageTitle(int position) {
             switch (position) {
                 case 0:
-                    if(firstPage!=null && firstPage instanceof Disease) return "TREATMENT";
+                    if (firstPage != null && firstPage instanceof Disease) return "TREATMENT";
                     return "DISEASES";
                 case 1:
                     return "E-SUBSTANCES";
@@ -235,17 +231,18 @@ public class MainActivity extends AppCompatActivity {
         }
 
 
-
-
         @Override
         public int getItemPosition(Object object) {
-            if(object instanceof ESubstanceSearch && secondPage instanceof ESubstance ){
+            if (object instanceof ESubstanceSearch && secondPage instanceof ESubstance) {
                 return POSITION_NONE;
-            }if(object instanceof ESubstance && secondPage instanceof ESubstanceSearch ){
+            }
+            if (object instanceof ESubstance && secondPage instanceof ESubstanceSearch) {
                 return POSITION_NONE;
-            }if(object instanceof  NormalView && firstPage instanceof Disease){
+            }
+            if (object instanceof NormalView && firstPage instanceof Disease) {
                 return POSITION_NONE;
-            }if(object instanceof  Disease && firstPage instanceof NormalView){
+            }
+            if (object instanceof Disease && firstPage instanceof NormalView) {
                 return POSITION_NONE;
             }
             return POSITION_UNCHANGED;
@@ -290,32 +287,32 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public void onBackPressed() {
 
-        if(mViewPager.getCurrentItem() == 1){
+        if (mViewPager.getCurrentItem() == 1) {
 
-            if(secondPage instanceof ESubstance){
-
-
-                    manager.beginTransaction().remove(components.get(currentESubstanceTag)).commit();
-                    currentESubstanceTag="ESubstanceSearch";
-                    secondPage=components.get(currentESubstanceTag);
-
-                    mSectionsPagerAdapter.notifyDataSetChanged();
+            if (secondPage instanceof ESubstance) {
 
 
-            }else{
+                manager.beginTransaction().remove(components.get(currentESubstanceTag)).commit();
+                currentESubstanceTag = "ESubstanceSearch";
+                secondPage = components.get(currentESubstanceTag);
+
+                mSectionsPagerAdapter.notifyDataSetChanged();
+
+
+            } else {
                 super.onBackPressed();
             }
 
 
-        }else if(mViewPager.getCurrentItem() == 0){
+        } else if (mViewPager.getCurrentItem() == 0) {
 
-            if(firstPage instanceof Disease){
+            if (firstPage instanceof Disease) {
                 manager.beginTransaction().remove(components.get(currentDiseaseTag)).commit();
-                currentDiseaseTag="NormalView";
-                firstPage=components.get(currentDiseaseTag);
+                currentDiseaseTag = "NormalView";
+                firstPage = components.get(currentDiseaseTag);
 
                 mSectionsPagerAdapter.notifyDataSetChanged();
-            }else {
+            } else {
                 super.onBackPressed();
             }
         }
