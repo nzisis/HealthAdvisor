@@ -43,7 +43,7 @@ public class DiseaseRecycleAdapter extends RecyclerView.Adapter<DiseaseRecycleAd
     @Override
     public DiseaseRecycleAdapter.MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         this.context = parent.getContext();
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.fragment_disease, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.disease_item, parent, false);
 
         return new MyViewHolder(view);
     }

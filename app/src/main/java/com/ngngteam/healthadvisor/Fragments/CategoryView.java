@@ -1,6 +1,6 @@
 package com.ngngteam.healthadvisor.Fragments;
 
-import android.content.Intent;
+
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -10,8 +10,10 @@ import android.view.ViewGroup;
 import android.view.View;
 import android.widget.ExpandableListView;
 
-import com.ngngteam.healthadvisor.Activities.DiseaseActivity;
+
 import com.ngngteam.healthadvisor.Data.Database;
+import com.ngngteam.healthadvisor.Data.DiseaseItem;
+import com.ngngteam.healthadvisor.Intefaces.DiseaseListener;
 import com.ngngteam.healthadvisor.Model.CategoryViewModel;
 import com.ngngteam.healthadvisor.R;
 import com.ngngteam.healthadvisor.Adapters.CategoryViewAdapter;
@@ -25,19 +27,18 @@ import java.util.List;
 public class CategoryView extends Fragment {
 
 
-   // private ExpandableRecyclerView expandableRecyclerView;
     private CategoryViewAdapter adapter;
     private ExpandableListView expListView;
     private List<CategoryViewModel> data;
     private Database db;
 
+    private DiseaseListener diseaseListener;
+
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_category_view, container, false);
-//        expandableRecyclerView = (ExpandableRecyclerView) view.findViewById(R.id.expCategories);
-//        expandableRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+         View view = inflater.inflate(R.layout.fragment_category_view, container, false);
          expListView=(ExpandableListView) view.findViewById(R.id.expCategories);
 
         return view;
@@ -48,7 +49,6 @@ public class CategoryView extends Fragment {
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        if (adapter == null) {
 
             initData();
             adapter = new CategoryViewAdapter(getActivity(),data);
@@ -56,23 +56,25 @@ public class CategoryView extends Fragment {
             expListView.setOnChildClickListener(new ExpandableListView.OnChildClickListener() {
                 @Override
                 public boolean onChildClick(ExpandableListView parent, View v, int groupPosition, int childPosition, long id) {
+
                     String diseaseName = ((CategoryViewModel) adapter.getChild(groupPosition, childPosition)).getContext();
-                    Intent i = new Intent(getActivity(), DiseaseActivity.class);
-                    i.putExtra("name", diseaseName);
-                    startActivity(i);
-//                    if (hasAnimations) {
-//                        overridePendingTransition(R.anim.pull_in_right, R.anim.push_out_left);
-//                    }
+                    ArrayList<DiseaseItem> items = db.getDiseaseBasedOnName(diseaseName);
+                    diseaseListener.onDiseaseSelected(items);
+                    expListView.setSelection(expListView.getFirstVisiblePosition());
+
                     return true;
 
                 }
             });
 
-        }
+
 
 
     }
 
+    public void setDiseaseListener(DiseaseListener listener){
+        this.diseaseListener = listener;
+    }
 
     private void initData() {
         db = new Database(getActivity());

@@ -2,6 +2,7 @@ package com.ngngteam.healthadvisor.Activities;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -10,6 +11,7 @@ import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -51,6 +53,7 @@ public class MainActivity extends AppCompatActivity {
 
     private HashMap<String, Fragment> components;
     private String currentDiseaseTag, currentESubstanceTag;
+    private boolean diseaseView;
 
     private Fragment firstPage, secondPage;
 
@@ -75,8 +78,6 @@ public class MainActivity extends AppCompatActivity {
             ((Disease) components.get(currentDiseaseTag)).initTreatments(items);
             firstPage = components.get(currentDiseaseTag);
             mSectionsPagerAdapter.notifyDataSetChanged();
-
-
         }
     };
 
@@ -97,18 +98,24 @@ public class MainActivity extends AppCompatActivity {
 
     private void init() {
         components = new HashMap<>();
+        diseaseView = PreferenceManager.getDefaultSharedPreferences(MainActivity.this).getBoolean("pref_key_category_view", false);
+        String tag;
 
-        String tag = "NormalView";
+
+        tag = "NormalView";
         NormalView normalView = new NormalView();
         normalView.setDiseaseListener(diseaseListener);
         components.put(tag, normalView);
 
         currentDiseaseTag = tag;
 
-
         tag = "CategoryView";
         CategoryView categoryView = new CategoryView();
+        categoryView.setDiseaseListener(diseaseListener);
         components.put(tag, categoryView);
+
+        if (diseaseView) currentDiseaseTag = tag;
+
 
         tag = "ESubstanceSearch";
         ESubstanceSearch eSubstanceSearch = new ESubstanceSearch();
@@ -176,16 +183,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-//    @Override
-//    public void onESubstanceSelected(ESubstanceItem item) {
-//          manager.beginTransaction().remove(components.get(currentESubstanceTag)).commit();
-//          currentESubstanceTag=item.getTag();
-//         ((ESubstance)components.get(currentESubstanceTag)).initESubstanceItem(item);
-//          secondPage = components.get(currentESubstanceTag);
-//          mSectionsPagerAdapter.notifyDataSetChanged();
-//    }
-
-
     /**
      * A {@link FragmentPagerAdapter} that returns a fragment corresponding to
      * one of the sections/tabs/pages.
@@ -245,42 +242,20 @@ public class MainActivity extends AppCompatActivity {
             if (object instanceof Disease && firstPage instanceof NormalView) {
                 return POSITION_NONE;
             }
+            if(object instanceof CategoryView && firstPage instanceof Disease){
+                return POSITION_NONE;
+            }
+            if(object instanceof Disease && firstPage instanceof CategoryView){
+                return POSITION_NONE;
+            }
+            if(object instanceof NormalView && firstPage instanceof CategoryView){
+                return POSITION_NONE;
+            }
+            if(object instanceof CategoryView && firstPage instanceof NormalView){
+                return POSITION_NONE;
+            }
+
             return POSITION_UNCHANGED;
-        }
-    }
-
-    /**
-     * A placeholder fragment containing a simple view.
-     */
-    public static class PlaceholderFragment extends Fragment {
-        /**
-         * The fragment argument representing the section number for this
-         * fragment.
-         */
-        private static final String ARG_SECTION_NUMBER = "section_number";
-
-        /**
-         * Returns a new instance of this fragment for the given section
-         * number.
-         */
-        public static PlaceholderFragment newInstance(int sectionNumber) {
-            PlaceholderFragment fragment = new PlaceholderFragment();
-            Bundle args = new Bundle();
-            args.putInt(ARG_SECTION_NUMBER, sectionNumber);
-            fragment.setArguments(args);
-            return fragment;
-        }
-
-        public PlaceholderFragment() {
-        }
-
-        @Override
-        public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                                 Bundle savedInstanceState) {
-            View rootView = inflater.inflate(R.layout.fragment_main, container, false);
-            TextView textView = (TextView) rootView.findViewById(R.id.section_label);
-            textView.setText(getString(R.string.section_format, getArguments().getInt(ARG_SECTION_NUMBER)));
-            return rootView;
         }
     }
 
@@ -306,16 +281,46 @@ public class MainActivity extends AppCompatActivity {
 
         } else if (mViewPager.getCurrentItem() == 0) {
 
-            if (firstPage instanceof Disease) {
+            if (firstPage instanceof Disease && !diseaseView) {
                 manager.beginTransaction().remove(components.get(currentDiseaseTag)).commit();
                 currentDiseaseTag = "NormalView";
                 firstPage = components.get(currentDiseaseTag);
 
                 mSectionsPagerAdapter.notifyDataSetChanged();
-            } else {
+            }else if(firstPage instanceof Disease && diseaseView){
+                manager.beginTransaction().remove(components.get(currentDiseaseTag)).commit();
+                currentDiseaseTag = "CategoryView";
+                firstPage = components.get(currentDiseaseTag);
+
+                mSectionsPagerAdapter.notifyDataSetChanged();
+            }
+            else {
                 super.onBackPressed();
             }
         }
 
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume(); PreferenceManager.getDefaultSharedPreferences(MainActivity.this).getBoolean("pref_key_category_view", false);
+        boolean currentDiseaseView =  PreferenceManager.getDefaultSharedPreferences(MainActivity.this).getBoolean("pref_key_category_view", false);
+        //User changed the view of the disease
+        if(currentDiseaseView != diseaseView){
+            diseaseView =currentDiseaseView;
+            //User changed the view of diseases to be now category and the first page is set to the normal view
+            if(currentDiseaseView && firstPage instanceof NormalView){
+                manager.beginTransaction().remove(components.get(currentDiseaseTag)).commit();
+                currentDiseaseTag = "CategoryView";
+                firstPage = components.get(currentDiseaseTag);
+                mSectionsPagerAdapter.notifyDataSetChanged();
+            }//User chanded the view of diseases to be now normal and the first page is set to the category view
+            else if(!currentDiseaseView && firstPage instanceof CategoryView){
+                manager.beginTransaction().remove(components.get(currentDiseaseTag)).commit();
+                currentDiseaseTag = "NormalView";
+                firstPage = components.get(currentDiseaseTag);
+                mSectionsPagerAdapter.notifyDataSetChanged();
+            }
+        }
     }
 }

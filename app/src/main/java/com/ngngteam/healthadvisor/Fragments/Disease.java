@@ -8,6 +8,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.ngngteam.healthadvisor.Adapters.DiseaseRecycleAdapter;
 import com.ngngteam.healthadvisor.Data.DiseaseItem;
@@ -23,6 +24,7 @@ public class Disease extends Fragment {
 
     private ArrayList<DiseaseItem> items;
     private RecyclerView recyclerView;
+    private TextView tvTreatment;
     private DiseaseRecycleAdapter adapter;
 
 
@@ -30,11 +32,12 @@ public class Disease extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view  = inflater.inflate(R.layout.recycle_view,container,false);
+        View view  = inflater.inflate(R.layout.fragment_disease,container,false);
         recyclerView=(RecyclerView) view.findViewById(R.id.recyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
-        recyclerView.addItemDecoration(new DividerItemDecoration(getActivity().getResources().getDrawable(R.drawable.divider),false,false));
+        recyclerView.addItemDecoration(new DividerItemDecoration(getActivity().getResources().getDrawable(R.drawable.divider), false, false));
 
+        tvTreatment=(TextView) view.findViewById(R.id.tvTreatment);
 
         return view;
     }
@@ -44,6 +47,7 @@ public class Disease extends Fragment {
         super.onActivityCreated(savedInstanceState);
 
         initBasicVariables();
+        tvTreatment.setText(items.get(0).getName() + " Treatment");
     }
 
     private void initBasicVariables(){

@@ -120,13 +120,6 @@ public class NormalView extends Fragment implements RecycleViewListener {
         ArrayList<DiseaseItem> items = database.getDiseaseBasedOnName(nameOfDisease);
         cursor = database.getAllDiseases();
 
-//        adapter.changeCursor(cursor);
-//        adapter.notifyDataSetChanged();
-
         diseaseListener.onDiseaseSelected(items);
-
-//        Intent i = new Intent(getActivity(), DiseaseActivity.class);
-//        i.putExtra("name", nameOfDisease);
-//        startActivity(i);
     }
 }
