@@ -4,10 +4,12 @@
     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
         <item name="android:windowBackground">@drawable/app_background</item>
-        <item name="colorPrimary">@color/primary</item>
-        <item name="colorPrimaryDark">@color/primary_dark</item>
-        <item name="android:textColorPrimary">@color/primary_text_default_material_dark</item>
+        <item name="colorPrimary">@color/primary_material_dark</item>
+        <item name="colorPrimaryDark">@color/primary_dark_material_dark</item>
+        <item name="android:textColorPrimary">@color/primary_text_default_material_light</item>
         <item name="colorAccent">@color/accent</item>
+        <item name="android:colorBackground">@color/background_material_dark</item>
+        <item name="android:textColorSecondary">@color/secondary_text_default_material_light</item>
     </style>
 
     <style name="Animation">
