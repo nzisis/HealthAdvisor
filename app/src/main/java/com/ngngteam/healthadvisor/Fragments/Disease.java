@@ -10,7 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.ngngteam.healthadvisor.Adapters.DiseaseRecycleAdapter;
+import com.ngngteam.healthadvisor.Adapters.DiseaseRecyclerAdapter;
 import com.ngngteam.healthadvisor.Data.DiseaseItem;
 import com.ngngteam.healthadvisor.R;
 import com.ngngteam.healthadvisor.Utils.DividerItemDecoration;
@@ -25,7 +25,7 @@ public class Disease extends Fragment {
     private ArrayList<DiseaseItem> items;
     private RecyclerView recyclerView;
     private TextView tvTreatment;
-    private DiseaseRecycleAdapter adapter;
+    private DiseaseRecyclerAdapter adapter;
 
 
 
@@ -52,7 +52,7 @@ public class Disease extends Fragment {
 
     private void initBasicVariables(){
 
-        adapter = new DiseaseRecycleAdapter(items);
+        adapter = new DiseaseRecyclerAdapter(items);
         recyclerView.setAdapter(adapter);
     }
 
