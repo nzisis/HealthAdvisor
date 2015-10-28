@@ -1,6 +1,5 @@
 package com.ngngteam.healthadvisor.Activities;
 
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v4.app.Fragment;
@@ -10,7 +9,6 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
-import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -237,11 +235,7 @@ public class DiseaseActivity extends ActionBarActivity {
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                                  Bundle savedInstanceState) {
             View rootView = inflater.inflate(R.layout.fragment_disease_activity2, container, false);
-/*
-            RadioGroup source = (RadioGroup) rootView.findViewById(R.id.radioGroupSource);
-            RadioGroup effects = (RadioGroup) rootView.findViewById(R.id.radioGroupEffects);
-            RadioGroup side_effects = (RadioGroup) rootView.findViewById(R.id.radioGroupSideEffects);
-*/
+
             LinearLayout llSource, llEffects, llSideEffects, llGeneral;
             TextView tvOrigin, tvSubstanceName;
 
@@ -276,37 +270,20 @@ public class DiseaseActivity extends ActionBarActivity {
             }
 
             if (!diseaseItem.getSubstance().get(2).trim().equals("0")) {
-//                TextView tvChemicalName = new TextView(getActivity());
-//                tvChemicalName.setText("Compound : " + diseaseItem.getSubstance().get(2));
-//                tvChemicalName.setPadding(4, 4, 4, 4);
 
-                TextView tv = new TextView(getActivity());
-                tv.setText("Compound : " + diseaseItem.getSubstance().get(2));
-                tv.setTextSize(14);
-                tv.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT));
-                Drawable img = getActivity().getResources().getDrawable(R.drawable.bullet);
-                img.setBounds(0, 0, 10, 10);
-                tv.setCompoundDrawables(img, null, null, null);
-                tv.setCompoundDrawablePadding(8);
-                tv.setGravity(Gravity.TOP);
-                tv.setPadding(4, 4, 4, 4);
-                llGeneral.addView(tv);
+                View view = inflater.inflate(R.layout.list_row_side_effect, container, false);
+                TextView tvCompound = (TextView) view.findViewById(R.id.tv_side_effect);
+                tvCompound.setText("Compound : " + diseaseItem.getSubstance().get(2));
+                llGeneral.addView(view);
+
             }
             if (!diseaseItem.getSubstance().get(3).trim().equals("0")) {
-//                TextView tvChemicalName = new TextView(getActivity());
-//                tvChemicalName.setText("Trade Name : " + diseaseItem.getSubstance().get(3));
-//                tvChemicalName.setPadding(4, 4, 4, 4);
-                TextView tv = new TextView(getActivity());
-                tv.setText("Trade Name : " + diseaseItem.getSubstance().get(3));
-                tv.setTextSize(14);
-                tv.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT));
-                Drawable img = getActivity().getResources().getDrawable(R.drawable.bullet);
-                img.setBounds(0, 0, 10, 10);
-                tv.setCompoundDrawables(img, null, null, null);
-                tv.setCompoundDrawablePadding(8);
-                tv.setGravity(Gravity.TOP);
-                tv.setPadding(4, 4, 4, 4);
-                llGeneral.addView(tv);
+
+                View view = inflater.inflate(R.layout.list_row_side_effect, container, false);
+                TextView tvTradeName = (TextView) view.findViewById(R.id.tv_side_effect);
+                tvTradeName.setText("Trade Name : " + diseaseItem.getSubstance().get(3));
+                llGeneral.addView(view);
+
             }
 
 
@@ -324,15 +301,7 @@ public class DiseaseActivity extends ActionBarActivity {
                 View view = inflater.inflate(R.layout.list_row_side_effect, container, false);
                 TextView tvsource = (TextView) view.findViewById(R.id.tv_side_effect);
                 tvsource.setText(diseaseItem.getEffects().get(i));
-//                TextView tv = new TextView(getContext());
-//                tv.setText(diseaseItem.getEffects().get(i));
-//                tv.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT));
-//                Drawable img = getContext().getResources().getDrawable(R.drawable.bullet);
-//                img.setBounds(0, 0, 10, 10);
-//                tv.setCompoundDrawables(img, null, null, null);
-//                tv.setCompoundDrawablePadding(8);
-//                tv.setGravity(Gravity.TOP);
-//                tv.setPadding(4, 4, 4, 4);
+
                 llEffects.addView(view);
             }
 
@@ -342,36 +311,10 @@ public class DiseaseActivity extends ActionBarActivity {
                 View view = inflater.inflate(R.layout.list_row_side_effect, container, false);
                 TextView tvsource = (TextView) view.findViewById(R.id.tv_side_effect);
                 tvsource.setText(diseaseItem.getSide_effects().get(i));
-//                TextView tv = new TextView(getContext());
-//                tv.setText(diseaseItem.getEffects().get(i));
-//                tv.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT));
-//                Drawable img = getContext().getResources().getDrawable(R.drawable.bullet);
-//                img.setBounds(0, 0, 10, 10);
-//                tv.setCompoundDrawables(img, null, null, null);
-//                tv.setCompoundDrawablePadding(8);
-//                tv.setGravity(Gravity.TOP);
-//                tv.setPadding(4, 4, 4, 4);
+
                 llSideEffects.addView(view);
             }
 
-
-
-/*
-
-            for (int i = 0; i < diseaseItem.getEffects().size(); i++) {
-                RadioButton rb = new RadioButton(rootView.getContext());
-                rb.setText(diseaseItem.getEffects().get(i));
-                effects.addView(rb);
-            }
-
-
-            for (int i = 0; i < diseaseItem.getSide_effects().size(); i++) {
-
-                RadioButton rb = new RadioButton(rootView.getContext());
-                rb.setText(diseaseItem.getSide_effects().get(i));
-                side_effects.addView(rb);
-            }
-*/
 
             return rootView;
         }
