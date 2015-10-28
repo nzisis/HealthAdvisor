@@ -6,9 +6,9 @@
         android:title="General">
 
         <!--<CheckBoxPreference-->
-            <!--android:defaultValue="true"-->
-            <!--android:key="pref_key_animations"-->
-            <!--android:title="Window Animations" />-->
+        <!--android:defaultValue="true"-->
+        <!--android:key="pref_key_animations"-->
+        <!--android:title="Window Animations" />-->
 
         <CheckBoxPreference
             android:defaultValue="false"
@@ -27,6 +27,10 @@
 
         <Preference
             android:key="pref_key_help"
+            android:title="Help" />
+
+        <Preference
+            android:key="pref_key_version"
             android:title="Help" />
 
         <Preference

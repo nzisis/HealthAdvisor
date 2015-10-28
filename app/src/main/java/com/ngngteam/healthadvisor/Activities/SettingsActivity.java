@@ -1,8 +1,10 @@
 package com.ngngteam.healthadvisor.Activities;
 
 import android.app.AlertDialog;
+import android.content.ActivityNotFoundException;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.preference.Preference;
 import android.preference.PreferenceActivity;
@@ -51,6 +53,34 @@ public class SettingsActivity extends PreferenceActivity {
 
                 AlertDialog dialog = builder.create();
                 dialog.show();
+
+                return false;
+            }
+        });
+
+        screen = (Preference) findPreference("pref_key_version");
+        screen.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
+            @Override
+            public boolean onPreferenceClick(Preference preference) {
+
+                //TODO show Changelog
+
+                return false;
+            }
+        });
+
+        screen = findPreference("pref_key_rate_app");
+        screen.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
+            @Override
+            public boolean onPreferenceClick(Preference preference) {
+
+                Uri uri = Uri.parse("market://details?id=" + getPackageName());
+                Intent goToMarket = new Intent(Intent.ACTION_VIEW, uri);
+                try {
+                    startActivity(goToMarket);
+                } catch (ActivityNotFoundException e) {
+                    startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://play.google.com/store/apps/details?id=" + getPackageName())));
+                }
 
                 return false;
             }
