@@ -34,4 +34,9 @@
     </style>
 
 
+    <style name="transparent">
+        <item name="android:textSize">5sp</item>
+        <item name="android:textColor">@android:color/transparent</item>
+    </style>
+
 </resources>

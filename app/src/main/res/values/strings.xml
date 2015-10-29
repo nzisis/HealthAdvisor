@@ -35,21 +35,21 @@
     <string name="title_section2">Section 2</string>
     <string name="title_section3">Section 3</string>
     <string name="title_activity_help">Help</string>
-    <string name="text_question_what_it_is">What is Health Advisor ?</string>
+    <string name="text_question_what_it_is">What is Health Advisor?</string>
     <string name="text_question_what">
        The purpose of Health Advisor is to help you overcome common health issues such as headaches, colds, high fever etc
         by suggesting consumption of certain natural or non-natural substances. Therefore, it makes you capable of managing
         possible health problems on your own, without necessarily consulting a doctor. Alongside, it provides a reference to
         the E-substances that can be found only in non-natural products and can help you maintain a healthy - safe diet.
     </string>
-    <string name="text_question_how_it_works">How Health Advisor works ?</string>
+    <string name="text_question_how_it_works">How Health Advisor works?</string>
     <string name="text_answer_how_it_works" >
         You can navigate from the main menu to search either an E-substance or a disease .
         E-substances can be searched by their number only . Diseases , on the other hand ,
         can be searched in two ways . You can either find a disease by its name or by its
         general disease category .
     </string>
-    <string name="text_question_disease" >How disease information is displayed ?</string>
+    <string name="text_question_disease" >How disease information is displayed?</string>
     <string name="text_answer_disease" >
             Each disease can be dealt with several treatments - substances . Each treatment-substance is displayed
         on a different tab which contains basic information about this particular substance such as where it can be found
