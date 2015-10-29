@@ -98,7 +98,6 @@ public class Settings extends PreferenceFragment {
         screen.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
             @Override
             public boolean onPreferenceClick(Preference preference) {
-                //startActivity(new Intent(SettingsActivity.this, HelpActivity2.class));
                 helpListener.onHelpPressed();
                 return true;
             }
