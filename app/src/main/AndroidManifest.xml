@@ -114,6 +114,9 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.ngngteam.healthadvisor.Activities.SettingsActivity" />
         </activity>
+
+        <activity android:name=".Activities.SettingsActivity2"/>
+
     </application>
 
 </manifest>
