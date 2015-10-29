@@ -1,7 +1,6 @@
 package com.ngngteam.healthadvisor.Fragments;
 
 import android.support.v4.app.Fragment;
-import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
 
@@ -14,9 +13,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
-import android.widget.Toast;
 
-import com.ngngteam.healthadvisor.Activities.DiseaseActivity;
 import com.ngngteam.healthadvisor.Adapters.SimpleDiseaseCursorRecycleAdapter;
 import com.ngngteam.healthadvisor.Data.Database;
 import com.ngngteam.healthadvisor.Data.DiseaseItem;

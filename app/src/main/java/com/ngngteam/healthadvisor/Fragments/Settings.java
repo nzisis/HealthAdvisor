@@ -2,7 +2,6 @@ package com.ngngteam.healthadvisor.Fragments;
 
 import android.app.AlertDialog;
 import android.content.ActivityNotFoundException;
-import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
@@ -19,7 +18,7 @@ import com.ngngteam.healthadvisor.R;
  */
 public class Settings extends PreferenceFragment {
 
-    private Context context;
+
     private HelpListener helpListener;
 
 
@@ -27,11 +26,6 @@ public class Settings extends PreferenceFragment {
         this.helpListener =listener;
     }
 
-    @Override
-    public void onAttach(Context context) {
-        super.onAttach(context);
-        this.context = context;
-    }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -47,14 +41,15 @@ public class Settings extends PreferenceFragment {
             @Override
             public boolean onPreferenceClick(Preference preference) {
 
-                AlertDialog.Builder builder = new AlertDialog.Builder(context);
+                AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
 
-                builder.setMessage("Health Advisor was developed by the development team NG^2, by Nick Zisis, Nick Stampoulis and Ilias Zosimadis  in association " +
-                        "with Chemical postgraduate student Argyri Kozari ." +
+                builder.setMessage("Health Advisor was developed by the development team NGNG, by Nick Zisis, Nick Stampoulis and Ilias Zosimadis  in association " +
+                        "with Chemical postgraduate student Argyri Kozari who provide the data ." +
+                        "\n\nHealth Advisor participated on Eestec Android Competition 2015 and was nominee for the best " +
+                        "innovation app among with 2 other app from a total of 550 apps."+
                         "\n\n Libraries used:" +
-                        "\n-ActivityTransaction by ophilbert" +
+                        "\n-ExpandableLayout by AAkira" +
                         "\n-CustomPopUp by RuiMa" +
-                        "\n\n Most of our icons designed by www.icons8.com  " +
                         "\n\n Contact us: ngngteam2014@gmail.com")
                         .setTitle("About Us");
                 builder.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
@@ -87,12 +82,12 @@ public class Settings extends PreferenceFragment {
             @Override
             public boolean onPreferenceClick(Preference preference) {
 
-                Uri uri = Uri.parse("market://details?id=" + context.getPackageName());
+                Uri uri = Uri.parse("market://details?id=" + getActivity().getPackageName());
                 Intent goToMarket = new Intent(Intent.ACTION_VIEW, uri);
                 try {
                     startActivity(goToMarket);
                 } catch (ActivityNotFoundException e) {
-                    startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://play.google.com/store/apps/details?id=" + context.getPackageName())));
+                    startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://play.google.com/store/apps/details?id=" + getActivity().getPackageName())));
                 }
 
                 return false;

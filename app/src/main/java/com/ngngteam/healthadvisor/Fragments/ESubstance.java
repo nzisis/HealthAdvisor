@@ -5,6 +5,7 @@ import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+
 import android.support.v4.app.Fragment;
 import android.view.View;
 import android.view.LayoutInflater;
@@ -15,7 +16,6 @@ import android.widget.TextView;
 
 import com.ngngteam.healthadvisor.Adapters.ESubstanceImageAdapter;
 import com.ngngteam.healthadvisor.Adapters.ESubstanceSideEffectAdapter;
-import com.ngngteam.healthadvisor.Data.Database;
 import com.ngngteam.healthadvisor.Data.ESubstanceItem;
 import com.ngngteam.healthadvisor.R;
 import com.ngngteam.healthadvisor.Utils.CustomPopUp;
@@ -27,7 +27,7 @@ import com.ngngteam.healthadvisor.Utils.ScrollableGridView;
  */
 public class ESubstance extends Fragment {
 
-//    private Database database;
+
     private ESubstanceItem item;
     private String[] desc;
 
@@ -75,10 +75,6 @@ public class ESubstance extends Fragment {
 
     private void initBasicVariables() {
 
-//        int id = (int) getActivity().getIntent().getExtras().get("id");
-//        database = new Database(getActivity());
-//        item = database.getESubstanceItemById(id);
-
         imageAdapter = new ESubstanceImageAdapter(getActivity());
         imageAdapter.updateIcons(item.getCategories());
         desc = getResources().getStringArray(R.array.popup_desc);
@@ -120,13 +116,12 @@ public class ESubstance extends Fragment {
     private void initListeners() {
         gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             public void onItemClick(AdapterView<?> parent, View v, int position, long id) {
-                //Toast.makeText(ESubstanceActivity.this, "" + position, Toast.LENGTH_SHORT).show();
+
                 // create window
                 CustomPopUp pop = new CustomPopUp(getActivity(), getResources().getInteger(R.integer.popup_width));//specify the window width explicitly
 
                 // set content view
                 TextView tv = new TextView(getActivity());
-                //tv.setText(item.getSideEffects().get(1));
                 tv.setText(desc[position]);
                 tv.setPadding(20, 20, 20, 20);
                 tv.setTextColor(Color.WHITE);

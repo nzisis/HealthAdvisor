@@ -3,7 +3,7 @@ package com.ngngteam.healthadvisor.Data;
 import java.util.ArrayList;
 
 /**
- * Created by Vromia on 15/3/2015.
+ * Created by Nick Zisis on 15/3/2015.
  */
 public class DiseaseItem {
 

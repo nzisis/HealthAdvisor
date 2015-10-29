@@ -15,7 +15,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * Created by Vromia on 28/2/2015.
+ * Created by Nick Zisis on 28/2/2015.
  */
 public class Database extends SQLiteOpenHelper {
 
