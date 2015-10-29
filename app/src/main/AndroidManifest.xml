@@ -20,90 +20,15 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".Activities.SearchMenuActivity"
-            android:label="@string/title_activity_search_menu"
-            android:parentActivityName=".Activities.HomeActivity"
-            android:screenOrientation="portrait" >
-
-            <!-- Parent activity meta-data to support 4.0 and lower -->
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.ngngteam.healthadvisor.Activities.HomeActivity" />
-        </activity>
-        <activity
-            android:name=".Activities.CategoryViewActivity"
-            android:label="@string/title_activity_category_view"
-            android:parentActivityName=".Activities.SearchMenuActivity"
-            android:screenOrientation="portrait" >
-
-            <!-- Parent activity meta-data to support 4.0 and lower -->
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.ngngteam.healthadvisor.Activities.SearchMenuActivity" />
-        </activity>
-        <activity
-            android:name=".Activities.SearchViewActivity"
-            android:label="@string/title_activity_search_view"
-            android:parentActivityName=".Activities.SearchMenuActivity"
-            android:screenOrientation="portrait" >
-
-            <!-- Parent activity meta-data to support 4.0 and lower -->
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.ngngteam.healthadvisor.Activities.SearchMenuActivity" />
-        </activity>
-        <activity
-            android:name=".Activities.DiseaseActivity"
-            android:label="@string/title_activity_disease"
-            android:screenOrientation="portrait" />
-        <activity
             android:name=".Activities.SettingsActivity"
             android:label="@string/title_activity_settings"
-            android:parentActivityName=".Activities.HomeActivity"
+
             android:screenOrientation="portrait" >
 
             <!-- Parent activity meta-data to support 4.0 and lower -->
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.ngngteam.healthadvisor.Activities.HomeActivity" />
-        </activity>
-        <activity
-            android:name=".Activities.ESubstancesListActivity"
-            android:label="@string/title_activity_esubstances_list"
-            android:parentActivityName=".Activities.HomeActivity"
-            android:screenOrientation="portrait" >
-
-            <!-- Parent activity meta-data to support 4.0 and lower -->
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.ngngteam.healthadvisor.Activities.HomeActivity" />
-        </activity>
-        <activity
-            android:name=".Activities.ESubstanceActivity"
-            android:label="@string/title_activity_esubstance"
-            android:parentActivityName=".Activities.ESubstancesListActivity"
-            android:screenOrientation="portrait" >
-
-            <!-- Parent activity meta-data to support 4.0 and lower -->
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.ngngteam.healthadvisor.Activities.ESubstancesListActivity" />
-        </activity>
-        <activity
-            android:name=".Activities.HelpActivity"
-            android:label="@string/title_activity_help"
-            android:parentActivityName=".Activities.SettingsActivity"
-            android:screenOrientation="portrait" >
-
-            <!-- Parent activity meta-data to support 4.0 and lower -->
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.ngngteam.healthadvisor.Activities.SettingsActivity" />
-        </activity>
-        <activity
-            android:name=".Activities.HomeActivity"
-            android:label="@string/title_activity_main"
-            android:screenOrientation="portrait" >
+                 />
         </activity>
         <activity
             android:name=".HelpActivity2"
