@@ -12,6 +12,9 @@ import android.util.Log;
 
 import com.ngngteam.healthadvisor.Intefaces.HelpListener;
 import com.ngngteam.healthadvisor.R;
+import com.ngngteam.healthadvisor.Utils.ChangeLogDialog;
+
+import it.gmariotti.changelibs.library.internal.ChangeLog;
 
 /**
  * Created by Nick Zisis on 10/29/15.
@@ -72,6 +75,8 @@ public class Settings extends PreferenceFragment {
             public boolean onPreferenceClick(Preference preference) {
 
                 //TODO show Changelog
+                ChangeLogDialog dialog = new ChangeLogDialog();
+                dialog.show(getFragmentManager(),"Version");
 
                 return false;
             }

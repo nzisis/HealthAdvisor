@@ -1,6 +1,8 @@
 package com.ngngteam.healthadvisor.Activities;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
@@ -25,6 +27,7 @@ import com.ngngteam.healthadvisor.Fragments.NormalView;
 import com.ngngteam.healthadvisor.Intefaces.DiseaseListener;
 import com.ngngteam.healthadvisor.Intefaces.ESubstanceListener;
 import com.ngngteam.healthadvisor.R;
+import com.ngngteam.healthadvisor.Utils.ChangeLogDialog;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -89,6 +92,26 @@ public class MainActivity extends AppCompatActivity {
 
         setUpTabs();
 
+        changeLog();
+
+    }
+
+    private void changeLog() {
+
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+
+        try {
+            int currentSavedVersion = sharedPreferences.getInt("version", -1);
+            int currentVersion = getPackageManager().getPackageInfo(getPackageName(), 0).versionCode;
+
+            if(currentSavedVersion != currentVersion){
+                sharedPreferences.edit().putInt("version",currentVersion).commit();
+                new ChangeLogDialog().show(getFragmentManager(),"Version");
+            }
+
+        } catch (PackageManager.NameNotFoundException e) {
+            e.printStackTrace();
+        }
 
     }
 
