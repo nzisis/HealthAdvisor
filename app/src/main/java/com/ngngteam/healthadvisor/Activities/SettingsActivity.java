@@ -67,7 +67,6 @@ public class SettingsActivity extends AppCompatActivity implements HelpListener,
     @Override
     public void onBackPressed() {
         if (tag.equals("Help")) {
-            super.onBackPressed();
             manager.beginTransaction().replace(R.id.flMainContent, settings).commit();
             tag = "Settings";
         } else {
