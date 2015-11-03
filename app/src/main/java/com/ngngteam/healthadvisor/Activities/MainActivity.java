@@ -1,6 +1,7 @@
 package com.ngngteam.healthadvisor.Activities;
 
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.design.widget.TabLayout;
@@ -13,7 +14,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-
 
 import com.ngngteam.healthadvisor.Data.DiseaseItem;
 import com.ngngteam.healthadvisor.Data.ESubstanceItem;
@@ -154,7 +154,10 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
-        getSupportActionBar().setIcon(R.drawable.ic_launcher);
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
+
+
+
     }
 
     @Override
@@ -240,16 +243,16 @@ public class MainActivity extends AppCompatActivity {
             if (object instanceof Disease && firstPage instanceof NormalView) {
                 return POSITION_NONE;
             }
-            if(object instanceof CategoryView && firstPage instanceof Disease){
+            if (object instanceof CategoryView && firstPage instanceof Disease) {
                 return POSITION_NONE;
             }
-            if(object instanceof Disease && firstPage instanceof CategoryView){
+            if (object instanceof Disease && firstPage instanceof CategoryView) {
                 return POSITION_NONE;
             }
-            if(object instanceof NormalView && firstPage instanceof CategoryView){
+            if (object instanceof NormalView && firstPage instanceof CategoryView) {
                 return POSITION_NONE;
             }
-            if(object instanceof CategoryView && firstPage instanceof NormalView){
+            if (object instanceof CategoryView && firstPage instanceof NormalView) {
                 return POSITION_NONE;
             }
 
@@ -285,14 +288,13 @@ public class MainActivity extends AppCompatActivity {
                 firstPage = components.get(currentDiseaseTag);
 
                 mSectionsPagerAdapter.notifyDataSetChanged();
-            }else if(firstPage instanceof Disease && diseaseView){
+            } else if (firstPage instanceof Disease && diseaseView) {
                 manager.beginTransaction().remove(components.get(currentDiseaseTag)).commit();
                 currentDiseaseTag = "CategoryView";
                 firstPage = components.get(currentDiseaseTag);
 
                 mSectionsPagerAdapter.notifyDataSetChanged();
-            }
-            else {
+            } else {
                 super.onBackPressed();
             }
         }
@@ -301,19 +303,20 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onResume() {
-        super.onResume(); PreferenceManager.getDefaultSharedPreferences(MainActivity.this).getBoolean("pref_key_category_view", false);
-        boolean currentDiseaseView =  PreferenceManager.getDefaultSharedPreferences(MainActivity.this).getBoolean("pref_key_category_view", false);
+        super.onResume();
+        PreferenceManager.getDefaultSharedPreferences(MainActivity.this).getBoolean("pref_key_category_view", false);
+        boolean currentDiseaseView = PreferenceManager.getDefaultSharedPreferences(MainActivity.this).getBoolean("pref_key_category_view", false);
         //User changed the view of the disease
-        if(currentDiseaseView != diseaseView){
-            diseaseView =currentDiseaseView;
+        if (currentDiseaseView != diseaseView) {
+            diseaseView = currentDiseaseView;
             //User changed the view of diseases to be now category and the first page is set to the normal view
-            if(currentDiseaseView && firstPage instanceof NormalView){
+            if (currentDiseaseView && firstPage instanceof NormalView) {
                 manager.beginTransaction().remove(components.get(currentDiseaseTag)).commit();
                 currentDiseaseTag = "CategoryView";
                 firstPage = components.get(currentDiseaseTag);
                 mSectionsPagerAdapter.notifyDataSetChanged();
             }//User chanded the view of diseases to be now normal and the first page is set to the category view
-            else if(!currentDiseaseView && firstPage instanceof CategoryView){
+            else if (!currentDiseaseView && firstPage instanceof CategoryView) {
                 manager.beginTransaction().remove(components.get(currentDiseaseTag)).commit();
                 currentDiseaseTag = "NormalView";
                 firstPage = components.get(currentDiseaseTag);
