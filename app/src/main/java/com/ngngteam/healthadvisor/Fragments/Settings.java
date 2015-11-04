@@ -47,12 +47,13 @@ public class Settings extends PreferenceFragment {
                 AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
 
                 builder.setMessage("Health Advisor was developed by the development team NGNG, by Nick Zisis, Nick Stampoulis and Ilias Zosimadis  in association " +
-                        "with Chemical postgraduate student Argyri Kozari who provide the data ." +
+                        "with Chemical postgraduate student Argyri Kozari who provided the data ." +
                         "\n\nHealth Advisor participated on Eestec Android Competition 2015 and was nominee for the best " +
-                        "innovation app among with 2 other app from a total of 550 apps."+
+                        "innovation app among 2 other apps from a total of 550."+
                         "\n\n Libraries used:" +
                         "\n-ExpandableLayout by AAkira" +
                         "\n-CustomPopUp by RuiMa" +
+                        "\n-ChangeLog by Gabriele Mariotti" +
                         "\n\n Contact us: ngngteam2014@gmail.com")
                         .setTitle("About Us");
                 builder.setPositiveButton("Ok", new DialogInterface.OnClickListener() {

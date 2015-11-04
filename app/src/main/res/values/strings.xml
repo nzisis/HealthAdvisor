@@ -39,16 +39,17 @@
     <string name="text_question_what">
        The purpose of Health Advisor is to help you overcome common health issues such as headaches, colds, high fever etc
         by suggesting consumption of certain natural or non-natural substances. Therefore, it makes you capable of managing
-        possible health problems on your own, without necessarily consulting a doctor. At the same time, it provides a reference to
+        possible health problems on your own, without necessarily consulting a doctor. However if the symptoms continue we
+        strongly recommend to visit your doctor. Moreover, Health Advisor provides a reference to
         the E-substances that can be found only in non-natural products and can help you maintain a healthy - safe diet.
     </string>
     <string name="text_question_how_it_works">How Health Advisor works?</string>
     <string name="text_answer_how_it_works" >
         You can navigate from home to the two tabs by clicking them or by swiping to each other,
         to search either an E-substance or a disease .
-        E-substances can be searched by their number only . On the other hand , diseases
+        E-substances can be only searched by their number. On the other hand , diseases
         can be searched in two ways . You can either find a disease by its name or by its
-        general disease category if you change the settings to be categorized diseases .
+        general disease category if you set the diseases to settings to be categorized .
     </string>
     <string name="text_question_disease" >How disease information is displayed?</string>
     <string name="text_answer_disease" >

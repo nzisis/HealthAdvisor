@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <changelog bulletedList="true">
-    <changelogversion changeDate="November 03/2015" versionName="1">
-        <changelogtext>[b][font color=red]New![/font] Search treatments for common diseases which can be natural or chemical </changelogtext>
+    <changelogversion changeDate="November 04/2015" versionName="1">
+        <changelogtext>[b][font color=red]New![/font] Search treatments for common diseases </changelogtext>
         <changelogtext>[b][font color=red]New![/font] Specify the way you want to search common diseases from Settings </changelogtext>
         <changelogtext>[b][font color=red]New![/font] Search information about E-Substances that can be found on non-physical products </changelogtext>
-        <changelogtext> New User Interface giving easy navigation to the basic modules of the app </changelogtext>
+        <changelogtext> User Interface with easy and quick navigation </changelogtext>
     </changelogversion>
 </changelog>
