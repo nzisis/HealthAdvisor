@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <changelog bulletedList="true">
+
+    <changelogversion changeDate="November 11/2015" versionName="1.0.1">
+        <changelogtext>[b]Bug:[/b] Fixed a bug when the phone is on landscape mode </changelogtext>
+    </changelogversion>
+
     <changelogversion changeDate="November 04/2015" versionName="1">
         <changelogtext>[b][font color=red]New![/font] Search treatments for common diseases </changelogtext>
         <changelogtext>[b][font color=red]New![/font] Specify the way you want to search common diseases from Settings </changelogtext>
