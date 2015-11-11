@@ -1,7 +1,6 @@
 # HealthAdvisor
 
-[![Get it on Google Play](http://www.android.com/images/brand/get_it_on_play_logo_small.png)](https://play.google.com/st
-ore/apps/details?id=com.ngngteam.healthadvisor)
+[![Get it on Google Play](http://www.android.com/images/brand/get_it_on_play_logo_small.png)](https://play.google.com/store/apps/details?id=com.ngngteam.healthadvisor)
 
 ## Description
 The purpose of Health Advisor is to help you overcome common health issues such as headaches, colds, high fever etc 
