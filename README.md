@@ -20,3 +20,19 @@ found only in non-natural products and can help you maintain a healthy - safe di
 Health Advisor participated on Eestec Android Competition 2015 and was nominee for the best innovation app among 2 
 other applications from a total of 550. You can see the presentation <a href=https://youtu.be/maVGHGdm0Cw?t=19m45s>here
 </a>
+
+## Screenshots
+<div>
+  <img width="20%" src="http://nikozisi.webpages.auth.gr/HealthAdvisor/Screenshots/normal_view.png" hspace="10"/>
+  <img width="20%" src="http://nikozisi.webpages.auth.gr/HealthAdvisor/Screenshots/treatment.png" hspace="10"/>
+  <img width="20%" src="http://nikozisi.webpages.auth.gr/HealthAdvisor/Screenshots/treatment_side_effects.png" hspace="10"/>
+  <img width="20%" src="http://nikozisi.webpages.auth.gr/HealthAdvisor/Screenshots/esubstance_list.png" hspace="10"/>
+  </div>
+  
+  <div>
+  <img width="20%" src="http://nikozisi.webpages.auth.gr/HealthAdvisor/Screenshots/esubstance.png" hspace="10"/>
+  <img width="20%" src="http://nikozisi.webpages.auth.gr/HealthAdvisor/Screenshots/settings.png" hspace="10"/>
+  <img width="20%" src="http://nikozisi.webpages.auth.gr/HealthAdvisor/Screenshots/categorized_view.png" hspace="10"/>
+  <img width="20%" src="http://nikozisi.webpages.auth.gr/HealthAdvisor/Screenshots/help.png" hspace="10"/>
+  
+  </div>
